@@ -7,6 +7,7 @@ function Signup() {
       <div class="signupFrm">
         <form action="" class="form">
           <h1 class="title">Sign up</h1>
+            <img src="/Assets/logo.png" alt='Logo' className='logo' /> 
 
           <div class="inputContainer">
               <input type="text" class="input" placeholder="Email"/>
