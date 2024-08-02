@@ -6,9 +6,12 @@ function Signup() {
     <body>
       <div class="signupFrm">
         <form action="" class="form">
-          <h1 class="title">Sign up</h1>
-            <img src="/Assets/logo.png" alt='Logo' className='logo' /> 
-
+         
+          <img src="/Assets/logo.png" alt='Logo' className='logo' /> 
+          <h1 className='title'>
+            Create a account
+          </h1>
+      
           <div class="inputContainer">
               <input type="text" class="input" placeholder="Email"/>
               <label for="" class="label">Email</label>
