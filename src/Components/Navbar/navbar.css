@@ -32,6 +32,11 @@
     border: none;
     border-bottom: 2px solid black;
 }
+.homebn:not(:focus){
+    color: gray;
+    border-bottom: 2px solid gray;
+}
+
 .basketbn{
     font-size: 15px;
     font-weight: 600;
@@ -41,6 +46,26 @@
     background-color: transparent;
     border: none;
     border-bottom: 2px solid black; 
+}
+.basketbn:not(:focus){
+    color: gray;
+    border-bottom: 2px solid gray;
+}
+
+.services{
+    font-size: 15px;
+    font-weight: 600;
+    padding: 3px 10px;
+    color: black;
+    box-sizing: content-box;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black; 
+
+}
+.services:not(:focus){
+    color: gray;
+    border-bottom: 2px solid gray;
 }
 
 .search{
