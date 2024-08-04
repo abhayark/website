@@ -1,27 +1,49 @@
 import React from "react";
 
-export default function validate(values) {
-  const errors = {};
+const form = document.getElementsByClassName("form");
+const email = document.getElementById("email");
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const passwordcm = document.getElementById("passwordcm");
 
+form.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  validate();
+});
+
+function validate() {
   const email_way = /^[^\s@]+@[^\s@]+\[^\s@]{2,6}$/;
   const password_way = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{7,}$/;
 
-  if (values.username === "") {
-    errors.username = "Enter Username";
+  if (username === "") {
+    setErrorFor(username, "empty");
   }
-  if (values.email === "") {
-    errors.email = "Enter Email";
-  } else if (!email_way.test(values.email)) {
-    errors.email = "Enter correct Email";
+  if (email === "") {
+    setErrorFor(email, "empty");
+  } else if (!email_way.test(email)) {
+    setErrorFor(email, "Enter correct email");
   }
-  if (values.password === "") {
-    errors.password = "Enter Email";
-  } else if (!password_way.test(values.password)) {
-    errors.email = "Enter correct Email";
-  }
-  if (values.confirm_password != values.password) {
-    errors.email = "Enter same password";
+  if (password === "") {
+    setErrorFor(password, "Enter password");
+  } else if (!password_way.test(password)) {
+    setErrorFor(password, "Enter correct password");
+  } else if (password !== "") {
+    if (passwordcm != password) {
+      setErrorFor(passwordcm, "Enter correct");
+    }
   }
 
-  return errors;
+  function setErrorFor(input, message) {
+    const inputContainer = input.parentElement;
+    const small = inputContainer.querySelector("small");
+    inputContainer.className = "inputContainer_error";
+    small.innerText = message;
+  }
+
+  function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = "form-control success";
+  }
+  console.log("hello");
 }

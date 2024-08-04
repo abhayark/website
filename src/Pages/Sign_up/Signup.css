@@ -35,7 +35,19 @@ body {
   position: relative;
   height: 45px;
   width: 90%;
-  margin-bottom: 10px;
+  margin-bottom: 100px;
+}
+
+.inputContainer small {
+  color: #e74c3c;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.inputContainer.error small {
+  visibility: visible;
 }
 
 .input {
@@ -107,8 +119,6 @@ body {
   font-size: 16px;
   margin-top: 30px;
 }
-
 .submitBtn:hover {
-  background-color: rgba(47, 139, 245, 0.473);
-  color: black;
+  background-color: #3b4b6d;
 }
