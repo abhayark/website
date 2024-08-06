@@ -5,8 +5,12 @@ body {
   font-family: "lato", sans-serif;
   background-color: #080a0e;
 }
-
-.signupFrm {
+.main {
+  display: grid;
+  place-items: center; /* Centers both horizontally and vertically */
+  height: 100vh;
+}
+.inputContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,20 +38,32 @@ body {
 .inputContainer {
   position: relative;
   height: 45px;
-  width: 90%;
-  margin-bottom: 100px;
+  width: 100%; /* Adjust to full width of the form */
+  margin-bottom: 10px;
+}
+.inputContainer_error .input {
+  border: 1px solid red; /* Border color indicating error */
 }
 
-.inputContainer small {
-  color: #e74c3c;
-  position: absolute;
-  bottom: 0;
+/* Error message styling */
+.errorMessage {
+  display: none; /* Hide by default */
+  position: absolute; /* Position relative to the input container */
+  bottom: -1.5rem; /* Adjust based on layout */
   left: 0;
-  visibility: hidden;
+  background-color: #fdd;
+  color: red;
+  padding: 0.5rem;
+  border: 1px solid red;
+  border-radius: 4px;
+  z-index: 10; /* Ensure it appears above other elements */
+  font-size: 0.875rem; /* Smaller font size for error messages */
+  white-space: nowrap; /* Prevents wrapping */
 }
 
-.inputContainer.error small {
-  visibility: visible;
+/* Show error message when input has error */
+.inputContainer_error .errorMessage {
+  display: block;
 }
 
 .input {
