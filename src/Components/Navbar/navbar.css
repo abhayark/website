@@ -1,83 +1,85 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.container{
-    display: flex;
-    height: 60px;
-    background-color: rgb(255, 255, 255);
-    align-items: center;
+.container {
+  display: flex;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
 }
 
-.logo,img{
-    width: 70px;
-    margin-top: 2px;
+.logo,
+img {
+  width: 60px;
+  padding-bottom: 3px;
+  padding-left: 4px;
+  padding-top: 1px;
 }
 
-.func{
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    width: 90%;
-    gap: 20px;
+.func {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  gap: 20px;
 }
-.homebn{
-    font-size: 15px;
-    font-weight: 600;
-    padding: 3px 10px;
-    color: black;
-    box-sizing: content-box;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid black;
+.homebn {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 3px 10px;
+  color: black;
+  box-sizing: content-box;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
 }
-.homebn:not(:focus){
-    color: gray;
-    border-bottom: 2px solid gray;
-}
-
-.basketbn{
-    font-size: 15px;
-    font-weight: 600;
-    padding: 3px 10px;
-    color: black;
-    box-sizing: content-box;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid black; 
-}
-.basketbn:not(:focus){
-    color: gray;
-    border-bottom: 2px solid gray;
+.homebn:not(:focus) {
+  color: gray;
+  border-bottom: 2px solid gray;
 }
 
-.services{
-    font-size: 15px;
-    font-weight: 600;
-    padding: 3px 10px;
-    color: black;
-    box-sizing: content-box;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid black; 
-
+.basketbn {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 3px 10px;
+  color: black;
+  box-sizing: content-box;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
 }
-.services:not(:focus){
-    color: gray;
-    border-bottom: 2px solid gray;
-}
-
-.search{
-    background-color: white;
-    width: 30%;
-    display: flex;
-    margin-left: 25px;
-    border-radius: 10px;
-    align-items: center;
+.basketbn:not(:focus) {
+  color: gray;
+  border-bottom: 2px solid gray;
 }
 
-.searchbar{
+.services {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 3px 10px;
+  color: black;
+  box-sizing: content-box;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+}
+.services:not(:focus) {
+  color: gray;
+  border-bottom: 2px solid gray;
+}
+
+.search {
+  background-color: white;
+  width: 30%;
+  display: flex;
+  margin-left: 25px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.searchbar {
   width: 100%;
   padding: 8px 5px;
   margin: 6px 10px;
@@ -87,33 +89,32 @@
   border-bottom: 3px solid #82b8e4;
   color: rgba(245, 222, 179, 0.384);
 }
-.searchicon{
-    display: flex;
-    align-content: center;
-    color: black;
-    margin-left: 6px;
+.searchicon {
+  display: flex;
+  align-content: center;
+  color: black;
+  margin-left: 6px;
 }
 
-
-.searchbar{
-    outline: none;
-    color: black;
-    font-size: 18px;
+.searchbar {
+  outline: none;
+  color: black;
+  font-size: 18px;
 }
 
-::placeholder{
-    color: #71868E;
+::placeholder {
+  color: #71868e;
 }
 
-.register{
+.register {
   position: absolute;
   align-items: center;
   right: 10px;
 }
-.avator{
-    background-color: rgba(0, 0, 0, 0.911);
+.avator {
+  background-color: rgba(0, 0, 0, 0.911);
 }
-.bn{
-    border-color: transparent;
-    border-radius: 40px;
+.bn {
+  border-color: transparent;
+  border-radius: 40px;
 }

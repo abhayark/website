@@ -42,7 +42,7 @@ body {
   margin-bottom: 10px;
 }
 .inputContainer_error .input {
-  border: 1px solid red; /* Border color indicating error */
+  border: 2px solid red; /* Border color indicating error */
 }
 
 /* Error message styling */
