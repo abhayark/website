@@ -3,6 +3,9 @@
   justify-content: center;
   align-items: center;
 }
+.bc {
+  background-color: #181d21;
+}
 
 .contentcontainer {
   display: flex;

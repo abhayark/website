@@ -22,7 +22,7 @@ const Content = () => {
 };
 function Home() {
   return (
-    <div>
+    <div className="bc">
       <Navbar />
       <div className="contentcontainer">
         <Content />

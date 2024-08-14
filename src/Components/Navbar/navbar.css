@@ -6,19 +6,21 @@
 .container {
   display: flex;
   height: 60px;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
   align-items: center;
+  margin-top: 5px;
+  border-radius: 30px;
 }
 
-.logo,
-img {
+.img {
   width: 60px;
   padding-bottom: 3px;
-  padding-left: 4px;
+  padding-left: 6px;
   padding-top: 1px;
 }
 
 .func {
+  background-color: #ffffff;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -26,12 +28,12 @@ img {
   gap: 20px;
 }
 .homebn {
+  background-color: #ffffff;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
   color: black;
   box-sizing: content-box;
-  background-color: transparent;
   border: none;
   border-bottom: 2px solid black;
 }
@@ -41,12 +43,12 @@ img {
 }
 
 .basketbn {
+  background-color: #ffffff;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
   color: black;
   box-sizing: content-box;
-  background-color: transparent;
   border: none;
   border-bottom: 2px solid black;
 }
@@ -56,12 +58,12 @@ img {
 }
 
 .services {
+  background-color: #ffffff;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
   color: black;
   box-sizing: content-box;
-  background-color: transparent;
   border: none;
   border-bottom: 2px solid black;
 }
@@ -110,6 +112,7 @@ img {
   position: absolute;
   align-items: center;
   right: 10px;
+  background-color: #ffffff;
 }
 .avator {
   background-color: rgba(0, 0, 0, 0.911);
