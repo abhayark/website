@@ -5,7 +5,7 @@ import "./Home/Home.css";
 
 const Content = () => {
   console.log(product_card);
-  const list = product_card.map((item) => (
+  const prolist = product_card.map((item) => (
     <div className="card" key={item.id}>
       <div className="card_img">
         <img src={item.img} />
@@ -18,13 +18,13 @@ const Content = () => {
       </div>
     </div>
   ));
-  return <div className="content">{list}</div>;
+  return <div className="content">{prolist}</div>;
 };
 function Home() {
   return (
-    <div className="bc">
+    <div className="homeContainer">
       <Navbar />
-      <div className="contentcontainer">
+      <div className="contentContainer">
         <Content />
       </div>
     </div>

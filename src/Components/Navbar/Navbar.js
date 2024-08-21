@@ -6,14 +6,11 @@ import { useNavigate, Link } from "react-router-dom";
 
 function Navbar() {
   const goto = useNavigate();
-
   return (
     <div className="container">
-      <div className="logo">
-        <img src="/Assets/logo.png" alt="Logo" className="img"></img>
-      </div>
+      <img src="/Assets/logo.png" alt="Logo" className="img"></img>
 
-      <div className="func">
+      <ul className="func">
         <div className="home">
           <button
             onBlur={(e) => {
@@ -55,18 +52,19 @@ function Navbar() {
             Services
           </button>
         </div>
-      </div>
-      {/*
-      <div className='search'>
-        <SearchSharpIcon className='searchicon'/>
-        <input type="text" placeholder="What's today?" className='searchbar'/>
-      </div>
-    */}
+      </ul>
 
+      <div className="search">
+        <SearchSharpIcon
+          className="searchicon"
+          onClick={(e) => {
+            e.target.click();
+          }}
+        />
+        <input type="text" placeholder="What's today?" className="searchbar" />
+      </div>
       <div className="register">
-        <button onClick={() => goto("/signin")} className="bn">
-          <Avatar variant="plain" className="avator" />
-        </button>
+        <Avatar variant="plain" onClick={() => goto("/signin")} />
       </div>
     </div>
   );
