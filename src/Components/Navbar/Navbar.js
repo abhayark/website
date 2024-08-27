@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.css";
 import SearchSharpIcon from "@mui/icons-material/SearchSharp";
 import Avatar from "@mui/joy/Avatar";
@@ -55,13 +55,17 @@ function Navbar() {
       </ul>
 
       <div className="search">
-        <SearchSharpIcon
-          className="searchicon"
-          onClick={(e) => {
-            e.target.click();
+        <input
+          type="text"
+          placeholder="Search"
+          className="searchbar"
+          onBlur={(e) => {
+            if (e.relatedTarget === null) {
+              e.target.focus();
+            }
           }}
         />
-        <input type="text" placeholder="What's today?" className="searchbar" />
+        <SearchSharpIcon className="searchicon" />
       </div>
       <div className="register">
         <Avatar variant="plain" onClick={() => goto("/signin")} />
