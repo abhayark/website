@@ -80,7 +80,7 @@ const product_card = [
     img: "/Assets/img10.jpg",
   },
   {
-    id: 9,
+    id: 11,
     product_name: "One piece ch 11",
     description:
       "A boy with rubber power want to become the King of the pirates",
@@ -88,7 +88,7 @@ const product_card = [
     img: "/Assets/img11.jpg",
   },
   {
-    id: 9,
+    id: 12,
     product_name: "One piece ch 12",
     description:
       "A boy with rubber power want to become the King of the pirates",
@@ -96,12 +96,28 @@ const product_card = [
     img: "/Assets/img12.jpg",
   },
   {
-    id: 9,
+    id: 13,
     product_name: "One piece ch 13",
     description:
       "A boy with rubber power want to become the King of the pirates",
     price: "200₹",
     img: "/Assets/img13.jpg",
+  },
+];
+export const banner = [
+  {
+    id: 1,
+    product_name: "Nvida RTX4090",
+    description: "The World most powerfull Graphics card",
+    price: "100000₹",
+    img: "/Assets/top1.jpg",
+  },
+  {
+    id: 2,
+    product_name: "Nvida RTX4090",
+    description: "The World most powerfull Graphics card",
+    price: "100000₹",
+    img: "/Assets/top1.jpg",
   },
 ];
 
