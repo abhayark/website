@@ -31,9 +31,11 @@ const Banner_content = () => {
         <h2>{bitem.product_name}</h2>
         <p>{bitem.description}</p>
         <p className="banner_price">{bitem.price}</p>
+        <div className="bbtn">Add to busket</div>
       </div>
     </div>
   ));
+  return <div className="banner_content">{bannerlist}</div>;
 };
 
 function Home() {

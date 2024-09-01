@@ -107,10 +107,10 @@ const product_card = [
 export const banner = [
   {
     id: 1,
-    product_name: "Nvida RTX4090",
+    product_name: "Elden ring",
     description: "The World most powerfull Graphics card",
     price: "100000₹",
-    img: "/Assets/top1.jpg",
+    img: "/Assets/Banner.webp",
   },
   {
     id: 2,
