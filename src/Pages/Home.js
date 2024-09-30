@@ -22,19 +22,23 @@ const Content = () => {
 };
 const Banner_content = () => {
   console.log(banner);
+
   const bannerlist = banner.map((bitem) => (
-    <div className="banner_card" key={bitem.id}>
-      <div className="banner_img">
-        <img src={bitem.img} />
-      </div>
-      <div className="banner_info">
-        <h2>{bitem.product_name}</h2>
-        <p>{bitem.description}</p>
-        <p className="banner_price">{bitem.price}</p>
-        <div className="bbtn">Add to busket</div>
+    <div className="banner_container">
+      <div className="banner_card" key={bitem.id}>
+        <div className="banner_img">
+          <img src={bitem.img} />
+        </div>
+        <div className="banner_info">
+          <h2>{bitem.product_name}</h2>
+          <p>{bitem.description}</p>
+          <p className="banner_price">{bitem.price}</p>
+          <div className="bbtn">Add to busket</div>
+        </div>
       </div>
     </div>
   ));
+
   return <div className="banner_content">{bannerlist}</div>;
 };
 

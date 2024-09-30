@@ -15,16 +15,32 @@
   box-sizing: border-box;
   background-color: #0d161e;
 }
+
 .banner_content {
   display: flex;
   box-sizing: border-box;
-  background-color: red;
+  border-radius: 20px;
+  justify-content: space-around;
+  background-color: #4b535a56;
+  box-shadow: 0 2.8px 10.2px #25303abb, 0 6.7px 15.3px #1a222bbb,
+    0 2.5px 10px #131a20e3, 0 4.8px 30.4px #141f29cc, 0 1px 80px #0d161e;
   flex-wrap: wrap;
+  padding: 20px;
+}
+.banner_container {
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.banner_container:hover {
+  transform: scale(1.05);
+  transition: 1s ease-in-out 0.3s;
 }
 .banner_card {
   .banner_img {
     img {
-      width: 400px;
+      border-radius: 8px;
+      width: 370px;
     }
   }
 }
@@ -99,7 +115,7 @@
   }
   .btn:hover {
     background-color: aliceblue;
-    color: #181d21;
+    color: #211818;
   }
 }
 .btn {
