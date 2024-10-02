@@ -22,7 +22,6 @@ const Content = () => {
 };
 const Banner_content = () => {
   console.log(banner);
-
   const bannerlist = banner.map((bitem) => (
     <div className="banner_container">
       <div className="banner_card" key={bitem.id}>

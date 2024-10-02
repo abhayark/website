@@ -1,13 +1,13 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #0d161e;
+  background-color: #07090b;
 }
 
 .container {
   display: flex;
   height: 60px;
-  background-color: #181d21;
+  background-color: #acb9c9;
   align-items: center;
   margin-top: 17px;
   margin-left: 29px;
@@ -30,7 +30,7 @@
   gap: 20px;
 }
 .homebn {
-  background-color: #181d21;
+  background-color: #acb9c9;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
@@ -38,15 +38,15 @@
   border-bottom: 2px solid black;
 }
 .homebn:not(:focus) {
-  color: gray;
-  border-bottom: 2px solid gray;
+  color: #8c72a3;
+  border-bottom: 2px solid #8c72a3;
 }
 .homebn:focus {
-  color: white;
-  border-bottom: 2px solid white;
+  color: #e2e7ec;
+  border-bottom: 2px solid #e2e7ec;
 }
 .basketbn {
-  background-color: #181d21;
+  background-color: #acb9c9;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
@@ -55,15 +55,15 @@
   border-bottom: 2px solid black;
 }
 .basketbn:not(:focus) {
-  color: gray;
-  border-bottom: 2px solid gray;
+  color: #8c72a3;
+  border-bottom: 2px solid #8c72a3;
 }
 .basketbn:focus {
-  color: white;
-  border-bottom: 2px solid white;
+  color: #e2e7ec;
+  border-bottom: 2px solid #e2e7ec;
 }
 .services {
-  background-color: #181d21;
+  background-color: #acb9c9;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
@@ -72,17 +72,17 @@
   border-bottom: 2px solid black;
 }
 .services:not(:focus) {
-  color: gray;
-  border-bottom: 2px solid gray;
+  color: #8c72a3;
+  border-bottom: 2px solid #8c72a3;
 }
 .services:focus {
-  color: white;
-  border-bottom: 2px solid white;
+  color: #e2e7ec;
+  border-bottom: 2px solid #e2e7ec;
 }
 
 .search {
   display: flex;
-  background-color: rgba(4, 9, 12, 0.6);
+  background-color: #8c72a3;
   margin-left: auto;
   margin-right: 20px;
   height: 30px;
@@ -93,7 +93,7 @@
 }
 .searchbar:focus {
   width: 200px;
-  color: #c5cfd2;
+  color: #e2e7ec;
 }
 .searchbar {
   box-sizing: border-box;
@@ -106,10 +106,10 @@
   z-index: 1;
   transition: width 4s;
   color: #f0f8ff77;
-  background-color: #95928e94;
+  background-color: #8c72a3;
 }
 .searchicon {
-  color: #95928e94;
+  color: #07090b;
   background-color: transparent;
   margin-left: 6px;
   margin-right: 6px;
