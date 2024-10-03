@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import product_card, { banner } from "./product_data";
 import "./Home/Home.css";
+import { useNavigate } from "react-router-dom";
 
 const Content = () => {
   console.log(product_card);
@@ -21,18 +22,14 @@ const Content = () => {
   return <div className="content">{prolist}</div>;
 };
 const Banner_content = () => {
-  console.log(banner);
+  const goto = useNavigate();
+  const Bid = banner.map((id) => <div>{id.id}</div>);
+
   const bannerlist = banner.map((bitem) => (
     <div className="banner_container">
       <div className="banner_card" key={bitem.id}>
-        <div className="banner_img">
+        <div className="banner_img" onClick={() => goto("/" + Bid)}>
           <img src={bitem.img} />
-        </div>
-        <div className="banner_info">
-          <h2>{bitem.product_name}</h2>
-          <p>{bitem.description}</p>
-          <p className="banner_price">{bitem.price}</p>
-          <div className="bbtn">Add to busket</div>
         </div>
       </div>
     </div>

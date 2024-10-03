@@ -1,13 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  background-color: #07090b;
-}
-
 .container {
   display: flex;
   height: 60px;
-  background-color: #acb9c9;
+  background-color: #162538;
   align-items: center;
   margin-top: 17px;
   margin-left: 29px;
@@ -30,7 +24,7 @@
   gap: 20px;
 }
 .homebn {
-  background-color: #acb9c9;
+  background-color: #162538;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
@@ -46,7 +40,7 @@
   border-bottom: 2px solid #e2e7ec;
 }
 .basketbn {
-  background-color: #acb9c9;
+  background-color: #162538;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
@@ -63,7 +57,7 @@
   border-bottom: 2px solid #e2e7ec;
 }
 .services {
-  background-color: #acb9c9;
+  background-color: #162538;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
@@ -117,7 +111,7 @@
 }
 
 .register {
+  background-color: #162538;
   padding-right: 20px;
   border-radius: 20px;
-  background-color: transparent;
 }

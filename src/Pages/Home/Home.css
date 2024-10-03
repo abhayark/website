@@ -3,9 +3,7 @@
   justify-content: center;
   align-items: center;
 }
-.homeContainer {
-  background-color: #07090b;
-}
+
 .contentContainer {
   display: flex;
   flex-direction: column;
@@ -13,41 +11,39 @@
   height: 100%;
   padding: 30px 50px 20px 50px;
   box-sizing: border-box;
-  background-color: #07090b;
+  background-color: transparent;
 }
 
 .banner_content {
   display: flex;
   box-sizing: border-box;
   border-radius: 20px;
-  justify-content: space-around;
-  background-color: #acb9c9;
+  justify-content: space-evenly;
+  background-color: #162538;
   box-shadow: 0 2.8px 10.2px #848f9b, 0 6.7px 15.3px #1a222bbb,
     0 2.5px 10px #131a20e3, 0 4.8px 30.4px #141f29cc, 0 1px 80px #07090b;
-  flex-wrap: wrap;
   padding: 20px;
 }
 .banner_container {
-  background-color: #8d9eb463;
+  background-color: #303c4d63;
   padding: 20px;
   box-sizing: border-box;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 .banner_container:hover {
   transform: scale(1.05);
   transition: 1s ease-in-out 0.3s;
 }
+
 .banner_card {
   .banner_img {
     img {
-      border-radius: 8px;
-      width: 370px;
+      display: block;
+      width: 260px;
+      max-width: 100%;
+      max-height: 100%;
     }
   }
-}
-
-.banner_img {
-  border-radius: 5px;
 }
 
 .content {
