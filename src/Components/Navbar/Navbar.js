@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
 import "./navbar.css";
 import SearchSharpIcon from "@mui/icons-material/SearchSharp";
 import Avatar from "@mui/joy/Avatar";
 import { useNavigate, Link } from "react-router-dom";
+import "./navbar.css";
+import { BorderBottomTwoTone } from "@mui/icons-material";
 
 function Navbar() {
+  const buttonRef = useRef(null);
   const goto = useNavigate();
+
+  useEffect(() => {
+    if (buttonRef.current) {
+      buttonRef.current.style.outline = "none";
+      buttonRef.current.focus();
+    }
+  }, []);
+
   return (
     <div className="container">
       <img src="/Assets/logo.png" alt="Logo" className="img"></img>
@@ -13,6 +24,7 @@ function Navbar() {
       <ul className="func">
         <div className="home">
           <button
+            ref={buttonRef}
             onBlur={(e) => {
               if (e.relatedTarget === null) {
                 e.target.focus();
@@ -56,8 +68,7 @@ function Navbar() {
 
       <div className="search">
         <input
-          type="text"
-          placeholder="Search"
+          type="input"
           className="searchbar"
           onBlur={(e) => {
             if (e.relatedTarget === null) {
@@ -65,7 +76,7 @@ function Navbar() {
             }
           }}
         />
-        <SearchSharpIcon className="searchicon" />
+        <SearchSharpIcon className="searchicon" fontSize="large" />
       </div>
       <div className="register">
         <Avatar variant="plain" onClick={() => goto("/signin")} />

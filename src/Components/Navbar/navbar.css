@@ -23,95 +23,67 @@
   margin-left: 20px;
   gap: 20px;
 }
-.homebn {
-  background-color: #162538;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border: none;
-  border-bottom: 2px solid black;
-}
-.homebn:not(:focus) {
-  color: #8c72a3;
-  border-bottom: 2px solid #8c72a3;
-}
-.homebn:focus {
-  color: #e2e7ec;
-  border-bottom: 2px solid #e2e7ec;
-}
-.basketbn {
-  background-color: #162538;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 3px 10px;
-  box-sizing: content-box;
-  border: none;
-  border-bottom: 2px solid black;
-}
-.basketbn:not(:focus) {
-  color: #8c72a3;
-  border-bottom: 2px solid #8c72a3;
-}
-.basketbn:focus {
-  color: #e2e7ec;
-  border-bottom: 2px solid #e2e7ec;
-}
+
+.homebn,
+.basketbn,
 .services {
   background-color: #162538;
   font-size: 15px;
   font-weight: 600;
   padding: 3px 10px;
-  box-sizing: content-box;
   border: none;
   border-bottom: 2px solid black;
+  transition: ease-in-out 0.5s;
 }
+.homebn:not(:focus),
+.basketbn:not(:focus),
 .services:not(:focus) {
   color: #8c72a3;
-  border-bottom: 2px solid #8c72a3;
+  border-bottom: 2px solid #162538;
 }
-.services:focus {
+.homebn:focus,
+.homebn:hover {
+  color: #e2e7ec;
+  border-bottom: 2px solid #e2e7ec;
+}
+
+.basketbn:focus,
+.basketbn:hover {
+  color: #e2e7ec;
+  border-bottom: 2px solid #e2e7ec;
+}
+
+.services:focus,
+.services:hover {
   color: #e2e7ec;
   border-bottom: 2px solid #e2e7ec;
 }
 
 .search {
   display: flex;
-  background-color: #8c72a3;
+  background-color: transparent;
   margin-left: auto;
   margin-right: 20px;
   height: 30px;
   width: auto;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  outline: transparent;
 }
 .searchbar:focus {
-  width: 200px;
+  transform: translateY(20px);
   color: #e2e7ec;
 }
-.searchbar {
-  box-sizing: border-box;
-  border: transparent;
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  outline: none;
-  height: 30px;
-  width: 70px;
-  z-index: 1;
-  transition: width 4s;
-  color: #f0f8ff77;
-  background-color: #8c72a3;
+.searchbar:not(:focus) {
 }
 .searchicon {
-  color: #07090b;
-  background-color: transparent;
+  color: #8c72a3;
+  background-color: #e2e7ec;
   margin-left: 6px;
   margin-right: 6px;
-  margin-top: 3px;
+  margin-top: -3.5px;
+  border-radius: 7px;
 }
 
 .register {
   background-color: #162538;
-  padding-right: 20px;
+  margin-right: 20px;
   border-radius: 20px;
 }
