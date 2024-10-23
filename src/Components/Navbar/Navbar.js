@@ -4,11 +4,14 @@ import SearchSharpIcon from "@mui/icons-material/SearchSharp";
 import Avatar from "@mui/joy/Avatar";
 import { useNavigate, Link } from "react-router-dom";
 import "./navbar.css";
-import { BorderBottomTwoTone } from "@mui/icons-material";
 
 function Navbar() {
   const buttonRef = useRef(null);
   const goto = useNavigate();
+
+  const sbar = () => {
+    document.getElementById("searchbar").setAttribute("class", "searchchange");
+  };
 
   useEffect(() => {
     if (buttonRef.current) {
@@ -67,8 +70,12 @@ function Navbar() {
       </ul>
 
       <div className="search">
+        <button onClick={() => sbar(true)} className="searchbutton">
+          <SearchSharpIcon className="searchicon" fontSize="large" />
+        </button>
         <input
           type="input"
+          id="searchbar"
           className="searchbar"
           onBlur={(e) => {
             if (e.relatedTarget === null) {
@@ -76,7 +83,6 @@ function Navbar() {
             }
           }}
         />
-        <SearchSharpIcon className="searchicon" fontSize="large" />
       </div>
       <div className="register">
         <Avatar variant="plain" onClick={() => goto("/signin")} />

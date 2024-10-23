@@ -66,18 +66,34 @@
   margin-right: 20px;
   height: 30px;
   width: auto;
+  border: none;
 }
-.searchbar:focus {
-  transform: translateY(20px);
+
+.searchbar {
+  width: 0px;
+  border: none;
+  background-color: transparent;
+}
+
+.searchchange {
   color: #e2e7ec;
+  transition: width ease-in-out 2s;
+  width: 230px;
+  background-color: transparent;
+  border: none;
+  border-bottom: #8c72a3 solid 3px;
+  outline: transparent;
 }
-.searchbar:not(:focus) {
+
+.searchbutton {
+  background-color: transparent;
+  border: none;
 }
+
 .searchicon {
   color: #8c72a3;
-  background-color: #e2e7ec;
+  background-color: transparent;
   margin-left: 6px;
-  margin-right: 6px;
   margin-top: -3.5px;
   border-radius: 7px;
 }

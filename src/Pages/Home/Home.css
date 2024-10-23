@@ -32,7 +32,7 @@
 }
 .banner_container:hover {
   transform: scale(1.05);
-  transition: 1s ease-in-out 0.3s;
+  transition: 0.6s ease-in-out 0.7s;
 }
 
 .banner_card {
@@ -51,13 +51,14 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 70%;
-  height: 100%;
+  width: 90%;
+  height: 20%;
   margin: 50px auto;
   padding: 50px 0 0;
   box-sizing: border-box;
   justify-content: space-between;
   flex-wrap: wrap;
+  background-color: #07090b;
 }
 .card {
   width: 30%;

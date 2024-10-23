@@ -4,6 +4,11 @@ import product_card, { banner } from "./product_data";
 import "./Home/Home.css";
 import { useNavigate } from "react-router-dom";
 
+/* 
+  For the main products data 
+  it takes info from product json
+  using maps we return the specified info througt prolist
+*/
 const Content = () => {
   console.log(product_card);
   const prolist = product_card.map((item) => (
@@ -21,6 +26,11 @@ const Content = () => {
   ));
   return <div className="content">{prolist}</div>;
 };
+
+/*
+  The ads space it created through here its source is
+  same as product card
+*/
 const Banner_content = () => {
   const goto = useNavigate();
   const Bid = banner.map((id) => <div>{id.id}</div>);
