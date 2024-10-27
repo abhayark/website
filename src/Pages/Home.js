@@ -13,14 +13,12 @@ const Content = () => {
   console.log(product_card);
   const prolist = product_card.map((item) => (
     <div className="card" key={item.id}>
-      <div className="card_img">
-        <img src={item.img} />
-      </div>
+      <img className="card_img" src={item.img} />
       <div className="card_info">
-        <h2>{item.product_name}</h2>
-        <p>{item.description}</p>
+        <p className="pname">{item.product_name}</p>
+        <p className="pdes">{item.description}</p>
         <p className="price">{item.price}</p>
-        <div className="btn">Add to bucket</div>
+        <button className="pbtn">Add to Card</button>
       </div>
     </div>
   ));
