@@ -37,50 +37,66 @@
   transition: 0.6s ease-in-out 0.7s;
 }
 
-.banner_card {
-  .banner_img {
-    img {
-      display: block;
-      width: 260px;
-      max-width: 100%;
-      max-height: 100%;
-    }
-  }
+.banner_card .banner_img img {
+  display: block;
+  width: 260px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .content {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: center;
+  overflow-x: auto;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   height: 20%;
   margin: 50px;
-  gap: 3px;
+  gap: 6px;
+  padding: 50px 0;
   box-sizing: border-box;
   background-color: #162538;
+  scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
+  border: 5px solid #c2a9a9d8; /* Solid border around the entire content container */
+  border-radius: 10px;
 }
 
 .card {
-  width: 23vb;
-  margin: 3px;
+  width: 15%;
+  margin: 6px;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   border-radius: 3px;
   text-align: center;
   background-color: #ffffffd8;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  scroll-snap-align: start;
+}
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
 .card_img {
   margin: auto;
   width: 20vb;
+  object-fit: cover;
   margin-top: 7px;
 }
 
 .card_info {
   background-color: #a6a8aa59;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   .pname {
     text-align: center;
     margin-top: 3px;
@@ -129,76 +145,29 @@
 }
 
 .pbtn:hover {
-  cursor: pointer;
   background-color: #010411e1;
 }
 
-/*
-.card {
-  width: 30%;
-  border-radius: 7px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  position: relative;
-  transform: scale(0.8);
-  transition: all 0.3s ease-in-out;
-
-  .card_img {
-    img {
-      width: 200px;
-    }
-  }
-  .card_info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #a91d3a;
-    flex-direction: column;
-    margin: 25px 0;
-    h2 {
-      font-size: 18px;
-    }
-    p {
-      font-size: 14px;
-      text-align: center;
-      color: #a91d3a 0.3;
-      margin: 8xp 0;
-    }
-    .price {
-      padding: 10px;
-      font-size: 25px;
-      color: #a91d3a;
-    }
-  }
-}
-.card:hover {
-  background-color: #a91d3a;
-  transform: scale(1.1);
+/* Load More button at the top */
+.morebtn {
+  color: #ffffffef;
+  background-color: #01041159;
+  border: 2px solid #010411e1; /* Border around the button */
+  padding: 3px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 60px; /* Full width of the container */
+  margin: 4px 4px; /* Space between the button and the products */
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px; /* Rounded corners for the button */
+  box-sizing: border-box; /* Ensure border is included in the button's size */
+  position: absolute; /* Position it absolutely within the content container */
+  top: 2px; /* Space from the top edge */
+  left: 0; /* Align it to the left of the container */
+  right: 0;
 }
-.card:hover {
-  .card_info {
-    color: #181d21;
-  }
-  .price {
-    color: #181d21;
-  }
-  .btn {
-    background-color: #8decb4;
-  }
-  .btn:hover {
-    background-color: aliceblue;
-    color: #211818;
-  }
+.morebtn:hover {
+  background-color: #010411;
 }
-.btn {
-  border-radius: 14px;
-  background-color: #a91d3a;
-  padding: 10px 15px;
-  border: none;
-  color: whitesmoke;
-  margin-top: 5px;
-}
-*/

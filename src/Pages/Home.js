@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import product_card, { banner } from "./product_data";
 import "./Home/Home.css";
@@ -6,23 +6,40 @@ import { useNavigate } from "react-router-dom";
 
 /* 
   For the main products data 
-  it takes info from product json
-  using maps we return the specified info througt prolist
+  it takes info from product.json
+  using maps we return the specified info through prolist
 */
+
 const Content = () => {
-  console.log(product_card);
-  const prolist = product_card.map((item) => (
-    <div className="card" key={item.id}>
-      <img className="card_img" src={item.img} />
-      <div className="card_info">
-        <p className="pname">{item.product_name}</p>
-        <p className="pdes">{item.description}</p>
-        <p className="price">{item.price}</p>
-        <button className="pbtn">Add to Card</button>
-      </div>
+  const [products, setProducts] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  useEffect(() => {
+    setProducts(product_card.slice(0, visibleCount));
+  }, [visibleCount]);
+
+  const loadMore = () => {
+    setVisibleCount(visibleCount + 6);
+  };
+
+  return (
+    <div className="content">
+      <button className="morebtn" onClick={loadMore}>
+        More
+      </button>
+      {products.map((item) => (
+        <div className="card" key={item.id}>
+          <img className="card_img" src={item.img} alt={item.product_name} />
+          <div className="card_info">
+            <p className="pname">{item.product_name}</p>
+            <p className="pdes">{item.description}</p>
+            <p className="price">{item.price}</p>
+            <button className="pbtn">Add to Cart</button>
+          </div>
+        </div>
+      ))}
     </div>
-  ));
-  return <div className="content">{prolist}</div>;
+  );
 };
 
 /*
