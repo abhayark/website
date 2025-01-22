@@ -97,6 +97,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+
   .pname {
     text-align: center;
     margin-top: 3px;
@@ -151,21 +152,21 @@
 /* Load More button at the top */
 .morebtn {
   color: #ffffffef;
-  background-color: #01041159;
-  border: 2px solid #010411e1; /* Border around the button */
+  background-color: #0f121ff1;
+  border: 2px solid #acb1c77e;
   padding: 3px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  width: 60px; /* Full width of the container */
-  margin: 4px 4px; /* Space between the button and the products */
+  width: 60px;
+  margin: 4px 4px;
   text-align: center;
   font-weight: bold;
   font-size: 16px;
-  border-radius: 5px; /* Rounded corners for the button */
-  box-sizing: border-box; /* Ensure border is included in the button's size */
-  position: absolute; /* Position it absolutely within the content container */
-  top: 2px; /* Space from the top edge */
-  left: 0; /* Align it to the left of the container */
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 2px;
+  left: 0;
   right: 0;
 }
 .morebtn:hover {
