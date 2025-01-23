@@ -5,9 +5,10 @@ body {
   font-family: "lato", sans-serif;
   background-color: #080a0e;
 }
+
 .main {
   display: grid;
-  place-items: center; /* Centers both horizontally and vertically */
+  place-items: center;
   height: 100vh;
 }
 .inputContainer {
@@ -28,9 +29,11 @@ body {
 .title {
   margin-bottom: 20px;
   font-size: 25px;
+  background-color: transparent;
 }
 
 .logo {
+  background-color: transparent;
   width: 70px;
   margin-bottom: -7px;
 }
@@ -40,6 +43,7 @@ body {
   height: 45px;
   width: 100%; /* Adjust to full width of the form */
   margin-bottom: 10px;
+  background-color: transparent;
 }
 .inputContainer_error .input {
   border: 2px solid red; /* Border color indicating error */
