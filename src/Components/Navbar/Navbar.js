@@ -85,7 +85,9 @@ function Navbar() {
         />
       </div>
       <div className="register">
-        <Avatar variant="plain" onClick={() => goto("/signin")} />
+        <Link to="/signup">
+          <Avatar variant="plain" />
+        </Link>
       </div>
     </div>
   );

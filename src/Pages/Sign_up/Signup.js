@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "./Sign_up/Signup.css";
-import { Email } from "@mui/icons-material";
-import { colors } from "@mui/joy";
+import "./Signup.css";
 
 function Signup() {
   const [formData, setFormData] = useState({
