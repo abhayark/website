@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "../../Components/Navbar/Navbar.js";
-import product_card, { banner, product_card2 } from "../Data/product_data.js";
+import React from "react";
+import Navbar from "../../Components/Navbar/Navbar.jsx";
+import product_card, { banner, product_card2 } from "../Data/product_data.jsx";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import Product from "../Data/product.js";
+import Product from "../Data/product.jsx";
 /* 
   For the main products data 
   it takes info from product.json
@@ -15,12 +15,12 @@ import Product from "../Data/product.js";
 */
 const Banner_content = () => {
   const goto = useNavigate();
-  const Bid = banner.map((id) => <div>{id.id}</div>);
+  const Bid = banner.map((id) => <div key={id.id}>{id.id}</div>);
 
   const bannerlist = banner.map((bitem) => (
     <div className="banner_container">
       <div className="banner_card" key={bitem.id}>
-        <div className="banner_img" onClick={() => goto("/" + Bid)}>
+        <div className="banner_img" onClick={() => goto("/" + bitem.id)}>
           <img src={bitem.img} />
         </div>
       </div>
@@ -30,7 +30,7 @@ const Banner_content = () => {
   return <div className="banner_content">{bannerlist}</div>;
 };
 
-function Home() {
+const Home = () => {
   return (
     <div className="homeContainer">
       <Navbar />
@@ -41,6 +41,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
