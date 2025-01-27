@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import product_card from "./product_data";
+import "./Individual.css";
+import Navbar from "../../Components/Navbar/Navbar";
 
 function Individual() {
   const { id } = useParams(); // Extract the dynamic parameter
@@ -12,6 +14,7 @@ function Individual() {
 
   return (
     <div className="product-detail-container">
+      <Navbar />
       <div className="product-detail-card">
         <img
           src={product.img}

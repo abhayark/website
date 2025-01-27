@@ -1,7 +1,7 @@
 import React from "react";
+import "./Home.css";
 import Navbar from "../../Components/Navbar/Navbar.jsx";
 import product_card, { banner, product_card2 } from "../Data/product_data.jsx";
-import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import Product from "../Data/product.jsx";
 /* 

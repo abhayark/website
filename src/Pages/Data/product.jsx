@@ -36,8 +36,7 @@ const Product = ({ productsData, title }) => {
             <button
               className="pbtn"
               onClick={(e) => {
-                e.stopPropagation(); // Prevent the parent `div`'s onClick from triggering
-                console.log("Add to Cart clicked!"); // Example action
+                e.stopPropagation(); //stops the parent class from getting called "The add button does not open the indi page"
               }}
             >
               Add to Cart
