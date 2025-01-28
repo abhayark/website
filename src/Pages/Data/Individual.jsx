@@ -16,17 +16,18 @@ function Individual() {
     <div className="product-detail-container">
       <Navbar />
       <div className="product-detail-card">
-        <img
-          src={product.img}
-          alt={product.product_name}
-          className="product-detail-img"
-        />
         <div className="product-detail-info">
           <h1>{product.product_name}</h1>
           <p className="product-description">{product.description}</p>
           <p className="product-price">{product.price}</p>
           <button className="add-to-cart-btn">Add to Cart</button>
         </div>
+
+        <img
+          src={product.img}
+          alt={product.product_name}
+          className="product-detail-img"
+        />
       </div>
     </div>
   );

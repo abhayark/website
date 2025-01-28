@@ -4,8 +4,45 @@
   background-color: white;
 }
 .product-detail-card {
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  box-sizing: border-box;
   background-color: transparent;
+  margin-left: 7vw;
+  margin-right: 20vw;
+  margin-top: 7vh;
+
+  gap: 15vw;
 }
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", serif;
+
+  background-color: red;
+}
+.product-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* From Uiverse.io by TimTrayler */
 .product-detail-img {
   width: 20vw;
+  height: 50vh;
+  background-color: #685a5a;
+  box-shadow: 15px 15px 30px #00000076, -15px -15px 30px #3a383869;
+  transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
+    transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.product-detail-img:hover {
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  transform: scale(1.05);
 }
