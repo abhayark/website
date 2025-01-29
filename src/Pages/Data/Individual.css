@@ -12,15 +12,22 @@
   margin-left: 7vw;
   margin-right: 20vw;
   margin-top: 7vh;
-
   gap: 15vw;
 }
 .product-detail-info {
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   font-family: "Roboto", serif;
 
-  background-color: red;
+  background-color: #58555534;
+}
+.product-name {
+  background-color: transparent;
+  margin-left: 10px;
+  text-decoration: underline;
+  font-size: x-large;
+  color: #000000cb;
 }
 .product-description {
   overflow: hidden;
@@ -29,9 +36,17 @@
   -webkit-line-clamp: 4; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
+  background-color: transparent;
+  color: #201717c7;
+}
+.product-price {
+  box-sizing: border-box;
+  align-self: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #b4abab6d;
 }
 
-/* From Uiverse.io by TimTrayler */
 .product-detail-img {
   width: 20vw;
   height: 50vh;
@@ -45,4 +60,7 @@
   border-bottom-right-radius: 25px;
   border-top-left-radius: 25px;
   transform: scale(1.05);
+}
+.product-price:hover {
+  cursor: pointer;
 }

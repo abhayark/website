@@ -17,7 +17,7 @@ function Individual() {
       <Navbar />
       <div className="product-detail-card">
         <div className="product-detail-info">
-          <h1>{product.product_name}</h1>
+          <h1 className="product-name">{product.product_name}</h1>
           <p className="product-description">{product.description}</p>
           <p className="product-price">{product.price}</p>
           <button className="add-to-cart-btn">Add to Cart</button>

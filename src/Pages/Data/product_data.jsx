@@ -4,7 +4,7 @@ export const product_card = [
     product_name: "One piece ch 1",
     description:
       "ONE PIECE is a legendary high-seas quest unlike any other. Luffy is a young adventurer who has longed for a life of freedom ever since he can remember. He sets off from his small village on a perilous journey to find the legendary fabled treasure, ONE PIECE, to become King of the Pirates!",
-    price: "200₹",
+    price: "2000₹",
     img: "/Assets/img.jpg",
   },
   {
