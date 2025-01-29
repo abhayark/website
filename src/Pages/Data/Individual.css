@@ -19,8 +19,8 @@
   display: flex;
   flex-direction: column;
   font-family: "Roboto", serif;
-
   background-color: #58555534;
+  border: #8d6a6a4b solid;
 }
 .product-name {
   background-color: transparent;
@@ -38,6 +38,15 @@
   -webkit-box-orient: vertical;
   background-color: transparent;
   color: #201717c7;
+  margin-left: 17px;
+  margin-right: 10px;
+}
+.seller-name {
+  background-color: transparent;
+  margin-left: 18px;
+  color: #2e1010a7;
+  text-decoration: underline;
+  transition: ease-in-out 0.5s;
 }
 .product-price {
   box-sizing: border-box;
@@ -45,6 +54,18 @@
   padding: 10px;
   border-radius: 10px;
   background-color: #b4abab6d;
+  color: #000000b8;
+  transition: ease-in-out 0.5s;
+}
+.add-to-cart-btn {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  align-self: center;
+  color: #0000009d;
+  background-color: #b5b5b6d3;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.256);
+  transition: ease-in-out 0.5s;
 }
 
 .product-detail-img {
@@ -63,4 +84,109 @@
 }
 .product-price:hover {
   cursor: pointer;
+  color: #000000;
+  background-color: #b4abab3b;
+}
+.add-to-cart-btn:hover {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  background-color: #94484839;
+  border-bottom: 1px solid #000000;
+}
+.product-name,
+.seller-name:hover {
+  cursor: pointer;
+  color: #000000;
+}
+
+.scontent {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow-x: auto;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  height: 20%;
+  margin: 50px;
+  gap: 6px;
+  padding: 50px 0;
+  box-sizing: border-box;
+  background-color: #686d7476;
+  scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
+  border: 5px solid #72393936; /* Solid border around the entire content container */
+  border-radius: 10px;
+}
+.scard {
+  cursor: pointer;
+  width: 15%;
+  margin: 6px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #ffffff57;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  scroll-snap-align: start;
+}
+.scard:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.scard_img {
+  margin: auto;
+  width: 20vb;
+  object-fit: cover;
+  margin-top: 7px;
+}
+
+.scard_info {
+  background-color: #73747620;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .spname {
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    font-size: 18px;
+    font-family: "Roboto", serif;
+    font-weight: 700;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .spdes {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    font-family: "Roboto", serif;
+    text-align: center;
+    max-width: 300ch;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    margin: 8xp 0;
+    background-color: transparent;
+  }
+  .sprice {
+    text-align: left;
+    font-family: "Roboto", serif;
+    margin: 3px 0 5px 12px;
+    font-size: 20px;
+    color: #160101f6;
+    background-color: transparent;
+  }
 }

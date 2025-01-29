@@ -6,6 +6,7 @@ export const product_card = [
       "ONE PIECE is a legendary high-seas quest unlike any other. Luffy is a young adventurer who has longed for a life of freedom ever since he can remember. He sets off from his small village on a perilous journey to find the legendary fabled treasure, ONE PIECE, to become King of the Pirates!",
     price: "2000₹",
     img: "/Assets/img.jpg",
+    seller: "Ark",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const product_card = [
       "A boy with rubber power want to become the King of the pirates",
     price: "200₹",
     img: "/Assets/img2.jpg",
+    seller: "Ark",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const product_card = [
       "A boy with rubber power want to become the King of the pirates",
     price: "200₹",
     img: "/Assets/img3.jpg",
+    seller: "Ark",
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const product_card = [
       "A boy with rubber power want to become the King of the pirates",
     price: "200₹",
     img: "/Assets/img4.jpg",
+    seller: "Ark",
   },
   {
     id: 5,
