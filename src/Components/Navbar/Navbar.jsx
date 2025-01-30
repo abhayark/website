@@ -3,9 +3,8 @@ import "./navbar.css";
 import SearchSharpIcon from "@mui/icons-material/SearchSharp";
 import Avatar from "@mui/joy/Avatar";
 import { useNavigate, Link } from "react-router-dom";
-import "./navbar.css";
 
-function Navbar() {
+function Navbar({ cartCount }) {
   const buttonRef = useRef(null);
   const goto = useNavigate();
 
@@ -47,10 +46,10 @@ function Navbar() {
                 e.target.focus();
               }
             }}
-            onClick={() => goto("/")}
+            onClick={() => goto("/basket")}
             className="basketbn"
           >
-            Basket
+            Basket {cartCount > 0 && <span>({cartCount})</span>}
           </button>
         </div>
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import AddToCartButton from "../../Components/AddToCartButton.jsx";
 
-const Product = ({ productsData, title }) => {
+const Product = ({ productsData, handleAddToCart }) => {
   const goto = useNavigate();
   const [products, setProducts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
@@ -39,7 +40,7 @@ const Product = ({ productsData, title }) => {
                 e.stopPropagation(); //stops the parent class from getting called "The add button does not open the indi page"
               }}
             >
-              Add to Cart
+              <AddToCartButton onAddToCart={() => handleAddToCart(item)} />
             </button>
           </div>
         </div>

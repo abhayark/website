@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import Navbar from "../../Components/Navbar/Navbar.jsx";
 import product_card, { banner, product_card2 } from "../Data/product_data.jsx";
@@ -30,14 +30,21 @@ const Banner_content = () => {
   return <div className="banner_content">{bannerlist}</div>;
 };
 
-const Home = () => {
+const Home = ({ cart, handleAddToCart }) => {
   return (
     <div className="homeContainer">
-      <Navbar />
+      <Navbar cartCount={cart.length} />
       <div className="contentContainer">
         <Banner_content />
-        <Product productsData={product_card} title="Featured Products" />
-        <Product productsData={product_card2} />
+        <Product
+          productsData={product_card}
+          title="Featured Products"
+          handleAddToCart={handleAddToCart}
+        />
+        <Product
+          productsData={product_card2}
+          handleAddToCart={handleAddToCart}
+        />
       </div>
     </div>
   );
