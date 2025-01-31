@@ -127,20 +127,6 @@
     color: #160101f6;
     background-color: transparent;
   }
-  .pbtn {
-    box-sizing: border-box;
-    font-family: "Roboto", serif;
-    color: #ffffffef;
-    border: none;
-    background-color: #00000083;
-    transition: all 0.3s ease-in-out;
-    margin-bottom: 5px;
-    padding: 0.5rem 2rem;
-  }
-}
-
-.pbtn:hover {
-  background-color: #010411e1;
 }
 
 /* Load More button at the top */

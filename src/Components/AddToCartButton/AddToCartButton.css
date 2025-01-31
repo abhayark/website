@@ -1,0 +1,19 @@
+.pbtn {
+  border: none;
+  background-color: transparent;
+}
+.add-to-cart {
+  box-sizing: border-box;
+  font-family: "Roboto", serif;
+  color: #b9b5b5b3;
+  border: none;
+  background-color: #00000083;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 5px;
+  padding: 0.5rem 2rem;
+  border-radius: 7px;
+}
+.add-to-cart:hover {
+  color: whitesmoke;
+  background-color: #000000b7;
+}

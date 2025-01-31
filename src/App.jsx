@@ -27,7 +27,7 @@ function App() {
           />
           <Route path="/Signup" element={<Signup />} />
           <Route
-            path="/basket"
+            path="/cart"
             element={<Basket cart={cart} onRemove={handleRemoveFromCart} />}
           />
           <Route path="/product/:id" element={<Individual />} />

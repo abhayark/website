@@ -40,7 +40,7 @@
 }
 
 .remove-btn {
-  background-color: red;
+  background-color: #c332329c;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -50,7 +50,7 @@
 }
 
 .remove-btn:hover {
-  background-color: darkred;
+  background-color: #8b0000d1;
 }
 
 .continue-shopping-btn {

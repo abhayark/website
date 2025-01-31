@@ -1,23 +1,22 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./navbar.css";
 import SearchSharpIcon from "@mui/icons-material/SearchSharp";
 import Avatar from "@mui/joy/Avatar";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 function Navbar({ cartCount }) {
   const buttonRef = useRef(null);
   const goto = useNavigate();
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(location.pathname);
 
   const sbar = () => {
     document.getElementById("searchbar").setAttribute("class", "searchchange");
   };
 
   useEffect(() => {
-    if (buttonRef.current) {
-      buttonRef.current.style.outline = "none";
-      buttonRef.current.focus();
-    }
-  }, []);
+    setActiveTab(location.pathname);
+  }, [location.pathname]);
 
   return (
     <div className="container">
@@ -26,42 +25,27 @@ function Navbar({ cartCount }) {
       <ul className="func">
         <div className="home">
           <button
-            ref={buttonRef}
-            onBlur={(e) => {
-              if (e.relatedTarget === null) {
-                e.target.focus();
-              }
-            }}
             onClick={() => goto("/")}
-            className="homebn"
+            className={`homebn ${activeTab === "/" ? "active" : ""}`}
           >
             Home
           </button>
         </div>
 
-        <div className="Basket">
+        <div className="cart">
           <button
-            onBlur={(e) => {
-              if (e.relatedTarget === null) {
-                e.target.focus();
-              }
-            }}
-            onClick={() => goto("/basket")}
-            className="basketbn"
+            onClick={() => goto("/cart")}
+            className={`cartbn ${activeTab === "/cart" ? "active" : ""}`}
           >
-            Basket {cartCount > 0 && <span>({cartCount})</span>}
+            Cart{" "}
+            {cartCount > 0 && <span className="bcount">[{cartCount}]</span>}
           </button>
         </div>
 
         <div className="Services">
           <button
-            onBlur={(e) => {
-              if (e.relatedTarget === null) {
-                e.target.focus();
-              }
-            }}
-            onClick={() => goto("/")}
-            className="services"
+            onClick={() => goto("/services")}
+            className={`services ${activeTab === "/services" ? "active" : ""}`}
           >
             Services
           </button>

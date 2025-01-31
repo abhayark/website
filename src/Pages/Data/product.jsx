@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import AddToCartButton from "../../Components/AddToCartButton.jsx";
+import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 
 const Product = ({ productsData, handleAddToCart }) => {
   const goto = useNavigate();
