@@ -1,0 +1,131 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0d0d0d;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Form Container */
+.form {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Logo */
+.logo {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+/* Title */
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+/* Input Fields */
+.inputContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: 17px;
+}
+
+.label {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-size: 12px;
+  color: #ffffff;
+  background: #1a1a1a;
+  padding: 2px 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid #ffffff;
+}
+
+/* Floating Labels */
+.label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 13px;
+  color: #888;
+  transition: 0.3s ease-in-out;
+}
+
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+  top: -8px;
+  left: 10px;
+  font-size: 11px;
+  color: #fff;
+  background: #1a1a1a;
+  padding: 0 5px;
+}
+
+/* Error Messages */
+.errorMessage {
+  color: #ff4d4d;
+  font-size: 11px;
+  text-align: left;
+  margin-top: 3px;
+}
+
+/* Submit Button */
+.submitBtn {
+  width: 100%;
+  background: #ffffff;
+  color: #0d0d0d;
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.submitBtn:hover {
+  background: #e6e6e6;
+  transform: translateY(-2px);
+}
+
+/* Style for Dropdown */
+select {
+  background-color: #1a1a1a !important; /* Pure Black Background */
+  color: #ffffff !important; /* White Text */
+  border: 1px solid #444 !important; /* Subtle Border */
+  padding: 10px !important;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  width: 100% !important;
+}
+
+/* Hover Effect */
+select:hover {
+  border-color: #888 !important;
+}
+
+/* Focus Effect */
+select:focus {
+  outline: none !important;
+  border-color: #ffffff !important; /* White Border on Focus */
+}
+
+/* Dropdown Options */
+option {
+  background-color: #1a1a1a !important; /* Black Options */
+  color: #fff !important; /* White Text */
+}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home.jsx";
 import Individual from "./Pages/Data/Individual.jsx";
 import Signup from "./Pages/Sign_up/Signup.jsx";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cart from "./Pages/Cart.jsx";
 import "./App.css";
-import Basket from "./Pages/Basket.jsx";
+import Form from "./Pages/Sign_up/Form.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -28,9 +29,10 @@ function App() {
           <Route path="/Signup" element={<Signup />} />
           <Route
             path="/cart"
-            element={<Basket cart={cart} onRemove={handleRemoveFromCart} />}
+            element={<Cart cart={cart} onRemove={handleRemoveFromCart} />}
           />
           <Route path="/product/:id" element={<Individual />} />
+          <Route path="/form" element={<Form />} />
         </Routes>
       </>
     </div>
