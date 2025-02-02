@@ -6,6 +6,7 @@ import Signup from "./Pages/Sign_up/Signup.jsx";
 import Cart from "./Pages/Cart.jsx";
 import "./App.css";
 import Form from "./Pages/Sign_up/Form.jsx";
+import CabBooking from "./Pages/Cab/cabbing.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -33,6 +34,7 @@ function App() {
           />
           <Route path="/product/:id" element={<Individual />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/cab" element={<CabBooking />} />
         </Routes>
       </>
     </div>

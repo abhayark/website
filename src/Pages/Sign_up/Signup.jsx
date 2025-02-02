@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -129,10 +130,16 @@ function Signup() {
             </label>
             <small className="errorMessage">{errors.passwordcm}</small>
           </div>
-
-          <button type="submit" className="submitBtn">
-            Sign up
-          </button>
+          <Link className="linking" to="/">
+            <button type="submit" className="loginBtn">
+              Login
+            </button>
+          </Link>
+          <Link className="linking" to="/form">
+            <button type="submit" className="signupBtn">
+              Signup
+            </button>
+          </Link>
         </form>
       </div>
     </div>

@@ -218,7 +218,7 @@ export const product_card2 = [
 
 export const banner = [
   {
-    id: 101,
+    id: "cab",
     img: "/Assets/cab.jpg",
   },
   {

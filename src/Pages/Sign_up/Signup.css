@@ -127,18 +127,42 @@ body {
   color: rgba(0, 119, 255, 0.575);
 }
 
-.submitBtn {
-  display: block;
-  margin-left: auto;
-  padding: 15px 20px;
+.loginBtn {
+  width: 100%;
+  background: #ffffffe2;
+  color: #0d0d0d;
+  font-size: 14px;
+  padding: 10px;
   border: none;
-  background-color: #7c8bac9f;
-  color: white;
-  border-radius: 20px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  margin-top: 30px;
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
 }
-.submitBtn:hover {
-  background-color: #3b4b6d;
+.loginBtn:hover {
+  background: #615f5f9f;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.signupBtn {
+  width: 100%;
+  background: #8c8b8b;
+  color: #080808;
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 3px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
+}
+.signupBtn:hover {
+  background: #615f5f9f;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.linking {
+  background-color: transparent;
 }
