@@ -1,0 +1,88 @@
+h1,
+h2,
+p {
+  background-color: transparent;
+}
+.cab-container {
+  background: #07090b;
+  color: #e2e7ec;
+  min-height: 100vh;
+  padding: 7px;
+  text-align: center;
+}
+
+.cab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  background-color: #07090b;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cab-card {
+  background: #3c6ea46f;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.cab-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.book-cab {
+  background: #7a8792;
+  color: #e2e7ec;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.book-cab:hover {
+  background-color: #3c6ea46f;
+}
+.book-cab-container {
+  background-color: transparent;
+}
+.sel-cab-container {
+  display: flex;
+  background-color: #07090b;
+  flex-direction: column;
+  justify-self: center;
+}
+.sel-cab-image {
+  align-self: center;
+  width: 20vw;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.sel-cab-name {
+  margin-top: 4px;
+}
+.sel-cab-drname {
+  margin-top: 0px;
+}
+.cab-payment {
+  align-self: center;
+  max-width: 250px;
+}
+.cab-location {
+  border: 1px solid #3d331c93;
+  border-radius: 7px;
+  font-size: 16px;
+  background: #262e3746;
+  z-index: 1;
+  color: #e2e6ec;
+  margin-bottom: 4px;
+}
