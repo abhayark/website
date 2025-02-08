@@ -10,11 +10,10 @@ export const product_card = [
   },
   {
     id: 2,
-    product_name: "One piece ch 2",
-    description:
-      "A boy with rubber power want to become the King of the pirates",
-    price: "200₹",
-    img: "/Assets/img2.jpg",
+    product_name: "Samsung Galaxy S24 Ultra",
+    description: "5G AI Smartphone (Titanium Gray, 12GB, 256GB Storage)",
+    price: "1,00,980₹",
+    img: "/Assets/samsung.jpg",
     seller: "Ark",
   },
   {
@@ -23,7 +22,7 @@ export const product_card = [
     description:
       "A boy with rubber power want to become the King of the pirates",
     price: "200₹",
-    img: "/Assets/img3.jpg",
+    img: "/Assets/rtx.jpeg",
     seller: "Ark",
   },
   {

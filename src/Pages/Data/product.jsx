@@ -5,14 +5,14 @@ import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 const Product = ({ productsData, handleAddToCart }) => {
   const goto = useNavigate();
   const [products, setProducts] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(7);
 
   useEffect(() => {
     setProducts(productsData.slice(0, visibleCount));
   }, [productsData, visibleCount]);
 
   const loadMore = () => {
-    setVisibleCount(visibleCount + 6);
+    setVisibleCount(visibleCount + 7);
   };
 
   return (
