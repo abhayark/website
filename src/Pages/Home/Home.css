@@ -7,6 +7,13 @@ body {
   color: #333;
 }
 
+p {
+  background-color: transparent;
+  font-size: 1.3rem;
+  margin: 10px 0;
+  font-style: italic;
+  font-weight: bold;
+}
 html,
 body {
   scroll-behavior: smooth;
@@ -24,19 +31,19 @@ body {
 
 .banner_content {
   display: flex;
-  gap: 15px;
+  gap: 150px;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #c9c8c839;
   border-radius: 12px;
   padding: 10px 15px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .banner_container {
-  flex: 1;
-  background-color: #f8fafc51;
+  background-color: #b7bcbc2c;
   border-radius: 8px;
   padding: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -47,12 +54,17 @@ body {
   transform: scale(1.03);
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
 }
-
-.banner_card .banner_img img {
-  display: block;
-  max-width: 100%;
-  height: 100px;
-  border-radius: 8px;
+.banner_card {
+  background-color: #b7bcbc2c;
+}
+.banner_img {
+  background-color: #b7bcbc2c;
+  justify-self: center;
+  img {
+    max-width: 100%;
+    height: 100px;
+    border-radius: 8px;
+  }
 }
 
 .morebtn {

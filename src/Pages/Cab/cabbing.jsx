@@ -92,7 +92,10 @@ export default function CabBooking() {
     <>
       <div className="cab-container">
         <Navbar />
-        <h1>Book a Cab</h1>
+        <h2>Book a Cab</h2>
+        <p className="title">
+          Late or early, rain or shine, your destination’s next in line.
+        </p>
         {!selectedCab ? (
           <div className="cab-grid">
             {allCabs.slice(0, visibleCabs).map((cab) => (
