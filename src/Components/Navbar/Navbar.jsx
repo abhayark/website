@@ -68,7 +68,7 @@ function Navbar({ cartCount }) {
         />
       </div>
       <div className="register">
-        <Link to="/signup">
+        <Link to="/login">
           <Avatar variant="plain" />
         </Link>
       </div>

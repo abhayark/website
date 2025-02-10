@@ -1,0 +1,84 @@
+[
+  {
+    "product_name": "One Piece Chapter 1",
+    "description": "ONE PIECE is a legendary high-seas quest unlike any other. Luffy is a young adventurer who has longed for a life of freedom ever since he can remember. He sets off from his small village on a perilous journey to find the legendary fabled treasure, ONE PIECE, to become King of the Pirates!",
+    "price": "2000₹",
+    "img": "/Assets/img.jpg",
+    "seller": "Ark"
+  },
+  {
+    "product_name": "Samsung Galaxy S24 Ultra",
+    "description": "5G AI Smartphone (Titanium Gray, 12GB, 256GB Storage)",
+    "price": "1,00,980₹",
+    "img": "/Assets/samsung.jpg",
+    "seller": "Ark"
+  },
+  {
+    "product_name": "One Piece Chapter 3",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/rtx.jpeg",
+    "seller": "Ark"
+  },
+  {
+    "product_name": "One Piece Chapter 4",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img4.jpg",
+    "seller": "Ark"
+  },
+  {
+    "product_name": "One Piece Chapter 5",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img5.jpg"
+  },
+  {
+    "product_name": "One Piece Chapter 6",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img6.jpg"
+  },
+  {
+    "product_name": "One Piece Chapter 7",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img7.jpg"
+  },
+  {
+    "product_name": "One Piece Chapter 8",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img8.jpg"
+  },
+  {
+    "product_name": "One Piece Chapter 9",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img9.jpg"
+  },
+  {
+    "product_name": "One Piece Chapter 10",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img10.jpg"
+  },
+  {
+    "product_name": "One Piece Chapter 11",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img11.jpg"
+  },
+  {
+    "product_name": "One Piece Chapter 12",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img12.jpg"
+  },
+  {
+    "product_name": "One Piece Chapter 13",
+    "description": "A boy with rubber power wants to become the King of the Pirates",
+    "price": "200₹",
+    "img": "/Assets/img13.jpg"
+  }
+]

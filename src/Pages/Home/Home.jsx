@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Navbar from "../../Components/Navbar/Navbar.jsx";
-import product_card, { banner, product_card2 } from "../Data/product_data.jsx";
 import { useNavigate } from "react-router-dom";
 import Product from "../Data/product.jsx";
+import { banner } from "../Data/bannerdata.jsx";
+
 /* 
   For the main products data 
   it takes info from product.json
@@ -13,6 +14,7 @@ import Product from "../Data/product.jsx";
   The ads space it created through here its source is
   same as product card
 */
+
 const Banner_content = () => {
   const goto = useNavigate();
   const Bid = banner.map((id) => <div key={id.id}>{id.id}</div>);
@@ -32,18 +34,33 @@ const Banner_content = () => {
 };
 
 const Home = ({ cart, handleAddToCart }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error("Error fetching products:", err));
+  }, []);
+
+  const bookProducts = products.filter(
+    (product) => product.category === "book"
+  );
+  const electronicsProducts = products.filter(
+    (product) => product.category === "electronics"
+  );
   return (
     <div className="homeContainer">
       <Navbar cartCount={cart.length} />
       <div className="contentContainer">
         <Banner_content />
         <Product
-          productsData={product_card}
-          title="Featured Products"
+          productsData={bookProducts}
           handleAddToCart={handleAddToCart}
         />
         <Product
-          productsData={product_card2}
+          productsData={electronicsProducts}
+          title="Featured Products"
           handleAddToCart={handleAddToCart}
         />
       </div>

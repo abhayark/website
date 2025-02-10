@@ -4,12 +4,8 @@ import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 
 const Product = ({ productsData, handleAddToCart }) => {
   const goto = useNavigate();
-  const [products, setProducts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(7);
-
-  useEffect(() => {
-    setProducts(productsData.slice(0, visibleCount));
-  }, [productsData, visibleCount]);
+  const visibleProducts = productsData.slice(0, visibleCount);
 
   const loadMore = () => {
     setVisibleCount(visibleCount + 7);
@@ -20,27 +16,32 @@ const Product = ({ productsData, handleAddToCart }) => {
       <button className="morebtn" onClick={loadMore}>
         More
       </button>
-      {products.map((item) => (
+      {visibleProducts.map((product) => (
         <div
           className="card"
-          key={item.id}
+          key={product._id}
           onClick={() => {
-            goto(`/product/${item.id}`);
+            goto(`/products/${product._id}`);
             console.log("clicked!");
           }}
         >
-          <img className="card_img" src={item.img} alt={item.product_name} />
+          <img
+            className="card_img"
+            src={`${product.img}`}
+            alt={product.product_name}
+          />
+
           <div className="card_info">
-            <p className="pname">{item.product_name}</p>
-            <p className="pdes">{item.description}</p>
-            <p className="price">{item.price}</p>
+            <p className="pname">{product.product_name}</p>
+            <p className="pdes">{product.description}</p>
+            <p className="price">{product.price}</p>
             <button
               className="pbtn"
               onClick={(e) => {
                 e.stopPropagation(); //stops the parent class from getting called "The add button does not open the indi page"
               }}
             >
-              <AddToCartButton onAddToCart={() => handleAddToCart(item)} />
+              <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
             </button>
           </div>
         </div>

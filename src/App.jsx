@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home.jsx";
 import Individual from "./Pages/Data/Individual.jsx";
-import Signup from "./Pages/Sign_up/Signup.jsx";
+import Login from "./Pages/Userhandling/Login.jsx";
 import Cart from "./Pages/Cart.jsx";
 import "./App.css";
-import Form from "./Pages/Sign_up/Form.jsx";
+import Form from "./Pages/Userhandling/Form.jsx";
 import CabBooking from "./Pages/Cab/cabbing.jsx";
 
 function App() {
@@ -27,13 +27,13 @@ function App() {
             path="/"
             element={<Home handleAddToCart={handleAddToCart} cart={cart} />}
           />
-          <Route path="/Signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
           <Route
             path="/cart"
             element={<Cart cart={cart} onRemove={handleRemoveFromCart} />}
           />
-          <Route path="/product/:id" element={<Individual />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/products/:_id" element={<Individual />} />
+          <Route path="/signup" element={<Form />} />
           <Route path="/cab" element={<CabBooking />} />
         </Routes>
       </>

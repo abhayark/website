@@ -1,17 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import product_card from "./product_data";
 import Navbar from "../../Components/Navbar/Navbar";
 import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 import "./Individual.css";
 
-function Individual(handleAddToCart) {
+function Individual({ handleAddToCart }) {
   const { id } = useParams(); // Extract the dynamic parameter
-  const product = product_card.find((item) => item.id === parseInt(id)); // Find the product by ID
+  const [product, setProduct] = useState(null);
+  const [similarProducts, setSimilarProducts] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Fetched product data:", data);
+        setProduct(data);
+      })
+      .catch((err) => console.error("Error fetching product:", err));
+
+    fetch("http://localhost:5000/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        const filteredProducts = data.filter((item) => item._id !== id); // Exclude current product
+        setSimilarProducts(filteredProducts.slice(0, 6)); // Limit to 6 items
+      })
+      .catch((err) => console.error("Error fetching similar products:", err));
+  }, [id]);
 
   if (!product) {
-    return <p>Product not found</p>; // Handle invalid IDs
+    return <p>Loading product details...</p>;
   }
 
   return (
@@ -26,12 +44,12 @@ function Individual(handleAddToCart) {
           <button className="add-to-cart-btn">Add to Cart</button>
         </div>
         <img
-          src={product.img}
+          src={`http://localhost:5000/images/${product.img}`}
           alt={product.product_name}
           className="product-detail-img"
         />
       </div>
-      <Similarproduct productsData={product_card} />
+      <Similarproduct productsData={similarProducts} />
     </div>
   );
 }
@@ -47,19 +65,23 @@ const Similarproduct = ({ productsData }) => {
 
   return (
     <div className="scontent">
-      {products.map((item) => (
+      {products.map((product) => (
         <div
           className="scard"
-          key={item.id}
+          key={product.id}
           onClick={() => {
-            goto(`/product/${item.id}`);
+            goto(`/product/${product.id}`);
           }}
         >
-          <img className="scard_img" src={item.img} alt={item.product_name} />
+          <img
+            className="scard_img"
+            src={product.img}
+            alt={product.product_name}
+          />
           <div className="scard_info">
-            <p className="spname">{item.product_name}</p>
-            <p className="spdes">{item.description}</p>
-            <p className="sprice">{item.price}</p>
+            <p className="spname">{product.product_name}</p>
+            <p className="spdes">{product.description}</p>
+            <p className="sprice">{product.price}</p>
           </div>
         </div>
       ))}
