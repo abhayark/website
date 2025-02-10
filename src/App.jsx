@@ -32,7 +32,7 @@ function App() {
             path="/cart"
             element={<Cart cart={cart} onRemove={handleRemoveFromCart} />}
           />
-          <Route path="/products/:_id" element={<Individual />} />
+          <Route path="/products/:id" element={<Individual />} />
           <Route path="/signup" element={<Form />} />
           <Route path="/cab" element={<CabBooking />} />
         </Routes>

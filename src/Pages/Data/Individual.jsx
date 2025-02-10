@@ -5,16 +5,16 @@ import Navbar from "../../Components/Navbar/Navbar";
 import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 import "./Individual.css";
 
-function Individual({ handleAddToCart }) {
+function Individual(handleAddToCart) {
   const { id } = useParams(); // Extract the dynamic parameter
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
+  console.log("Product ID from URL:", id);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Fetched product data:", data);
         setProduct(data);
       })
       .catch((err) => console.error("Error fetching product:", err));

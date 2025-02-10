@@ -7,6 +7,7 @@ const productSchema = new mongoose.Schema({
   price: { type: String, required: true },
   img: { type: String, required: true },
   seller: { type: String, default: "Unknown" },
+  category: { type: String, required: true },
 });
 
 // Create the Product model
