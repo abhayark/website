@@ -9,6 +9,8 @@ function Navbar({ cartCount }) {
   const goto = useNavigate();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(location.pathname);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const sbar = () => {
     document.getElementById("searchbar").setAttribute("class", "searchchange");
@@ -16,7 +18,16 @@ function Navbar({ cartCount }) {
 
   useEffect(() => {
     setActiveTab(location.pathname);
+    const storedUser = localStorage.getItem("user");
+    setIsLoggedIn(storedUser !== null);
   }, [location.pathname]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user"); // Remove user from storage
+    setIsLoggedIn(false);
+    setDropdownOpen(false);
+    goto("/login"); // Redirect to login
+  };
 
   return (
     <div className="container">
@@ -67,10 +78,22 @@ function Navbar({ cartCount }) {
           }}
         />
       </div>
-      <div className="register">
-        <Link to="/login">
-          <Avatar variant="plain" />
-        </Link>
+      <div className="user-menu">
+        <Avatar
+          variant="plain"
+          onClick={() => setDropdownOpen(!isDropdownOpen)}
+        />
+
+        <div className="user-dropdown">
+          {isLoggedIn ? (
+            <div className="loginoption">
+              <a href="/sell">Sell Product</a>
+              <a onClick={handleLogout}>Logout</a>
+            </div>
+          ) : (
+            <a href="/login">Login</a>
+          )}
+        </div>
       </div>
     </div>
   );

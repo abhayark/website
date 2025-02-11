@@ -7,10 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Import the Product model (Make sure the file path is correct)
 const Product = require("./models/Product");
+const authRoutes = require("./routes/auth");
 
-// Connect to MongoDB
+// Connection
 mongoose
   .connect("mongodb://127.0.0.1:27017/dataoasis", {
     useNewUrlParser: true,
@@ -19,10 +19,11 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
-// Corrected route
+app.use("/api", authRoutes);
+//route
 app.get("/api/products", async (req, res) => {
   try {
-    const products = await Product.find(); // Fetch products from MongoDB
+    const products = await Product.find(); // Fetch
     res.json(products);
   } catch (err) {
     console.error("Error fetching products:", err);

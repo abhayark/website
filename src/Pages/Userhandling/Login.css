@@ -1,135 +1,27 @@
-body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "lato", sans-serif;
-  background-color: #080a0e;
-}
-
-.main {
-  display: grid;
-  place-items: center;
-  height: 100vh;
-}
-.inputContainer {
+.login-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: #0d0d0d;
+  font-family: "Poppins", sans-serif;
 }
 
-.form {
-  background-color: #adb8d0;
-  width: 400px;
-  padding: 20px 40px;
-  border-radius: 15px;
-  box-shadow: 4px 10px 69px #3b4b6d;
+/* Form Container */
+.log_form {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
 }
 
-.title {
-  margin-bottom: 20px;
-  font-size: 25px;
-  background-color: transparent;
-}
-
-.logo {
-  background-color: transparent;
-  width: 70px;
-  margin-bottom: -7px;
-}
-
-.inputContainer {
-  position: relative;
-  height: 45px;
+/* Submit Button */
+.submitBtn {
   width: 100%;
-  margin-bottom: 10px;
-  background-color: transparent;
-}
-.inputContainer_error .input {
-  border: 2px solid red;
-}
-
-/* Error message styling */
-.errorMessage {
-  display: none;
-  position: absolute;
-  bottom: -1.5rem;
-  left: 0;
-  background-color: #fdd;
-  color: red;
-  padding: 0.5rem;
-  border: 1px solid red;
-  border-radius: 4px;
-  z-index: 10;
-  font-size: 0.875rem;
-  white-space: nowrap;
-}
-
-/* Show error message when input has error */
-.inputContainer_error .errorMessage {
-  display: block;
-}
-
-.input {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
-  border: 1px solid #3d331c93;
-  border-radius: 7px;
-  font-size: 16px;
-  padding: 0 2px;
-  outline: none;
-  background: none;
-  z-index: 1;
-  color: #e2e6ec;
-}
-
-::placeholder {
-  color: transparent;
-}
-
-.label {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 0 4px;
-  background-color: #adb8d0;
-  color: #e2e6ec;
-  font-size: 16px;
-  transition: 0.5s;
-  z-index: 0;
-}
-
-.input:focus + .label {
-  top: -7px;
-  left: 3px;
-  z-index: 10;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(0, 119, 255, 0.575);
-}
-
-.input:focus {
-  border: 3px solid rgba(0, 119, 255, 0.575);
-}
-
-.input:not(:placeholder-shown) + .label {
-  top: -7px;
-  left: 3px;
-  z-index: 10;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.input:hover + .label {
-  color: rgba(0, 119, 255, 0.575);
-}
-
-.loginBtn {
-  width: 100%;
-  background: #ffffffe2;
+  background: #ffffff;
   color: #0d0d0d;
   font-size: 14px;
   padding: 10px;
@@ -138,31 +30,36 @@ body {
   cursor: pointer;
   transition: 0.3s ease-in-out;
   font-weight: bold;
+  margin-top: 5px;
 }
-.loginBtn:hover {
-  background: #615f5f9f;
-  color: #ffffff;
+
+.submitBtn:hover {
+  background: #e6e6e6;
   transform: translateY(-2px);
 }
 
-.signupBtn {
-  width: 100%;
-  background: #8c8b8b;
-  color: #080808;
-  font-size: 14px;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  margin-top: 3px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  font-weight: bold;
+/* Style for Dropdown */
+select {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #444 !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  width: 100% !important;
 }
-.signupBtn:hover {
-  background: #615f5f9f;
-  color: #ffffff;
-  transform: translateY(-2px);
+
+select:hover {
+  border-color: #888 !important;
 }
-.linking {
-  background-color: transparent;
+
+select:focus {
+  outline: none !important;
+  border-color: #ffffff !important;
+}
+
+option {
+  background-color: #1a1a1a !important;
+  color: #fff !important;
 }
