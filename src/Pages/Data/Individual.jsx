@@ -44,7 +44,7 @@ function Individual(handleAddToCart) {
           <button className="add-to-cart-btn">Add to Cart</button>
         </div>
         <img
-          src={`http://localhost:5000/images/${product.img}`}
+          src={product.img}
           alt={product.product_name}
           className="product-detail-img"
         />
@@ -54,34 +54,40 @@ function Individual(handleAddToCart) {
   );
 }
 
-const Similarproduct = ({ productsData }) => {
+const Similarproduct = ({ productsData, handleAddToCart }) => {
   const goto = useNavigate();
-  const [products, setProducts] = useState([]);
-  const [visibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(7);
+  const visibleProducts = productsData.slice(0, visibleCount);
 
-  useEffect(() => {
-    setProducts(productsData.slice(0, visibleCount));
-  }, [productsData, visibleCount]);
+  const loadMore = () => {
+    setVisibleCount(visibleCount + 7);
+  };
 
   return (
-    <div className="scontent">
-      {products.map((product) => (
+    <div className="content">
+      <button className="morebtn" onClick={loadMore}>
+        More
+      </button>
+      {visibleProducts.map((product) => (
         <div
-          className="scard"
-          key={product.id}
+          className="card"
+          key={product._id}
           onClick={() => {
-            goto(`/product/${product.id}`);
+            goto(`/products/${product._id}`);
+            console.log("clicked!");
           }}
         >
           <img
-            className="scard_img"
-            src={product.img}
+            className="card_img"
+            src={`${product.img}`}
             alt={product.product_name}
           />
-          <div className="scard_info">
-            <p className="spname">{product.product_name}</p>
-            <p className="spdes">{product.description}</p>
-            <p className="sprice">{product.price}</p>
+
+          <div className="card_info">
+            <p className="pname">{product.product_name}</p>
+            <p className="pdes">{product.description}</p>
+            <p className="price">{product.price}</p>
+            <button className="pbtn">add to cart </button>
           </div>
         </div>
       ))}
