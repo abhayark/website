@@ -87,7 +87,7 @@ function Navbar({ cartCount }) {
         <div className="user-dropdown">
           {isLoggedIn ? (
             <div className="loginoption">
-              <a href="/sell">Sell Product</a>
+              <a href="/selling">Sell Product</a>
               <a onClick={handleLogout}>Logout</a>
             </div>
           ) : (
