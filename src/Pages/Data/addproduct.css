@@ -1,16 +1,96 @@
-.sef {
+.sell-product-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #0d0d0d;
-  font-family: "Poppins", sans-serif;
-}
-.selling {
-  background: #1a1a1a;
-  padding: 25px;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background: #feffffe8;
   border-radius: 12px;
-  width: 320px;
+  box-shadow: 0 4px 10px #0000004d;
+  border: 1px solid #acb9c9;
+  margin-top: 40px;
+}
+
+.sell-product-title {
   text-align: center;
-  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000d4;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.sell-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #feffffe8;
+}
+
+.sell-product-input {
+  width: 470px;
+  padding: 10px;
+  border: 1px solid #5a7da8;
+  border-radius: 6px;
+  background: #ebeaecbf;
+  color: #080808;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sell-product-input::placeholder {
+  color: #2c2c2da9;
+}
+
+.sell-product-input:focus {
+  border-color: #ac1d1d58;
+  box-shadow: 0 0 5px #552828a0;
+}
+
+.sell-product-input-sel {
+  background-color: #ebeaecbf !important;
+  color: #080808 !important;
+  border: 1px solid #444 !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  width: 490px !important;
+}
+.sell-product-input-sel:hover {
+  border-color: #888 !important;
+}
+
+.sell-product-input-sel:focus {
+  outline: none !important;
+  border-color: #ac1d1d58 !important;
+}
+
+.sell-product-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px #00000033;
+}
+
+.sell-product-button {
+  background: #8b8393bf;
+
+  width: 500px;
+  padding: 12px;
+  color: #e2e7ec;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sell-product-button:hover {
+  background: #9e2d2dd2;
+  transform: scale(1.02);
 }

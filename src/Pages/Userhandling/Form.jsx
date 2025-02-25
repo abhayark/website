@@ -126,14 +126,20 @@ const SignupForm = () => {
         </div>
 
         <select
-          className="select-field"
+          className="selectfield"
           name="gender"
           value={formData.gender}
           onChange={handleChange}
         >
-          <option value="">Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+          <option className="seloption" value="">
+            Select Gender
+          </option>
+          <option className="seloption" value="Male">
+            Male
+          </option>
+          <option className="seloption" value="Female">
+            Female
+          </option>
         </select>
 
         <button className="submitBtn" type="submit">
