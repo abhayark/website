@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 .product-detail-container {
-  background-color: white;
+  background-color: #f5f5f5;
 }
 .product-detail-card {
   display: flex;
@@ -101,92 +101,69 @@
 
 .scontent {
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
   overflow-x: auto;
-  justify-content: flex-start;
-  align-items: center;
+  gap: 15px;
+  padding-top: 45px;
+  padding-left: 50px;
+  padding-bottom: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(159, 79, 79, 0.1);
+  margin-bottom: 20px;
   position: relative;
-  height: 20%;
-  margin: 50px;
-  gap: 6px;
-  padding: 50px 0;
-  box-sizing: border-box;
-  background-color: #686d7476;
-  scrollbar-width: thin;
-  scroll-snap-type: x mandatory;
-  border: 5px solid #72393936; /* Solid border around the entire content container */
-  border-radius: 10px;
 }
 .scard {
-  cursor: pointer;
-  width: 15%;
-  margin: 6px;
+  flex: 0 0 150px;
   display: flex;
   flex-direction: column;
-  border-radius: 3px;
+  align-items: center;
   text-align: center;
-  background-color: #ffffff57;
-  position: relative;
-  transition: transform 0.3s ease-in-out;
-  scroll-snap-align: start;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .scard:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .scard_img {
-  margin: auto;
-  width: 20vb;
+  width: 100%;
+  height: 100px;
   object-fit: cover;
-  margin-top: 7px;
+  background-color: #f0f0f0;
 }
 
-.scard_info {
-  background-color: #73747620;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.spname {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6px;
 
-  .spname {
-    text-align: center;
-    margin-top: 3px;
-    margin-bottom: 0px;
-    font-size: 18px;
-    font-family: "Roboto", serif;
-    font-weight: 700;
-    background-color: transparent;
-    text-decoration: underline;
-  }
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 
-  .spdes {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-
-    font-family: "Roboto", serif;
-    text-align: center;
-    max-width: 300ch;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 14px;
-    margin: 8xp 0;
-    background-color: transparent;
-  }
-  .sprice {
-    text-align: left;
-    font-family: "Roboto", serif;
-    margin: 3px 0 5px 12px;
-    font-size: 20px;
-    color: #160101f6;
-    background-color: transparent;
-  }
+.sprice {
+  font-size: 12px;
+  font-weight: bold;
+  color: #007bff;
+  text-align: center;
+  margin: 4px 0;
+}
+.scard_info .spdes {
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 6px;
+  line-height: 1.5;
+  max-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

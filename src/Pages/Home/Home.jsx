@@ -43,23 +43,40 @@ const Home = ({ cart, handleAddToCart }) => {
       .catch((err) => console.error("Error fetching products:", err));
   }, []);
 
-  const bookProducts = products.filter(
-    (product) => product.category === "book"
+  const booksProducts = products.filter(
+    (product) => product.category === "Books"
   );
   const electronicsProducts = products.filter(
-    (product) => product.category === "electronics"
+    (product) => product.category === "Electronics"
   );
+  const clothingProducts = products.filter(
+    (product) => product.category === "Clothing"
+  );
+  const applianceProducts = products.filter(
+    (product) => product.category === "Home-appliances"
+  );
+  const mix = products.filter((product) => product.category != null);
   return (
     <div className="homeContainer">
       <Navbar cartCount={cart.length} />
       <div className="contentContainer">
         <Banner_content />
         <Product
-          productsData={bookProducts}
+          productsData={booksProducts}
           handleAddToCart={handleAddToCart}
         />
         <Product
           productsData={electronicsProducts}
+          title="Featured Products"
+          handleAddToCart={handleAddToCart}
+        />
+        <Product
+          productsData={applianceProducts}
+          title="Featured Products"
+          handleAddToCart={handleAddToCart}
+        />
+        <Product
+          productsData={mix}
           title="Featured Products"
           handleAddToCart={handleAddToCart}
         />

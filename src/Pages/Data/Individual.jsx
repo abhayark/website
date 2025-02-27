@@ -40,7 +40,7 @@ function Individual(handleAddToCart) {
           <h1 className="product-name">{product.product_name}</h1>
           <p className="product-description">{product.description}</p>
           <p className="seller-name">Sold by {product.seller}</p>
-          <p className="product-price">{product.price}</p>
+          <p className="product-price"> ₹{product.price}</p>
           <button className="add-to-cart-btn">Add to Cart</button>
         </div>
         {product.img && (
@@ -70,13 +70,13 @@ const Similarproduct = ({ productsData, handleAddToCart }) => {
   };
 
   return (
-    <div className="content">
+    <div className="scontent">
       <button className="morebtn" onClick={loadMore}>
         More
       </button>
       {visibleProducts.map((product) => (
         <div
-          className="card"
+          className="scard"
           key={product._id}
           onClick={() => {
             goto(`/products/${product._id}`);
@@ -85,7 +85,7 @@ const Similarproduct = ({ productsData, handleAddToCart }) => {
         >
           {product.img && (
             <img
-              className="card_img"
+              className="scard_img"
               src={
                 product.img.startsWith("data:image")
                   ? product.img
@@ -95,10 +95,10 @@ const Similarproduct = ({ productsData, handleAddToCart }) => {
             />
           )}
 
-          <div className="card_info">
-            <p className="pname">{product.product_name}</p>
-            <p className="pdes">{product.description}</p>
-            <p className="price">{product.price}</p>
+          <div className="scard_info">
+            <p className="spname">{product.product_name}</p>
+            <p className="spdes">{product.description}</p>
+            <p className="sprice"> ₹{product.price}</p>
             <button className="pbtn">add to cart </button>
           </div>
         </div>

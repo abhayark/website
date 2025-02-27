@@ -40,7 +40,7 @@ const Product = ({ productsData, handleAddToCart }) => {
           <div className="card_info">
             <p className="pname">{product.product_name}</p>
             <p className="pdes">{product.description}</p>
-            <p className="price">{product.price}</p>
+            <p className="price"> ₹{product.price}</p>
             <button
               className="pbtn"
               onClick={(e) => {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./addproduct.css";
 import Navbar from "../../Components/Navbar/Navbar";
 
-const categories = ["Electronics", "Clothing", "Home appliances", "Books"];
+const categories = ["Electronics", "Clothing", "Home-appliances", "Books"];
 
 const SellProduct = () => {
   const [product, setProduct] = useState({
