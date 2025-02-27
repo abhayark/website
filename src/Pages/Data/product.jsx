@@ -25,11 +25,17 @@ const Product = ({ productsData, handleAddToCart }) => {
             console.log("clicked!");
           }}
         >
-          <img
-            className="card_img"
-            src={`${product.img}`}
-            alt={product.product_name}
-          />
+          {product.img && (
+            <img
+              className="card_img"
+              src={
+                product.img.startsWith("data:image")
+                  ? product.img
+                  : `http://localhost:5000/uploads/${product.img}`
+              }
+              alt="Uploaded Product"
+            />
+          )}
 
           <div className="card_info">
             <p className="pname">{product.product_name}</p>

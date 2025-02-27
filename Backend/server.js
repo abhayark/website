@@ -7,7 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const Product = require("./models/Product");
+const productRoutes = require("./routes/productRoutes");
+const Product = require("./models/Product"); // ✅ Import the Product model
+
 const authRoutes = require("./routes/auth");
 
 // Connection
@@ -20,6 +22,7 @@ mongoose
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
 app.use("/api", authRoutes);
+app.use("/api/products", productRoutes);
 //route
 app.get("/api/products", async (req, res) => {
   try {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./addproduct.css";
 import Navbar from "../../Components/Navbar/Navbar";
 
-const categories = ["electronics", "clothing", "home appliances", "books"];
+const categories = ["Electronics", "Clothing", "Home appliances", "Books"];
 
 const SellProduct = () => {
   const [product, setProduct] = useState({
@@ -28,9 +28,42 @@ const SellProduct = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Product Submitted", product);
+    if (
+      !product.productName ||
+      !product.price ||
+      !product.description ||
+      !product.category ||
+      !product.image
+    ) {
+      alert("Please fill in all required fields and upload an image.");
+      return;
+    }
+    const formData = new FormData();
+    formData.append("product_name", product.productName);
+    formData.append("price", product.price);
+    formData.append("description", product.description);
+    formData.append("seller", product.sellerName);
+    formData.append("category", product.category);
+    formData.append("img", product.image);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/products", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("Product added successfully!");
+        console.log("Product added:", data);
+      } else {
+        alert("Failed to add product.");
+      }
+    } catch (error) {
+      console.error("Error adding product:", error);
+    }
   };
 
   return (

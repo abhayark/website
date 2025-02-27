@@ -43,11 +43,17 @@ function Individual(handleAddToCart) {
           <p className="product-price">{product.price}</p>
           <button className="add-to-cart-btn">Add to Cart</button>
         </div>
-        <img
-          src={product.img}
-          alt={product.product_name}
-          className="product-detail-img"
-        />
+        {product.img && (
+          <img
+            src={
+              product.img.startsWith("data:image")
+                ? product.img
+                : `http://localhost:5000/uploads/${product.img}`
+            }
+            alt="Uploaded Product"
+            className="product-detail-img"
+          />
+        )}
       </div>
       <Similarproduct productsData={similarProducts} />
     </div>
@@ -77,11 +83,17 @@ const Similarproduct = ({ productsData, handleAddToCart }) => {
             console.log("clicked!");
           }}
         >
-          <img
-            className="card_img"
-            src={`${product.img}`}
-            alt={product.product_name}
-          />
+          {product.img && (
+            <img
+              className="card_img"
+              src={
+                product.img.startsWith("data:image")
+                  ? product.img
+                  : `http://localhost:5000/uploads/${product.img}`
+              }
+              alt="Uploaded Product"
+            />
+          )}
 
           <div className="card_info">
             <p className="pname">{product.product_name}</p>
