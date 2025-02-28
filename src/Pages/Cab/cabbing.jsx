@@ -40,42 +40,42 @@ const allCabs = [
   },
   {
     id: 6,
-    car: "BMW m4",
+    car: "BMW M4",
     driver: "ARK",
     rating: 4.8,
     image: "/Assets/bmw.jpg",
   },
   {
     id: 7,
-    car: "Mercedes-Benz ",
+    car: "Mercedes-Benz SL",
     driver: "ARK",
     rating: 4.9,
     image: "/Assets/mercedes.jpg",
   },
   {
     id: 8,
-    car: "Audi ",
+    car: "Audi A6 ",
     driver: "ARK",
     rating: 4.5,
     image: "/Assets/audi.jpg",
   },
   {
     id: 9,
-    car: "Nissan ",
+    car: "Nissan GT-R",
     driver: "ARK",
     rating: 4.6,
     image: "/Assets/nissan.jpg",
   },
   {
     id: 10,
-    car: "Hyundai",
+    car: "Hyundai ELANTRA",
     driver: "ARK",
     rating: 4.4,
     image: "/Assets/hyundai.jpg",
   },
   {
     id: 11,
-    car: "Subaru",
+    car: "Subaru STI",
     driver: "ARK",
     rating: 4.2,
     image: "/Assets/subaru.jpg",
@@ -93,9 +93,7 @@ export default function CabBooking() {
       <div className="cab-container">
         <Navbar />
         <h2>Book a Cab</h2>
-        <p className="title">
-          Late or early, rain or shine, your destination’s next in line.
-        </p>
+        <p>Late or early, rain or shine, your destination’s next in line.</p>
         {!selectedCab ? (
           <div className="cab-grid">
             {allCabs.slice(0, visibleCabs).map((cab) => (
@@ -120,13 +118,18 @@ export default function CabBooking() {
             />
             <h2 className="sel-cab-name">{selectedCab.car}</h2>
             <p className="sel-cab-drname">Driver: {selectedCab.driver}</p>
-            <input
-              className="cab-location"
-              type="text"
-              placeholder="Enter your location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
+            <div className="location">
+              <input
+                className="cab-location"
+                type="text"
+                placeholder="Enter your location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+              <label htmlFor="email" className="locationlabel">
+                Enter your location
+              </label>
+            </div>
             <select
               className="cab-payment"
               value={paymentOption}
