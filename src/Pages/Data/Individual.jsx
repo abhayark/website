@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
-import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 import "./Individual.css";
 
-function Individual(handleAddToCart) {
+function Individual() {
   const { id } = useParams(); // Extract the dynamic parameter
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
   console.log("Product ID from URL:", id);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/products/${id}`)
@@ -38,7 +38,14 @@ function Individual(handleAddToCart) {
       <div className="product-detail-card">
         <div className="product-detail-info">
           <h1 className="product-name">{product.product_name}</h1>
-          <p className="product-description">{product.description}</p>
+          <p
+            className={`product-description ${
+              expanded ? "expanded" : "product-description"
+            }`}
+            onClick={() => setExpanded(!expanded)}
+          >
+            {product.description}
+          </p>
           <p className="seller-name">Sold by {product.seller}</p>
           <p className="product-price"> ₹{product.price}</p>
           <button className="add-to-cart-btn">Add to Cart</button>

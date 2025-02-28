@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import "./Cart.css";
-import { colors } from "@mui/joy";
 
 const Cart = ({ cart, onRemove }) => {
   const goto = useNavigate();
@@ -16,19 +15,30 @@ const Cart = ({ cart, onRemove }) => {
           <p className="empty-cart">Your cart is empty</p>
         ) : (
           <ul className="cart-list">
-            {cart.map((item, index) => (
-              <li key={index} className="cart-item">
+            {cart.map((product, index) => (
+              <li
+                key={product._id}
+                className="cart-item"
+                onClick={() => {
+                  goto(`/products/${product._id}`);
+                  console.log("clicked!");
+                }}
+              >
                 <img
-                  src={item.img}
-                  alt={item.product_name}
+                  src={product.img}
+                  alt={product.product_name}
                   className="cart-img"
                 />
                 <div className="cart-info">
-                  <h3 className="cart-product-name">{item.product_name}</h3>
-                  <p className="cart-product-price">Price: {item.price}</p>
+                  <h3 className="cart-product-name">{product.product_name}</h3>
+                  <p className="cart-product-price">Price: {product.price}</p>
                   <button
                     className="remove-btn"
-                    onClick={() => onRemove(index)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onRemove(index);
+                      console.log("clicked!");
+                    }}
                   >
                     Remove
                   </button>
