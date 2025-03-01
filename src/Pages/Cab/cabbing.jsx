@@ -82,7 +82,7 @@ const allCabs = [
   },
 ];
 
-export default function CabBooking() {
+export default function CabBooking({ cart }) {
   const [selectedCab, setSelectedCab] = useState(null);
   const [paymentOption, setPaymentOption] = useState("");
   const [location, setLocation] = useState("");
@@ -91,7 +91,7 @@ export default function CabBooking() {
   return (
     <>
       <div className="cab-container">
-        <Navbar />
+        <Navbar cartCount={cart.length} />
         <h2>Book a Cab</h2>
         <p>Late or early, rain or shine, your destination’s next in line.</p>
         {!selectedCab ? (

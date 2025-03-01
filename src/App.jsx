@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 import Home from "./Pages/Home/Home.jsx";
 import Individual from "./Pages/Data/Individual.jsx";
 import Login from "./Pages/Userhandling/Login.jsx";
 import Cart from "./Pages/Cart.jsx";
-import "./App.css";
 import Form from "./Pages/Userhandling/Form.jsx";
 import CabBooking from "./Pages/Cab/cabbing.jsx";
 import AddProduct from "./Pages/Data/addproduct.jsx";
+import Services from "./Pages/ServicesHolder/Serviecs.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -28,15 +29,34 @@ function App() {
             path="/"
             element={<Home handleAddToCart={handleAddToCart} cart={cart} />}
           />
-          <Route path="/login" element={<Login />} />
           <Route
             path="/cart"
             element={<Cart cart={cart} onRemove={handleRemoveFromCart} />}
           />
-          <Route path="/products/:id" element={<Individual />} />
+          <Route
+            path="/products/:id"
+            element={
+              <Individual handleAddToCart={handleAddToCart} cart={cart} />
+            }
+          />
+          <Route
+            path="services"
+            element={<Services handleAddToCart={handleAddToCart} cart={cart} />}
+          />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Form />} />
-          <Route path="/cab" element={<CabBooking />} />
-          <Route path="/selling" element={<AddProduct />} />
+          <Route
+            path="/cab"
+            element={
+              <CabBooking handleAddToCart={handleAddToCart} cart={cart} />
+            }
+          />
+          <Route
+            path="/selling"
+            element={
+              <AddProduct handleAddToCart={handleAddToCart} cart={cart} />
+            }
+          />
         </Routes>
       </>
     </div>

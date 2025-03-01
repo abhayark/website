@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./Individual.css";
 
-function Individual() {
+function Individual({ cart }) {
   const { id } = useParams(); // Extract the dynamic parameter
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
@@ -34,7 +34,7 @@ function Individual() {
 
   return (
     <div className="product-detail-container">
-      <Navbar />
+      <Navbar cartCount={cart.length} />
       <div className="product-detail-card">
         <div className="product-detail-info">
           <h1 className="product-name">{product.product_name}</h1>

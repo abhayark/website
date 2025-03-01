@@ -5,7 +5,7 @@ export const banner = [
     description: "Reliable Rides, Smooth Journeys Every Time",
   },
   {
-    id: 102,
+    id: "nursery",
     img: "/Assets/nursery.jpg",
     description: "Bringing Nature Closer, One Plant at a Time",
   },

@@ -4,7 +4,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 
 const categories = ["Electronics", "Clothing", "Home-appliances", "Books"];
 
-const SellProduct = () => {
+const SellProduct = ({ cart }) => {
   const [product, setProduct] = useState({
     productName: "",
     price: "",
@@ -68,7 +68,7 @@ const SellProduct = () => {
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar cartCount={cart.length} />
       <div className="sell-product-container">
         <h2 className="sell-product-title">Sell Your Product</h2>
         <form onSubmit={handleSubmit} className="sell-product-form">
