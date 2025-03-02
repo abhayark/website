@@ -9,6 +9,8 @@ import Form from "./Pages/Userhandling/Form.jsx";
 import CabBooking from "./Pages/Cab/cabbing.jsx";
 import AddProduct from "./Pages/Data/addproduct.jsx";
 import Services from "./Pages/ServicesHolder/Serviecs.jsx";
+import Nursery from "./Pages/Nursery/nursery.jsx";
+import ContactUs from "./Pages/Contact/Contact.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -52,9 +54,19 @@ function App() {
             }
           />
           <Route
+            path="/nursery"
+            element={<Nursery handleAddToCart={handleAddToCart} cart={cart} />}
+          />
+          <Route
             path="/selling"
             element={
               <AddProduct handleAddToCart={handleAddToCart} cart={cart} />
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <ContactUs handleAddToCart={handleAddToCart} cart={cart} />
             }
           />
         </Routes>

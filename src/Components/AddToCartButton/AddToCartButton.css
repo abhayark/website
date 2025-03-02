@@ -1,8 +1,4 @@
 .pbtn {
-  border: none;
-  background-color: transparent;
-}
-.add-to-cart {
   box-sizing: border-box;
   font-family: "Roboto", serif;
   color: #b9b5b5b3;
@@ -13,7 +9,11 @@
   padding: 0.5rem 2rem;
   border-radius: 7px;
 }
-.add-to-cart:hover {
+.add-to-cart {
+  background-color: transparent;
+  border: none;
+}
+.pbtn:hover {
   color: whitesmoke;
   background-color: #000000b7;
 }

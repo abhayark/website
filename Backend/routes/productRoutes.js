@@ -9,7 +9,15 @@ const upload = multer({ storage });
 // Fetch all products (GET)
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.find();
+    const { category } = req.query; // Extract category from query parameters
+    let products;
+
+    if (category) {
+      products = await Product.find({ category }); // Filter by category if provided
+    } else {
+      products = await Product.find(); // Otherwise, return all products
+    }
+
     res.json(products);
   } catch (err) {
     res.status(500).json({ error: err.message });

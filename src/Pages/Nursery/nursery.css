@@ -1,0 +1,98 @@
+/* Nursery.css */
+.nursery-container {
+  padding: 1.5rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.nursery-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.nursery-search {
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  width: 100%;
+}
+
+.nursery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .nursery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.nursery-card {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nursery-image {
+  width: 100%;
+  height: 8rem;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.nursery-plant-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.nursery-price {
+  color: #4b5563;
+}
+
+.nursery-button {
+  margin-top: 0.5rem;
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nursery-button:hover {
+  background-color: #2563eb;
+}
+
+.nursery-cart {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cart-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cart-list {
+  margin-top: 0.5rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cart-empty {
+  color: #6b7280;
+}

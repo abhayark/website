@@ -27,21 +27,21 @@ const allServices = [
   },
   {
     id: 4,
-    name: "Merry Voyage",
+    name: "Sell Products",
     provider: "ARK",
-    image: "/Assets/cab.jpg",
-    url: "cab",
+    image: "/Assets/selling.jpg",
+    url: "selling",
   },
   {
     id: 5,
     name: "Contact Us",
     provider: "ARK",
     image: "/Assets/ContactUs.jpg",
-    url: "cab",
+    url: "contact",
   },
 ];
 
-export default function FantasyMarket({ cart }) {
+export default function Services({ cart }) {
   const [selectedService, setSelectedService] = useState(null);
 
   const goto = useNavigate();

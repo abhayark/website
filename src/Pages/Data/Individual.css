@@ -56,8 +56,8 @@
   align-self: center;
   padding: 10px;
   border-radius: 10px;
-  background-color: #b4abab6d;
-  color: #000000b8;
+  background-color: #9c232334;
+  color: #0c5fb9;
   transition: ease-in-out 0.5s;
 }
 .add-to-cart-btn {
@@ -83,12 +83,12 @@
 
 .product-price:hover {
   cursor: pointer;
-  color: #000000;
+  color: #0a72e9f3;
   background-color: #b4abab3b;
 }
 .add-to-cart-btn:hover {
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  color: #000000;
   background-color: #94484839;
   border-bottom: 1px solid #000000;
 }

@@ -16,16 +16,19 @@ function Individual({ cart }) {
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
+        return fetch(
+          `http://localhost:5000/api/products?category=${data.category}`
+        );
       })
-      .catch((err) => console.error("Error fetching product:", err));
-
-    fetch("http://localhost:5000/api/products")
       .then((res) => res.json())
-      .then((data) => {
-        const filteredProducts = data.filter((item) => item._id !== id); // Exclude current product
-        setSimilarProducts(filteredProducts.slice(0, 6)); // Limit to 6 items
+      .then((filteredProducts) => {
+        setSimilarProducts(
+          filteredProducts.filter((item) => item._id !== id).slice(0, 6)
+        );
       })
-      .catch((err) => console.error("Error fetching similar products:", err));
+      .catch((err) =>
+        console.error("Error fetching product or similar products:", err)
+      );
   }, [id]);
 
   if (!product) {

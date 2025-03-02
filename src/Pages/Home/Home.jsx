@@ -20,10 +20,10 @@ const Banner_content = () => {
   const Bid = banner.map((id) => <div key={id.id}>{id.id}</div>);
 
   const bannerlist = banner.map((bitem) => (
-    <div className="banner_container">
+    <div className="banner_container" onClick={() => goto("/" + bitem.id)}>
       <div className="banner_card" key={bitem.id}>
         <p className="pdes">{bitem.description}</p>
-        <div className="banner_img" onClick={() => goto("/" + bitem.id)}>
+        <div className="banner_img">
           <img src={bitem.img} />
         </div>
       </div>
