@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Individual.css";
 import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 
-const Product = ({ productsData, handleAddToCart }) => {
+export default function Similarproduct({ productsData, handleAddToCart }) {
   const goto = useNavigate();
   const [visibleCount, setVisibleCount] = useState(7);
   const visibleProducts = productsData.slice(0, visibleCount);
 
   const loadMore = () => {
     setVisibleCount(visibleCount + 7);
-    console.log(visibleProducts);
-    console.log(visibleCount);
   };
 
   return (
-    <div className="content">
+    <div className="scontent">
       <button className="morebtn" onClick={loadMore}>
         More
       </button>
       {visibleProducts.map((product) => (
         <div
-          className="card"
+          className="scard"
           key={product._id}
           onClick={() => {
             goto(`/products/${product._id}`);
+            console.log("clicked!");
           }}
         >
           {product.img && (
             <img
-              className="card_img"
+              className="scard_img"
               src={
                 product.img.startsWith("data:image")
                   ? product.img
@@ -38,21 +38,20 @@ const Product = ({ productsData, handleAddToCart }) => {
             />
           )}
 
-          <div className="card_info">
-            <p className="pname">{product.product_name}</p>
-            <p className="pdes">{product.description}</p>
-            <p
-              className="price" //converted to num and then into indian format
-            >
+          <div className="scard_info">
+            <p className="spname">{product.product_name}</p>
+            <p className="spdes">{product.description}</p>
+            <p className="sprice">
               {" "}
               ₹{Number(product.price).toLocaleString("en-IN")}
             </p>
             <div
-              className="pbtn"
+              className="add-to-cart-btn"
               onClick={(e) => {
                 e.stopPropagation(); //stops the parent class from getting called "The add button does not open the indi page"
               }}
             >
+              {" "}
               <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
             </div>
           </div>
@@ -60,6 +59,4 @@ const Product = ({ productsData, handleAddToCart }) => {
       ))}
     </div>
   );
-};
-
-export default Product;
+}

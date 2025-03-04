@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./Individual.css";
+import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
+import Similarproduct from "./Simialrproduct";
 
-export default function Individual({ cart }) {
+export default function Individual({ cart, handleAddToCart }) {
   const { id } = useParams(); // Extract the dynamic parameter
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
@@ -54,7 +55,10 @@ export default function Individual({ cart }) {
             {" "}
             ₹{Number(product.price).toLocaleString("en-IN")}
           </p>
-          <button className="add-to-cart-btn">Add to Cart</button>
+          <div className="add-to-cart-btn">
+            {" "}
+            <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
+          </div>
         </div>
         {product.img && (
           <img
@@ -68,64 +72,10 @@ export default function Individual({ cart }) {
           />
         )}
       </div>
-      <Similarproduct productsData={similarProducts} />
+      <Similarproduct
+        productsData={similarProducts}
+        handleAddToCart={handleAddToCart}
+      />
     </div>
   );
 }
-
-const Similarproduct = ({ productsData, handleAddToCart }) => {
-  const goto = useNavigate();
-  const [visibleCount, setVisibleCount] = useState(7);
-  const visibleProducts = productsData.slice(0, visibleCount);
-
-  const loadMore = () => {
-    setVisibleCount(visibleCount + 7);
-  };
-
-  return (
-    <div className="scontent">
-      <button className="morebtn" onClick={loadMore}>
-        More
-      </button>
-      {visibleProducts.map((product) => (
-        <div
-          className="scard"
-          key={product._id}
-          onClick={() => {
-            goto(`/products/${product._id}`);
-            console.log("clicked!");
-          }}
-        >
-          {product.img && (
-            <img
-              className="scard_img"
-              src={
-                product.img.startsWith("data:image")
-                  ? product.img
-                  : `http://localhost:5000/uploads/${product.img}`
-              }
-              alt="Uploaded Product"
-            />
-          )}
-
-          <div className="scard_info">
-            <p className="spname">{product.product_name}</p>
-            <p className="spdes">{product.description}</p>
-            <p className="sprice">
-              {" "}
-              ₹{Number(product.price).toLocaleString("en-IN")}
-            </p>
-            <button
-              className="pbtn"
-              onClick={(e) => {
-                e.stopPropagation();
-              }}
-            >
-              add to cart{" "}
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
