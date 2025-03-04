@@ -11,6 +11,8 @@ import AddProduct from "./Pages/Data/addproduct.jsx";
 import Services from "./Pages/ServicesHolder/Serviecs.jsx";
 import Nursery from "./Pages/Nursery/nursery.jsx";
 import ContactUs from "./Pages/Contact/Contact.jsx";
+import SearchPage from "./Pages/Data/Searchpage.jsx";
+import Product from "./Pages/Data/product.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -31,44 +33,31 @@ function App() {
             path="/"
             element={<Home handleAddToCart={handleAddToCart} cart={cart} />}
           />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Form />} />
           <Route
             path="/cart"
             element={<Cart cart={cart} onRemove={handleRemoveFromCart} />}
           />
+
           <Route
             path="/products/:id"
             element={
               <Individual handleAddToCart={handleAddToCart} cart={cart} />
             }
           />
-          <Route
-            path="services"
-            element={<Services handleAddToCart={handleAddToCart} cart={cart} />}
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Form />} />
-          <Route
-            path="/cab"
-            element={
-              <CabBooking handleAddToCart={handleAddToCart} cart={cart} />
-            }
-          />
-          <Route
-            path="/nursery"
-            element={<Nursery handleAddToCart={handleAddToCart} cart={cart} />}
-          />
-          <Route
-            path="/selling"
-            element={
-              <AddProduct handleAddToCart={handleAddToCart} cart={cart} />
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <ContactUs handleAddToCart={handleAddToCart} cart={cart} />
-            }
-          />
+
+          <Route path="services" element={<Services cart={cart} />} />
+
+          <Route path="/cab" element={<CabBooking cart={cart} />} />
+
+          <Route path="/nursery" element={<Nursery cart={cart} />} />
+
+          <Route path="/selling" element={<AddProduct cart={cart} />} />
+
+          <Route path="/contact" element={<ContactUs cart={cart} />} />
+
+          <Route path="/search" element={<SearchPage cart={cart} />} />
         </Routes>
       </>
     </div>

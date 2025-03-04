@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./addproduct.css";
 import Navbar from "../../Components/Navbar/Navbar";
 
 const categories = ["Electronics", "Clothing", "Home-appliances", "Books"];
 
 const SellProduct = ({ cart }) => {
+  const goto = useNavigate();
   const [product, setProduct] = useState({
     productName: "",
     price: "",
@@ -65,78 +67,92 @@ const SellProduct = ({ cart }) => {
       console.error("Error adding product:", error);
     }
   };
+  const [loggedin, setloggedin] = useState(false);
+  useEffect(() => {
+    const login = localStorage.getItem("user");
+    if (!login) {
+      goto("/login");
+      alert("Login first to sell products");
+    } else {
+      setloggedin(true);
+    }
+  }, [goto]);
 
   return (
     <>
       <Navbar cartCount={cart.length} />
-      <div className="sell-product-container">
-        <h2 className="sell-product-title">Sell Your Product</h2>
-        <form onSubmit={handleSubmit} className="sell-product-form">
-          <input
-            type="text"
-            name="productName"
-            value={product.productName}
-            onChange={handleChange}
-            placeholder="Product Name"
-            className="sell-product-input"
-            required
-          />
-          <input
-            type="number"
-            name="price"
-            value={product.price}
-            onChange={handleChange}
-            placeholder="Price"
-            className="sell-product-input"
-            required
-          />
-          <textarea
-            name="description"
-            value={product.description}
-            onChange={handleChange}
-            placeholder="Description"
-            className="sell-product-input"
-            required
-          />
-          <input
-            type="text"
-            name="sellerName"
-            value={product.sellerName}
-            onChange={handleChange}
-            placeholder="Seller Name"
-            className="sell-product-input"
-            required
-          />
-          <select
-            name="category"
-            value={product.category}
-            onChange={handleChange}
-            className="sell-product-input-sel"
-          >
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="sell-product-input"
-          />
-          {imagePreview && (
-            <img
-              src={imagePreview}
-              alt="Product Preview"
-              className="sell-product-image"
+      {loggedin ? (
+        <div className="sell-product-container">
+          <h2 className="sell-product-title">Sell Your Product</h2>
+          <form onSubmit={handleSubmit} className="sell-product-form">
+            <input
+              type="text"
+              name="productName"
+              value={product.productName}
+              onChange={handleChange}
+              placeholder="Product Name"
+              className="sell-product-input"
+              required
             />
-          )}
-          <button type="submit" className="sell-product-button">
-            Submit
-          </button>
-        </form>
-      </div>
+            <input
+              type="number"
+              name="price"
+              value={product.price}
+              onChange={handleChange}
+              placeholder="Price"
+              className="sell-product-input"
+              required
+            />
+            <textarea
+              name="description"
+              value={product.description}
+              onChange={handleChange}
+              placeholder="Description"
+              className="sell-product-input"
+              required
+            />
+            <input
+              type="text"
+              name="sellerName"
+              value={product.sellerName}
+              onChange={handleChange}
+              placeholder="Seller Name"
+              className="sell-product-input"
+              required
+            />
+            <select
+              name="category"
+              value={product.category}
+              onChange={handleChange}
+              className="sell-product-input-sel"
+            >
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="sell-product-input"
+            />
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt="Product Preview"
+                className="sell-product-image"
+              />
+            )}
+            <button type="submit" className="sell-product-button">
+              Submit
+            </button>
+          </form>
+        </div>
+      ) : (
+        <p>Redirecting to login...</p>
+      )}
     </>
   );
 };

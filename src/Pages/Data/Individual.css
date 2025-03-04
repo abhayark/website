@@ -67,7 +67,7 @@
   align-self: center;
   color: #0000009d;
   background-color: #b5b5b6d3;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.256);
+  border-bottom: 1px solid #00000041;
   transition: ease-in-out 0.5s;
 }
 
@@ -107,7 +107,7 @@
   padding-bottom: 20px;
   background-color: #f5f5f5;
   border-radius: 8px;
-  box-shadow: 0 3px 5px rgba(159, 79, 79, 0.1);
+  box-shadow: 0 3px 5px #9f4f4f1a;
   margin-bottom: 20px;
   position: relative;
 }
@@ -119,13 +119,13 @@
   text-align: center;
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px #0000001a;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .scard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px #00000033;
 }
 
 .scard_img {

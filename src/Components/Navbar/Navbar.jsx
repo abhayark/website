@@ -5,12 +5,19 @@ import Avatar from "@mui/joy/Avatar";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
 function Navbar({ cartCount }) {
-  const buttonRef = useRef(null);
   const goto = useNavigate();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(location.pathname);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchQuery.trim() !== "") {
+      goto(`/search?query=${searchQuery}`);
+    }
+  };
 
   const sbar = () => {
     document.getElementById("searchbar").setAttribute("class", "searchchange");
@@ -71,6 +78,9 @@ function Navbar({ cartCount }) {
           type="input"
           id="searchbar"
           className="searchbar"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={handleSearch}
           onBlur={(e) => {
             if (e.relatedTarget === null) {
               e.target.focus();
