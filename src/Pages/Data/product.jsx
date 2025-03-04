@@ -9,6 +9,8 @@ const Product = ({ productsData, handleAddToCart }) => {
 
   const loadMore = () => {
     setVisibleCount(visibleCount + 7);
+    console.log(visibleProducts);
+    console.log(visibleCount);
   };
 
   return (

@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./Individual.css";
 
-function Individual({ cart }) {
+export default function Individual({ cart }) {
   const { id } = useParams(); // Extract the dynamic parameter
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
-  console.log("Product ID from URL:", id);
   const [expanded, setExpanded] = useState(false);
+  console.log("Product ID from URL:", id);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/products/${id}`)
@@ -23,7 +23,7 @@ function Individual({ cart }) {
       .then((res) => res.json())
       .then((filteredProducts) => {
         setSimilarProducts(
-          filteredProducts.filter((item) => item._id !== id).slice(0, 6)
+          filteredProducts.filter((item) => item._id.toString() !== id)
         );
       })
       .catch((err) =>
@@ -50,7 +50,10 @@ function Individual({ cart }) {
             {product.description}
           </p>
           <p className="seller-name">Sold by {product.seller}</p>
-          <p className="product-price"> ₹{product.price}</p>
+          <p className="product-price">
+            {" "}
+            ₹{Number(product.price).toLocaleString("en-IN")}
+          </p>
           <button className="add-to-cart-btn">Add to Cart</button>
         </div>
         {product.img && (
@@ -108,12 +111,21 @@ const Similarproduct = ({ productsData, handleAddToCart }) => {
           <div className="scard_info">
             <p className="spname">{product.product_name}</p>
             <p className="spdes">{product.description}</p>
-            <p className="sprice"> ₹{product.price}</p>
-            <button className="pbtn">add to cart </button>
+            <p className="sprice">
+              {" "}
+              ₹{Number(product.price).toLocaleString("en-IN")}
+            </p>
+            <button
+              className="pbtn"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              add to cart{" "}
+            </button>
           </div>
         </div>
       ))}
     </div>
   );
 };
-export default Individual;
