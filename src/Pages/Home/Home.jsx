@@ -49,8 +49,8 @@ const Home = ({ cart, handleAddToCart }) => {
   const electronicsProducts = products.filter(
     (product) => product.category === "Electronics"
   );
-  const clothingProducts = products.filter(
-    (product) => product.category === "Clothing"
+  const accessoriesProducts = products.filter(
+    (product) => product.category === "Accessories"
   );
   const applianceProducts = products.filter(
     (product) => product.category === "Home-appliances"
@@ -70,6 +70,12 @@ const Home = ({ cart, handleAddToCart }) => {
           title="Featured Products"
           handleAddToCart={handleAddToCart}
         />
+        <Product
+          productsData={accessoriesProducts}
+          title="Featured Products"
+          handleAddToCart={handleAddToCart}
+        />
+
         <Product
           productsData={applianceProducts}
           title="Featured Products"

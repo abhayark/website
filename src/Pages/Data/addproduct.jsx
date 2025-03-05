@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./addproduct.css";
 import Navbar from "../../Components/Navbar/Navbar";
 
-const categories = ["Electronics", "Clothing", "Home-appliances", "Books"];
+const categories = ["Electronics", "Accessories", "Home-appliances", "Books"];
 
 const SellProduct = ({ cart }) => {
   const goto = useNavigate();

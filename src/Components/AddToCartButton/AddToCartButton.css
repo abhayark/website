@@ -2,8 +2,8 @@
   box-sizing: border-box;
   font-family: "Roboto", serif;
   color: #b9b5b5b3;
-  border: none;
-  background-color: #00000083;
+  border: 1px solid #323232be;
+  background-color: #1917175a;
   transition: all 0.3s ease-in-out;
   margin-bottom: 5px;
   padding: 0.5rem 2rem;
@@ -15,5 +15,5 @@
 }
 .pbtn:hover {
   color: whitesmoke;
-  background-color: #000000b7;
+  background-color: #0a1c2f5c;
 }

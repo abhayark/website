@@ -5,7 +5,11 @@ import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 const Product = ({ productsData, handleAddToCart }) => {
   const goto = useNavigate();
   const [visibleCount, setVisibleCount] = useState(7);
-  const visibleProducts = productsData.slice(0, visibleCount);
+  const shuffledProducts = [...productsData].sort(() => Math.random() - 0.5);
+  const visibleProducts = shuffledProducts.slice(0, visibleCount);
+
+  const categoryName =
+    visibleProducts.length > 0 ? visibleProducts[0].category : "Products";
 
   const loadMore = () => {
     setVisibleCount(visibleCount + 7);
@@ -15,9 +19,12 @@ const Product = ({ productsData, handleAddToCart }) => {
 
   return (
     <div className="content">
-      <button className="morebtn" onClick={loadMore}>
-        More
-      </button>
+      <div className="more-container">
+        <button className="morebtn" onClick={loadMore}>
+          More
+        </button>
+        <span className="category-label">{categoryName}</span>
+      </div>
       {visibleProducts.map((product) => (
         <div
           className="card"

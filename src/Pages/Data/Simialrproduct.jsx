@@ -6,7 +6,8 @@ import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 export default function Similarproduct({ productsData, handleAddToCart }) {
   const goto = useNavigate();
   const [visibleCount, setVisibleCount] = useState(7);
-  const visibleProducts = productsData.slice(0, visibleCount);
+  const shuffledProducts = [...productsData].sort(() => Math.random() - 0.5);
+  const visibleProducts = shuffledProducts.slice(0, visibleCount);
 
   const loadMore = () => {
     setVisibleCount(visibleCount + 7);
