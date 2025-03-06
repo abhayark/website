@@ -1,19 +1,18 @@
-.pbtn {
+.add-to-cart {
   box-sizing: border-box;
   font-family: "Roboto", serif;
-  color: #b9b5b5b3;
+  color: #ffffff;
   border: 1px solid #323232be;
-  background-color: #1917175a;
-  transition: all 0.3s ease-in-out;
+  background-color: #19171755;
+  box-shadow: 0px 4px 12px #a29b9beb;
+  transition: all 0.4s ease-in-out;
   margin-bottom: 5px;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1.6rem;
   border-radius: 7px;
+  justify-self: center;
 }
-.add-to-cart {
-  background-color: transparent;
-  border: none;
-}
-.pbtn:hover {
-  color: whitesmoke;
-  background-color: #0a1c2f5c;
+.add-to-cart:hover {
+  color: #000000a8;
+  background-color: #b7babba2;
+  border: 1px solid #460e0e5e;
 }

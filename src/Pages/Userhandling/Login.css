@@ -8,17 +8,15 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Form Container */
 .log_form {
   background: #1a1a1a;
   padding: 25px;
   border-radius: 12px;
   width: 320px;
   text-align: center;
-  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 4px 12px #ffffff1a;
 }
 
-/* Submit Button */
 .submitBtn {
   width: 100%;
   background: #ffffff;
@@ -38,7 +36,6 @@
   transform: translateY(-2px);
 }
 
-/* Style for Dropdown */
 select {
   background-color: #1a1a1a !important;
   color: #ffffff !important;

@@ -81,11 +81,6 @@ const Home = ({ cart, handleAddToCart }) => {
           title="Featured Products"
           handleAddToCart={handleAddToCart}
         />
-        <Product
-          productsData={mix}
-          title="Featured Products"
-          handleAddToCart={handleAddToCart}
-        />
       </div>
     </div>
   );

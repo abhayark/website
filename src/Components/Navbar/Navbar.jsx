@@ -14,8 +14,14 @@ function Navbar({ cartCount }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (e) => {
-    if (e.key === "Enter" && searchQuery.trim() !== "") {
-      goto(`/search?query=${searchQuery}`);
+    if (location.pathname === "/") {
+      if (e.key === "Enter" && searchQuery.trim() !== "") {
+        goto(`/search?query=${searchQuery}`);
+      }
+    } else if (location.pathname === "/cab") {
+      if (e.key === "Enter" && searchQuery.trim() !== "") {
+        goto(`/cab-search?query=${searchQuery}`);
+      }
     }
   };
 

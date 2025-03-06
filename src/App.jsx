@@ -12,7 +12,7 @@ import Services from "./Pages/ServicesHolder/Serviecs.jsx";
 import Nursery from "./Pages/Nursery/nursery.jsx";
 import ContactUs from "./Pages/Contact/Contact.jsx";
 import SearchPage from "./Pages/Data/Searchpage.jsx";
-import Product from "./Pages/Data/product.jsx";
+import CabSearch from "./Pages/Cab/cabsearch.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -53,7 +53,7 @@ function App() {
           <Route path="services" element={<Services cart={cart} />} />
 
           <Route path="/cab" element={<CabBooking cart={cart} />} />
-
+          <Route path="/cab-search" element={<CabSearch />} />
           <Route path="/nursery" element={<Nursery cart={cart} />} />
 
           <Route path="/selling" element={<AddProduct cart={cart} />} />
