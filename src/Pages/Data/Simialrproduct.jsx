@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Individual.css";
 import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
@@ -6,9 +6,17 @@ import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 export default function Similarproduct({ productsData, handleAddToCart }) {
   const goto = useNavigate();
   const [visibleCount, setVisibleCount] = useState(7);
-  const shuffledProducts = [...productsData].sort(() => Math.random() - 0.5);
-  const visibleProducts = shuffledProducts.slice(0, visibleCount);
+  const shuffledProductsRef = useRef(null);
 
+  if (!shuffledProductsRef.current && productsData.length > 0) {
+    shuffledProductsRef.current = [...productsData].sort(
+      () => Math.random() - 0.5
+    );
+  }
+
+  const visibleProducts = shuffledProductsRef.current
+    ? shuffledProductsRef.current.slice(0, visibleCount)
+    : [];
   const loadMore = () => {
     setVisibleCount(visibleCount + 7);
   };
@@ -47,12 +55,11 @@ export default function Similarproduct({ productsData, handleAddToCart }) {
               ₹{Number(product.price).toLocaleString("en-IN")}
             </p>
             <div
-              className="add-to-cart-btn"
+              className="pbtn"
               onClick={(e) => {
-                e.stopPropagation(); //stops the parent class from getting called "The add button does not open the indi page"
+                e.stopPropagation();
               }}
             >
-              {" "}
               <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
             </div>
           </div>

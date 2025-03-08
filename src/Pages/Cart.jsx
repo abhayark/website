@@ -6,6 +6,11 @@ import "./Cart.css";
 const Cart = ({ cart, onRemove }) => {
   const goto = useNavigate();
 
+  const totalPrice = cart.reduce(
+    (sum, product) => sum + Number(product.price),
+    0
+  );
+
   return (
     <div>
       <Navbar cartCount={cart.length} />
@@ -31,7 +36,9 @@ const Cart = ({ cart, onRemove }) => {
                 />
                 <div className="cart-info">
                   <h3 className="cart-product-name">{product.product_name}</h3>
-                  <p className="cart-product-price">Price: {product.price}</p>
+                  <p className="cart-product-price">
+                    Price: ₹{Number(product.price).toLocaleString("en-IN")}
+                  </p>
                   <button
                     className="remove-btn"
                     onClick={(e) => {
@@ -47,6 +54,9 @@ const Cart = ({ cart, onRemove }) => {
             ))}
           </ul>
         )}
+        <p className="cart-product-price">
+          <strong>Total: ₹{Number(totalPrice).toLocaleString("en-IN")}</strong>
+        </p>
         <button className="continue-shopping-btn" onClick={() => goto("/")}>
           Continue Shopping
         </button>

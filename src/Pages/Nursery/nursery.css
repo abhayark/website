@@ -1,7 +1,6 @@
 .nursery-container {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  padding: 7px;
   background: radial-gradient(circle, #2e1a0f, #1a0d06);
 }
 .nursery-wrapper {

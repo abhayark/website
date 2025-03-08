@@ -55,8 +55,7 @@ export default function Individual({ cart, handleAddToCart }) {
             {" "}
             ₹{Number(product.price).toLocaleString("en-IN")}
           </p>
-          <div className="add-to-cart-btn">
-            {" "}
+          <div className="pbtn">
             <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
           </div>
         </div>

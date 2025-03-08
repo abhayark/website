@@ -1,12 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 
 const Product = ({ productsData, handleAddToCart }) => {
   const goto = useNavigate();
+
   const [visibleCount, setVisibleCount] = useState(7);
-  const shuffledProducts = [...productsData].sort(() => Math.random() - 0.5);
-  const visibleProducts = shuffledProducts.slice(0, visibleCount);
+  const shuffledProductsRef = useRef(null);
+
+  if (!shuffledProductsRef.current && productsData.length > 0) {
+    shuffledProductsRef.current = [...productsData].sort(
+      () => Math.random() - 0.5
+    );
+  }
+
+  const visibleProducts = shuffledProductsRef.current
+    ? shuffledProductsRef.current.slice(0, visibleCount)
+    : [];
 
   const categoryName =
     visibleProducts.length > 0 ? visibleProducts[0].category : "Products";

@@ -61,13 +61,9 @@
   transition: ease-in-out 0.5s;
 }
 .add-to-cart-btn {
+  background-color: transparent;
   border: none;
-  padding: 10px;
-  border-radius: 10px;
   align-self: center;
-  color: #0000009d;
-  background-color: #b5b5b6d3;
-  border-bottom: 1px solid #00000041;
   transition: ease-in-out 0.5s;
 }
 
@@ -97,7 +93,10 @@
   cursor: pointer;
   color: #000000;
 }
-
+.pbtn {
+  background-color: transparent;
+  align-self: center;
+}
 .scontent {
   display: flex;
   overflow-x: auto;
