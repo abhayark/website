@@ -7,35 +7,30 @@ const allServices = [
   {
     id: 1,
     name: "Merry Voyage",
-    provider: "ARK",
     image: "/Assets/cab.jpg",
     url: "cab",
   },
   {
     id: 2,
     name: "Floral Eclipse ",
-    provider: "ARK",
     image: "/Assets/nursery.jpg",
     url: "nursery",
   },
   {
     id: 3,
-    name: "Merry Voyage",
-    provider: "ARK",
+    name: "List your services",
     image: "/Assets/cab.jpg",
     url: "cab",
   },
   {
     id: 4,
-    name: "Sell Products",
-    provider: "ARK",
+    name: "List your product",
     image: "/Assets/selling.jpg",
     url: "selling",
   },
   {
     id: 5,
     name: "Contact Us",
-    provider: "ARK",
     image: "/Assets/ContactUs.jpg",
     url: "contact",
   },
@@ -76,9 +71,6 @@ export default function Services({ cart }) {
               alt={selectedService.name}
             />
             <h2 className="service-title">{selectedService.name}</h2>
-            <p className="service-provider">
-              Provided by: {selectedService.provider}
-            </p>
 
             <button
               className="visit-btn"

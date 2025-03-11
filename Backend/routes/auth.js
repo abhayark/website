@@ -1,12 +1,6 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
-
-const SECRET_KEY = "Abhayark"; // Change this to a strong secret key
-
-// User Signup (with Password Hashing)
 
 router.post("/signup", async (req, res) => {
   const { email, username, password, address, mobile, gender } = req.body;
@@ -27,7 +21,6 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// User Login (Authentication)
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -42,6 +35,7 @@ router.post("/login", async (req, res) => {
     }
 
     res.status(200).json({ message: "Login successful", user });
+    localStorage.setItem("user", JSON.stringify(user));
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }

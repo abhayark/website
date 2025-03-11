@@ -75,13 +75,6 @@
   background-color: transparent;
 }
 
-.cart-right-column {
-  flex: 1;
-  background-color: transparent;
-  padding: 20px;
-  border-left: 3px solid #ddd;
-}
-
 .cart-right {
   display: flex;
   align-items: center;
@@ -149,4 +142,30 @@
 
 .continue-shopping-btn:hover {
   background-color: #0056b3;
+}
+
+.user-info {
+  background: #e5e9e9a3;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 10px;
+  text-align: left;
+  color: #2c2b2bd6;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 6px #8a8c92d6;
+}
+
+.user-info p {
+  margin: 5px 0;
+}
+.user-info strong {
+  background-color: transparent;
+}
+.cart-right-column {
+  background: #ffffff09;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px #0000001e;
+  margin-bottom: 10px;
 }

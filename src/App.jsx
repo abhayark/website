@@ -8,7 +8,7 @@ import Cart from "./Pages/Cart.jsx";
 import Form from "./Pages/Userhandling/Form.jsx";
 import CabBooking from "./Pages/Cab/cabbing.jsx";
 import AddProduct from "./Pages/Data/addproduct.jsx";
-import Services from "./Pages/ServicesHolder/Serviecs.jsx";
+import Services from "./Pages/ServicesHolder/Services.jsx";
 import Nursery from "./Pages/Nursery/nursery.jsx";
 import ContactUs from "./Pages/Contact/Contact.jsx";
 import SearchPage from "./Pages/Data/Searchpage.jsx";
