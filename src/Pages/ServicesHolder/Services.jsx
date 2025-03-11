@@ -18,9 +18,9 @@ const allServices = [
   },
   {
     id: 3,
-    name: "List your services",
-    image: "/Assets/cab.jpg",
-    url: "cab",
+    name: "Resorts",
+    image: "/Assets/resort.jpg",
+    url: "resort",
   },
   {
     id: 4,
@@ -33,6 +33,12 @@ const allServices = [
     name: "Contact Us",
     image: "/Assets/ContactUs.jpg",
     url: "contact",
+  },
+  {
+    id: 6,
+    name: "List your services",
+    image: "/Assets/cab.jpg",
+    url: "cab",
   },
 ];
 
@@ -82,7 +88,7 @@ export default function Services({ cart }) {
               className="back-btn"
               onClick={() => setSelectedService(null)}
             >
-              Back to Marketplace
+              ⬅ Back to MarketPlace
             </button>
           </div>
         )}

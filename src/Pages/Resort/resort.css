@@ -1,0 +1,90 @@
+.resort-container {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+  background: #f7f8fa;
+}
+
+.resort-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.resort-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resort-card:hover {
+  transform: scale(1.05);
+}
+
+.resort-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.price {
+  font-weight: bold;
+  color: #ff6347;
+}
+
+.resort-details {
+  margin-top: 20px;
+  text-align: left;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.resort-detail-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.booking-form {
+  margin-top: 15px;
+}
+
+.booking-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.book-now {
+  background: #ff6347;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.book-now:hover {
+  background: #e55337;
+}
+
+.back {
+  background: #ddd;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.back:hover {
+  background: #bbb;
+}
