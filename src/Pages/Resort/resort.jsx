@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar.jsx";
 import "./resort.css";
+import { Flag } from "@mui/icons-material";
 
 const resorts = [
   {
@@ -38,6 +39,28 @@ const resorts = [
 ];
 
 export default function ResortBooking({ cart }) {
+  const date = new Date();
+  const today =
+    date.getFullYear() +
+    "-" +
+    "0" +
+    (date.getMonth() + 1) +
+    "-" +
+    date.getDate();
+
+  let yet = false;
+
+  const datecheck = () => {
+    yet = checkIn > checkOut ? false : true;
+    yet = checkIn < today ? false : true;
+
+    if (yet == true) {
+      alert("Successfully Booked");
+    } else {
+      alert("Enter proper Date");
+    }
+  };
+
   const [selectedResort, setSelectedResort] = useState(null);
   const [guestCount, setGuestCount] = useState(1);
   const [checkIn, setCheckIn] = useState("");
@@ -80,7 +103,6 @@ export default function ResortBooking({ cart }) {
           <p>📌 {selectedResort.location}</p>
           <p>⭐ {selectedResort.rating}</p>
           <p className="price">💰 {selectedResort.price}</p>
-
           <div className="booking-form">
             <label>Guests: </label>
             <input
@@ -95,21 +117,21 @@ export default function ResortBooking({ cart }) {
             <input
               type="date"
               value={checkIn}
-              onChange={(e) => setCheckIn(e.target.value)}
+              onChange={(e) => {
+                setCheckIn(e.target.value);
+              }}
             />
 
             <label>Check-out: </label>
             <input
               type="date"
               value={checkOut}
-              onChange={(e) => setCheckOut(e.target.value)}
+              onChange={(e) => {
+                setCheckOut(e.target.value);
+              }}
             />
           </div>
-
-          <button
-            className="book-now"
-            onClick={() => alert("Resort booked successfully!")}
-          >
+          <button className="book-now" onClick={() => datecheck()}>
             Book Now
           </button>
           <button className="back" onClick={() => setSelectedResort(null)}>

@@ -80,6 +80,13 @@ const allCabs = [
     rating: 4.2,
     image: "/Assets/subaru.jpg",
   },
+  {
+    id: 12,
+    car: "hunter 350",
+    driver: "Amit",
+    rating: 5,
+    image: "/Assets/hunter.jpg",
+  },
 ];
 
 export default function CabBooking({ cart }) {
