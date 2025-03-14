@@ -8,7 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 const productRoutes = require("./routes/productRoutes");
-const Product = require("./models/Product"); // ✅ Import the Product model
+const serviceRoutes = require("./routes/serviceRoutes");
+const Product = require("./models/Product");
+const Service = require("./models/Service");
 
 const authRoutes = require("./routes/auth");
 
@@ -23,6 +25,8 @@ mongoose
 
 app.use("/api", authRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/services", serviceRoutes);
+
 //route
 app.get("/api/products", async (req, res) => {
   try {

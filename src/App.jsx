@@ -14,6 +14,7 @@ import ContactUs from "./Pages/Contact/Contact.jsx";
 import SearchPage from "./Pages/Data/Searchpage.jsx";
 import CabSearch from "./Pages/Cab/cabsearch.jsx";
 import ResortBooking from "./Pages/Resort/resort.jsx";
+import ListService from "./Pages/ServicesHolder/addServices.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -59,6 +60,7 @@ function App() {
           <Route path="/resort" element={<ResortBooking cart={cart} />} />
 
           <Route path="/selling" element={<AddProduct cart={cart} />} />
+          <Route path="/addyourstuff" element={<ListService cart={cart} />} />
 
           <Route path="/contact" element={<ContactUs cart={cart} />} />
 

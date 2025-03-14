@@ -38,7 +38,7 @@ const allServices = [
     id: 6,
     name: "List your services",
     image: "/Assets/cab.jpg",
-    url: "cab",
+    url: "addyourstuff",
   },
 ];
 
