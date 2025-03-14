@@ -131,14 +131,14 @@ export default function ListService({ cart }) {
       <Navbar cartCount={cart.length} />
       {loggedin ? (
         <div>
-          <div className="sell-product-container">
-            <h2 className="sell-product-title">Enlist Your Service</h2>
-            <div className="sell-product-category">
+          <div className="service-container">
+            <h2 className="service-title">Enlist Your Service</h2>
+            <div className="service-category-container">
               <select
                 name="category"
                 value={selectedService}
                 onChange={handleServiceChange}
-                className="sell-service-input-sel"
+                className="service-category"
               >
                 <option value="" disabled>
                   Select a Service Type
@@ -152,15 +152,15 @@ export default function ListService({ cart }) {
             </div>
           </div>
           {selectedService && (
-            <form onSubmit={handleSubmit} className="sell-service-form">
+            <form onSubmit={handleSubmit} className="service-form">
               {fields[selectedService].map((field) => (
-                <div key={field}>
-                  <label>{field}:</label>
+                <div key={field} style={{ backgroundColor: "transparent" }}>
                   {field.toLowerCase().includes("image") ? (
                     <input
                       type="file"
                       accept="image/*"
                       onChange={handleImageChange}
+                      className="service-input"
                     />
                   ) : (
                     <input
@@ -169,7 +169,7 @@ export default function ListService({ cart }) {
                       value={service[field] || ""}
                       onChange={handleChange}
                       placeholder={`Enter ${field}`}
-                      className="sell-service-input"
+                      className="service-input"
                       required
                     />
                   )}
@@ -184,9 +184,17 @@ export default function ListService({ cart }) {
                 />
               )}
 
-              <button type="submit" className="sell-service-button">
-                Submit
-              </button>
+              <div className="service-button-container">
+                <button
+                  onClick={() => goto("/services")}
+                  className="service-button"
+                >
+                  Back to Marketplace
+                </button>
+                <button type="submit" className="service-button">
+                  Submit
+                </button>
+              </div>
             </form>
           )}
         </div>

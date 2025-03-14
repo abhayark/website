@@ -1,44 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar.jsx";
 import "./resort.css";
-import { Flag } from "@mui/icons-material";
-
-const resorts = [
-  {
-    id: 1,
-    name: "Paradise Cove",
-    location: "Bali, Indonesia",
-    rating: 4.8,
-    image: "/Assets/resor.jpg",
-    price: "₹50,000/night",
-  },
-  {
-    id: 2,
-    name: "Crystal Lagoon",
-    location: "Maldives",
-    rating: 4.9,
-    image: "/Assets/resor.jpg",
-    price: "₹20,000/night",
-  },
-  {
-    id: 3,
-    name: "Sky Retreat",
-    location: "Santorini, Greece",
-    rating: 4.7,
-    image: "/Assets/resor.jpg",
-    price: "₹35,000/night",
-  },
-  {
-    id: 4,
-    name: "Jungle Escape",
-    location: "Costa Rica",
-    rating: 4.6,
-    image: "/Assets/resor.jpg",
-    price: "₹40,000/night",
-  },
-];
+import { Reorder } from "@mui/icons-material";
 
 export default function ResortBooking({ cart }) {
+  const [resorts, setResorts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/api/services/resorts")
+      .then((res) => res.json())
+      .then((data) => setResorts(data))
+      .catch((err) => console.error("Error fetching cabs:", err));
+  }, []);
+
   const date = new Date();
   const today =
     date.getFullYear() +
@@ -83,12 +56,13 @@ export default function ResortBooking({ cart }) {
               <img
                 className="resort-image"
                 src={resort.image}
-                alt={resort.name}
+                alt={resort.service_name}
               />
-              <h2>{resort.name}</h2>
-              <p>{resort.location}</p>
-              <p>⭐ {resort.rating}</p>
-              <p className="price">{resort.price}</p>
+              <h2>{resort.service_name}</h2>
+              <p>{resort.description}</p>
+              <p className="price">
+                ₹{Number(resort.price).toLocaleString("en-IN")}
+              </p>
             </div>
           ))}
         </div>
@@ -99,10 +73,11 @@ export default function ResortBooking({ cart }) {
             src={selectedResort.image}
             alt={selectedResort.name}
           />
-          <h2>{selectedResort.name}</h2>
-          <p>📌 {selectedResort.location}</p>
-          <p>⭐ {selectedResort.rating}</p>
-          <p className="price">💰 {selectedResort.price}</p>
+          <h2>{selectedResort.service_name}</h2>
+          <p>📌 {selectedResort.description}</p>
+          <p className="price">
+            💰 ₹{Number(selectedResort.price).toLocaleString("en-IN")}
+          </p>
           <div className="booking-form">
             <label>Guests: </label>
             <input

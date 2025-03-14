@@ -4,11 +4,9 @@ const multer = require("multer");
 
 const router = express.Router();
 
-// ✅ Configure `multer` to handle image uploads
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// ✅ GET route: Fetch all services
 router.get("/", async (req, res) => {
   try {
     const services = await Service.find();
@@ -18,7 +16,32 @@ router.get("/", async (req, res) => {
   }
 });
 
-// ✅ POST route: Add a new service
+router.get("/resorts", async (req, res) => {
+  try {
+    const resort = await Service.find({ category: "Resorts" });
+    res.json(resort);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+router.get("/nursery", async (req, res) => {
+  try {
+    const nursery = await Service.find({ category: "Nursery products" });
+    res.json(nursery);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.get("/cabs", async (req, res) => {
+  try {
+    const cabs = await Service.find({ category: "Cab Driver" }); // Match exact category
+    res.json(cabs);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 router.post("/", upload.single("image"), async (req, res) => {
   try {
     console.log("Received data:", req.body);
@@ -34,7 +57,6 @@ router.post("/", upload.single("image"), async (req, res) => {
       return res.status(400).json({ error: "Service image is required" });
     }
 
-    // ✅ Convert image to Base64
     const imageBase64 = `data:${
       req.file.mimetype
     };base64,${req.file.buffer.toString("base64")}`;
