@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./cabbing.css";
 import Navbar from "../../Components/Navbar/Navbar";
+import { useLocation } from "react-router-dom";
 
 export default function CabBooking({ cart }) {
   const [cabs, setCabs] = useState([]);
@@ -8,6 +9,14 @@ export default function CabBooking({ cart }) {
   const [paymentOption, setPaymentOption] = useState("");
   const [location, setLocation] = useState("");
   const [visibleCabs, setVisibleCabs] = useState(10);
+
+  const locationHook = useLocation();
+
+  useEffect(() => {
+    if (locationHook.state?.selectedCab) {
+      setSelectedCab(locationHook.state.selectedCab);
+    }
+  }, [locationHook.state]);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/services/cabs")
