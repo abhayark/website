@@ -31,7 +31,7 @@ export default function ResortBooking({ cart }) {
     const checkOutDate = new Date(checkOut);
     const today = new Date();
 
-    if (checkInDate < today) {
+    if (checkInDate <= today) {
       alert("Check-in date must be today or later.");
       return;
     }

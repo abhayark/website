@@ -30,6 +30,7 @@ export default function Nursery({ cart }) {
       phone: user.mobile || "N/A",
       service: "Nursery",
       serviceId: selectedPlant._id,
+      serviceName: selectedPlant.service_name,
       price: selectedPlant.price,
     };
 
@@ -42,7 +43,7 @@ export default function Nursery({ cart }) {
 
       const result = await response.json();
       if (response.ok) {
-        console.log("Plant ordered successfully!");
+        alert("Plant ordered successfully!");
       } else {
         alert("Failed to order plant: " + result.error);
       }

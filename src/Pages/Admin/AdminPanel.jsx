@@ -79,27 +79,27 @@ export default function AdminPanel() {
 
   const getColumns = (service) => {
     switch (service) {
-      case "Cab":
+      case "Product":
         return [
-          "Order ID",
+          "Product Name",
           "Customer Name",
           "Customer Email",
           "Customer Phone",
-          "Cab Name",
-          "Driver Number", // price used as driver number
+          "Order ID",
+          "Price",
           "Status",
           "Change Status",
           "Actions",
           "Date",
         ];
-      case "Product":
+      case "Cab":
         return [
-          "Order ID",
           "Customer Name",
           "Customer Email",
           "Customer Phone",
-          "Product Name",
-          "Price",
+          "Order ID",
+          "Cab Name",
+          "Driver Number", // price used as driver number
           "Status",
           "Change Status",
           "Actions",
@@ -150,26 +150,35 @@ export default function AdminPanel() {
   // Render a row for an order with a status dropdown and remove button
   const renderRow = (order, service) => (
     <tr key={order._id}>
-      <td>{order.serviceId}</td>
+      <td>{order.serviceName || "-"}</td>
       <td>{order.customerName}</td>
       <td>{order.email}</td>
       <td>{order.phone}</td>
-      <td>{order.serviceName || "-"}</td>
-
+      <td>{order.serviceId}</td>
       <td>{service === "Cab" ? order.price : `₹${order.price}`}</td>
-      <td>{order.status}</td>
+      <td>
+        <span className={`status ${order.status.toLowerCase()}`}>
+          {order.status}
+        </span>
+      </td>
       <td>
         <select
+          className="status-dropdown"
           value={order.status}
           onChange={(e) => handleStatusChange(order._id, e.target.value)}
         >
           <option value="Pending">Pending</option>
           <option value="Delivering">Delivering</option>
-          <option value="Delivered/Complete">Delivered/Complete</option>
+          <option value="Complete">Complete</option>
         </select>
       </td>
       <td>
-        <button onClick={() => handleRemoveOrder(order._id)}>Remove</button>
+        <button
+          className="action-btn delete"
+          onClick={() => handleRemoveOrder(order._id)}
+        >
+          Remove
+        </button>
       </td>
       <td>{new Date(order.orderDate).toLocaleDateString()}</td>
     </tr>
@@ -186,7 +195,7 @@ export default function AdminPanel() {
         Object.keys(groupedOrders).map((service) => (
           <div key={service} className="order-group">
             <h2>{service} Orders</h2>
-            <table>
+            <table className="item-table">
               <thead>
                 <tr>
                   {getColumns(service).map((col, index) => (
