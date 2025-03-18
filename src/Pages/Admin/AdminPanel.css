@@ -1,0 +1,34 @@
+.admin-panel {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.admin-panel h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-group {
+  margin-bottom: 40px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

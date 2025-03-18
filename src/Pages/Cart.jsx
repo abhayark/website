@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import "./Cart.css";
 
-const Cart = ({ cart, onRemove }) => {
+const Cart = ({ cart, onRemove, clearCart }) => {
   const goto = useNavigate();
 
   const totalPrice = cart.reduce(
@@ -20,6 +20,44 @@ const Cart = ({ cart, onRemove }) => {
       setloggedin(true);
     }
   }, []);
+
+  const handleCheckout = async () => {
+    if (!user) {
+      alert("Please log in to complete your purchase.");
+      return;
+    }
+
+    try {
+      for (const product of cart) {
+        const orderData = {
+          customerName: user.username || "Unknown User",
+          email: user.email,
+          phone: user.mobile || "N/A",
+          service: "Product",
+          serviceId: product._id,
+          serviceName: product.product_name,
+          price: product.price,
+        };
+
+        const response = await fetch("http://localhost:5000/api/orders", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(orderData),
+        });
+
+        if (!response.ok) {
+          const result = await response.json();
+          alert("Error ordering product: " + result.error);
+          return;
+        }
+      }
+      alert("Order placed successfully!");
+      clearCart();
+    } catch (error) {
+      console.error("Error during checkout:", error);
+      alert("An error occurred while placing your order.");
+    }
+  };
 
   return (
     <>
@@ -96,10 +134,7 @@ const Cart = ({ cart, onRemove }) => {
                 )}
                 <p>//todo extra</p>
                 <h3>Total: ₹{Number(totalPrice).toLocaleString("en-IN")}</h3>
-                <button
-                  className="checkout-btn"
-                  onClick={() => goto("/checkout")}
-                >
+                <button className="checkout-btn" onClick={handleCheckout}>
                   Buy
                 </button>
               </div>

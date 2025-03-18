@@ -5,6 +5,11 @@ import { Reorder } from "@mui/icons-material";
 
 export default function ResortBooking({ cart }) {
   const [resorts, setResorts] = useState([]);
+  const [selectedResort, setSelectedResort] = useState(null);
+  const [guestCount, setGuestCount] = useState(1);
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+
   useEffect(() => {
     fetch("http://localhost:5000/api/services/resorts")
       .then((res) => res.json())
@@ -12,32 +17,58 @@ export default function ResortBooking({ cart }) {
       .catch((err) => console.error("Error fetching cabs:", err));
   }, []);
 
-  const date = new Date();
-  const today =
-    date.getFullYear() +
-    "-" +
-    "0" +
-    (date.getMonth() + 1) +
-    "-" +
-    date.getDate();
+  const handleResortBooking = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("Please log in to book a resort.");
+      return;
+    }
+    if (!selectedResort || !checkIn || !checkOut) {
+      alert("Please select a resort and enter check-in/out dates.");
+      return;
+    }
+    const checkInDate = new Date(checkIn);
+    const checkOutDate = new Date(checkOut);
+    const today = new Date();
 
-  let yet = false;
+    if (checkInDate < today) {
+      alert("Check-in date must be today or later.");
+      return;
+    }
+    if (checkOutDate <= checkInDate) {
+      alert("Check-out date must be after check-in date.");
+      return;
+    }
 
-  const datecheck = () => {
-    yet = checkIn > checkOut ? false : true;
-    yet = checkIn < today ? false : true;
+    const orderData = {
+      customerName: user.username || "Unknown User",
+      email: user.email,
+      phone: user.mobile || "N/A",
+      service: "Resort",
+      serviceId: selectedResort._id,
+      serviceName: selectedResort.service_name,
+      price: selectedResort.price,
+      checkIn,
+      checkOut,
+    };
 
-    if (yet == true) {
-      alert("Successfully Booked");
-    } else {
-      alert("Enter proper Date");
+    try {
+      const response = await fetch("http://localhost:5000/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("Resort booked successfully!");
+      } else {
+        alert("Failed to book resort: " + result.error);
+      }
+    } catch (error) {
+      console.error("Error booking resort:", error);
     }
   };
-
-  const [selectedResort, setSelectedResort] = useState(null);
-  const [guestCount, setGuestCount] = useState(1);
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
 
   return (
     <div className="resort-container">
@@ -50,7 +81,7 @@ export default function ResortBooking({ cart }) {
           {resorts.map((resort) => (
             <div
               className="resort-card"
-              key={resort.id}
+              key={resort._id}
               onClick={() => setSelectedResort(resort)}
             >
               <img
@@ -106,7 +137,7 @@ export default function ResortBooking({ cart }) {
               }}
             />
           </div>
-          <button className="book-now" onClick={() => datecheck()}>
+          <button className="book-now" onClick={handleResortBooking}>
             Book Now
           </button>
           <button className="back" onClick={() => setSelectedResort(null)}>

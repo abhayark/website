@@ -24,6 +24,46 @@ export default function CabBooking({ cart }) {
       .then((data) => setCabs(data))
       .catch((err) => console.error("Error fetching cabs:", err));
   }, []);
+
+  const handleCabBooking = async () => {
+    // Get user data from localStorage
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("Please log in to book a cab.");
+      return;
+    }
+
+    if (!selectedCab || !location) {
+      alert("Please select a cab and enter your location.");
+      return;
+    }
+    const orderData = {
+      customerName: user.username || "Unknown User",
+      email: user.email,
+      phone: user.mobile || "N/A", // assuming mobile exists on user data
+      service: "Cab",
+      serviceId: selectedCab._id,
+      serviceName: selectedCab.service_name,
+      price: selectedCab.price,
+    };
+    try {
+      const response = await fetch("http://localhost:5000/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("Cab booked successfully!");
+      } else {
+        alert("Failed to book cab: " + result.error);
+      }
+    } catch (error) {
+      console.error("Error booking cab:", error);
+    }
+  };
+
   return (
     <>
       <div className="cab-container">
@@ -80,10 +120,7 @@ export default function CabBooking({ cart }) {
               <option value="card">Credit/Debit Card</option>
               <option value="cash">Cash</option>
             </select>
-            <button
-              className="book-cab"
-              onClick={() => alert("Cab booked successfully!")}
-            >
+            <button className="book-cab" onClick={() => handleCabBooking()}>
               Book Now
             </button>
             <button className="book-cab" onClick={() => setSelectedCab(null)}>

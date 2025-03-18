@@ -6,21 +6,25 @@ const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// Fetch all products (GET)
 router.get("/", async (req, res) => {
   try {
-    const { category } = req.query; // Extract category from query parameters
-    let products;
-
-    if (category) {
-      products = await Product.find({ category }); // Filter by category if provided
-    } else {
-      products = await Product.find(); // Otherwise, return all products
-    }
-
+    const products = await Product.find(); // Fetch
     res.json(products);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    +console.error("Error fetching products:", err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.json(product);
+  } catch (err) {
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

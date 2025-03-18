@@ -15,6 +15,7 @@ import SearchPage from "./Pages/Data/Searchpage.jsx";
 import CabSearch from "./Pages/Cab/cabsearch.jsx";
 import ResortBooking from "./Pages/Resort/resort.jsx";
 import ListService from "./Pages/ServicesHolder/addServices.jsx";
+import AdminPanel from "./Pages/Admin/AdminPanel.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -25,6 +26,10 @@ function App() {
 
   const handleRemoveFromCart = (index) => {
     setCart(cart.filter((_, i) => i !== index));
+  };
+
+  const clearCart = () => {
+    setCart([]);
   };
   useEffect(() => {
     console.log("Cart updated:", cart);
@@ -42,7 +47,13 @@ function App() {
           <Route path="/signup" element={<Form />} />
           <Route
             path="/cart"
-            element={<Cart cart={cart} onRemove={handleRemoveFromCart} />}
+            element={
+              <Cart
+                cart={cart}
+                onRemove={handleRemoveFromCart}
+                clearCart={clearCart}
+              />
+            }
           />
 
           <Route
@@ -53,6 +64,7 @@ function App() {
           />
 
           <Route path="services" element={<Services cart={cart} />} />
+          <Route path="admin" element={<AdminPanel />} />
 
           <Route path="/cab" element={<CabBooking cart={cart} />} />
           <Route path="/cab-search" element={<CabSearch />} />

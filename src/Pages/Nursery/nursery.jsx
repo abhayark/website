@@ -12,6 +12,45 @@ export default function Nursery({ cart }) {
       .catch((err) => console.error("Error fetching cabs:", err));
   }, []);
 
+  const handlePlantOrder = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("Please log in to order a plant.");
+      return;
+    }
+
+    if (!selectedPlant) {
+      alert("Please select a plant.");
+      return;
+    }
+
+    const orderData = {
+      customerName: user.username || "Unknown User",
+      email: user.email,
+      phone: user.mobile || "N/A",
+      service: "Nursery",
+      serviceId: selectedPlant._id,
+      price: selectedPlant.price,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        console.log("Plant ordered successfully!");
+      } else {
+        alert("Failed to order plant: " + result.error);
+      }
+    } catch (error) {
+      console.error("Error ordering plant:", error);
+    }
+  };
+
   const [selectedPlant, setSelectedPlant] = useState(null);
   return (
     <>
@@ -54,6 +93,7 @@ export default function Nursery({ cart }) {
                 <p className="price">
                   ₹{Number(selectedPlant.price).toLocaleString("en-IN")}
                 </p>
+                <button onClick={handlePlantOrder}>Order Plant</button>
 
                 <button onClick={() => setSelectedPlant(null)}>← Back</button>
               </div>

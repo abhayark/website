@@ -36,6 +36,39 @@ export default function Individual({ cart, handleAddToCart }) {
     return <p>Loading product details...</p>;
   }
 
+  const handleBuyNow = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      alert("Please log in to purchase this product.");
+      return;
+    }
+
+    const orderData = {
+      customerName: user.username || "Unknown User",
+      email: user.email,
+      phone: user.mobile || "N/A",
+      service: "Product",
+      serviceId: product._id,
+      serviceName: product.product_name,
+      price: product.price,
+    };
+    try {
+      const response = await fetch("http://localhost:5000/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("Product ordered successfully!");
+      } else {
+        alert("Failed to create order: " + result.error);
+      }
+    } catch (error) {
+      console.error("Error ordering product:", error);
+    }
+  };
   return (
     <div className="product-detail-container">
       <Navbar cartCount={cart.length} />
@@ -52,11 +85,13 @@ export default function Individual({ cart, handleAddToCart }) {
           </p>
           <p className="seller-name">Sold by {product.seller}</p>
           <p className="product-price">
-            {" "}
             ₹{Number(product.price).toLocaleString("en-IN")}
           </p>
           <div className="pbtn">
             <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
+            <button className="buy-now" onClick={handleBuyNow}>
+              Buy Now
+            </button>
           </div>
         </div>
         {product.img && (
