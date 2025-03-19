@@ -31,40 +31,43 @@ body {
 
 .banner_content {
   display: flex;
-  gap: 150px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  background-color: #c9c8c839;
-  border-radius: 12px;
-  padding: 10px 15px;
-  box-shadow: 0 3px 5px #0000001a;
+  background: #f0f2f5;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  justify-content: center;
 }
-
 .banner_container {
-  background-color: #b7bcbc2c;
+  background: white;
   border-radius: 8px;
-  padding: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 8px;
+  transition: transform 0.4s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px #0000001f;
   cursor: pointer;
 }
 
 .banner_container:hover {
-  transform: scale(1.03);
-  box-shadow: 0 5px 8px #00000026;
+  transform: scale(1.02);
+  box-shadow: 0 3px 6px #00000026;
 }
+
 .banner_card {
-  background-color: #b7bcbc2c;
+  width: 180px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px #0000001a;
 }
-.banner_img {
-  background-color: #b7bcbc2c;
-  justify-self: center;
-  img {
-    max-width: 100%;
-    height: 100px;
-    border-radius: 8px;
-  }
+
+.banner_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .content {

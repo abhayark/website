@@ -1,13 +1,15 @@
 export const banner = [
   {
     id: "cab",
-    img: "/Assets/cab.jpg",
-    description: "Reliable Rides, Smooth Journeys Every Time",
+    img: "/Assets/cab.png",
   },
   {
     id: "nursery",
-    img: "/Assets/nursery.jpg",
-    description: "Bringing Nature Closer, One Plant at a Time",
+    img: "/Assets/nursery.png",
+  },
+  {
+    id: "resort",
+    img: "/Assets/resort.jpg",
   },
 ];
 
