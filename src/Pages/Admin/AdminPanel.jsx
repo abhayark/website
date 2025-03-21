@@ -173,10 +173,7 @@ export default function AdminPanel() {
         </select>
       </td>
       <td>
-        <button
-          className="action-btn delete"
-          onClick={() => handleRemoveOrder(order._id)}
-        >
+        <button className="delete" onClick={() => handleRemoveOrder(order._id)}>
           Remove
         </button>
       </td>

@@ -39,7 +39,7 @@ function Navbar({ cartCount }) {
     localStorage.removeItem("user"); // Remove user from storage
     setIsLoggedIn(false);
     setDropdownOpen(false);
-    goto("/login"); // Redirect to login
+    goto("/login");
   };
 
   return (
@@ -104,6 +104,7 @@ function Navbar({ cartCount }) {
           {isLoggedIn ? (
             <div className="loginoption">
               <a href="/selling">Sell Product</a>
+              <a href="/addyourstuff">Add Service</a>
               <a onClick={handleLogout}>Logout</a>
             </div>
           ) : (

@@ -7,13 +7,13 @@ const allServices = [
   {
     id: 1,
     name: "Merry Voyage",
-    image: "/Assets/cab.jpg",
+    image: "/Assets/cab.png",
     url: "cab",
   },
   {
     id: 2,
     name: "Floral Eclipse ",
-    image: "/Assets/nursery.jpg",
+    image: "/Assets/nursery.png",
     url: "nursery",
   },
   {
@@ -29,16 +29,16 @@ const allServices = [
     url: "selling",
   },
   {
+    id: 6,
+    name: "List your services",
+    image: "/Assets/service.jpg",
+    url: "addyourstuff",
+  },
+  {
     id: 5,
     name: "Contact Us",
     image: "/Assets/ContactUs.jpg",
     url: "contact",
-  },
-  {
-    id: 6,
-    name: "List your services",
-    image: "/Assets/cab.jpg",
-    url: "addyourstuff",
   },
 ];
 
