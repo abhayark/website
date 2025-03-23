@@ -67,8 +67,14 @@ export default function AdminPanel() {
       console.error("Error deleting order:", error);
     }
   };
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const groupedOrders = orders.reduce((groups, order) => {
+  const filteredOrders =
+    selectedCategory === "All"
+      ? orders
+      : orders.filter((order) => order.service === selectedCategory);
+
+  const groupedOrders = filteredOrders.reduce((groups, order) => {
     const service = order.service;
     if (!groups[service]) {
       groups[service] = [];
@@ -182,33 +188,49 @@ export default function AdminPanel() {
   );
 
   return (
-    <div className="admin-panel">
-      <h1>All Orders</h1>
-      {loading ? (
-        <p>Loading orders...</p>
-      ) : orders.length === 0 ? (
-        <p>No orders available.</p>
-      ) : (
-        Object.keys(groupedOrders).map((service) => (
-          <div key={service} className="order-group">
-            <h2>{service} Orders</h2>
-            <table className="item-table">
-              <thead>
-                <tr>
-                  {getColumns(service).map((col, index) => (
-                    <th key={index}>{col}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {groupedOrders[service].map((order) =>
-                  renderRow(order, service)
-                )}
-              </tbody>
-            </table>
-          </div>
-        ))
-      )}
-    </div>
+    <>
+      <div className="admin-panel">
+        <h1>All Orders</h1>
+        <div className="filter-container">
+          <h2>Filter by Category: </h2>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="Product">Product</option>
+            <option value="Cab">Cab</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Resort">Resort</option>
+          </select>
+        </div>
+
+        {loading ? (
+          <p>Loading orders...</p>
+        ) : orders.length === 0 ? (
+          <p>No orders available.</p>
+        ) : (
+          Object.keys(groupedOrders).map((service) => (
+            <div key={service} className="order-group">
+              <h2>{service} Orders</h2>
+              <table className="item-table">
+                <thead>
+                  <tr>
+                    {getColumns(service).map((col, index) => (
+                      <th key={index}>{col}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {groupedOrders[service].map((order) =>
+                    renderRow(order, service)
+                  )}
+                </tbody>
+              </table>
+            </div>
+          ))
+        )}
+      </div>
+    </>
   );
 }
