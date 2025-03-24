@@ -7,13 +7,6 @@ body {
   color: #333;
 }
 
-p {
-  background-color: transparent;
-  font-size: 1.3rem;
-  margin: 10px 0;
-  font-style: italic;
-  font-weight: bold;
-}
 html,
 body {
   scroll-behavior: smooth;

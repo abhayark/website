@@ -89,7 +89,7 @@ export default function Individual({ cart, handleAddToCart }) {
           </p>
           <div className="pbtn">
             <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
-            <button className="buy-now" onClick={handleBuyNow}>
+            <button className="add-to-cart" onClick={handleBuyNow}>
               Buy Now
             </button>
           </div>

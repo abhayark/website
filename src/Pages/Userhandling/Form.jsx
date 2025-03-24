@@ -15,12 +15,40 @@ const SignupForm = () => {
 
   const [message, setMessage] = useState("");
 
+  const validate = () => {
+    let emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let mobileReg = /^[0-9]{10}$/;
+
+    if (!emailReg.test(formData.email)) {
+      alert("Invalid email format");
+      return false;
+    }
+    if (formData.username.length < 3) {
+      alert("Username must be at least 3 characters");
+      return false;
+    }
+    if (formData.password.length < 6) {
+      alert("Password must be at least 6 characters");
+      return false;
+    }
+    if (!mobileReg.test(formData.mobile)) {
+      alert("Mobile number must be 10 digits");
+      return false;
+    }
+    if (!formData.gender) {
+      alert("Please select a gender");
+      return false;
+    }
+
+    return true;
+  };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
     try {
       const response = await fetch("http://localhost:5000/api/signup", {
         method: "POST",

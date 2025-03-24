@@ -10,6 +10,7 @@
   padding: 0.5rem 1.6rem;
   border-radius: 7px;
   justify-self: center;
+  margin-right: 10px;
 }
 .add-to-cart:hover {
   color: #000000a8;
