@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar.jsx";
 import "./resort.css";
-import { Reorder } from "@mui/icons-material";
 
 export default function ResortBooking({ cart }) {
   const [resorts, setResorts] = useState([]);

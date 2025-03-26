@@ -22,6 +22,10 @@ function Navbar({ cartCount }) {
       if (e.key === "Enter" && searchQuery.trim() !== "") {
         goto(`/cab-search?query=${searchQuery}`);
       }
+    } else if (location.pathname === "/resort") {
+      if (e.key === "Enter" && searchQuery.trim() !== "") {
+        goto(`/resort-search?query=${searchQuery}`);
+      }
     }
   };
 

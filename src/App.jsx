@@ -16,6 +16,7 @@ import CabSearch from "./Pages/Cab/cabsearch.jsx";
 import ResortBooking from "./Pages/Resort/resort.jsx";
 import ListService from "./Pages/ServicesHolder/addServices.jsx";
 import AdminPanel from "./Pages/Admin/AdminPanel.jsx";
+import ResortSearch from "./Pages/Resort/resortsearch.jsx";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -70,6 +71,7 @@ function App() {
           <Route path="/cab-search" element={<CabSearch />} />
           <Route path="/nursery" element={<Nursery cart={cart} />} />
           <Route path="/resort" element={<ResortBooking cart={cart} />} />
+          <Route path="/resort-search" element={<ResortSearch />} />
 
           <Route path="/selling" element={<AddProduct cart={cart} />} />
           <Route path="/addyourstuff" element={<ListService cart={cart} />} />
