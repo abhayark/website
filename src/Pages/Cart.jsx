@@ -11,6 +11,7 @@ const Cart = ({ cart, onRemove, clearCart }) => {
     0
   );
 
+  const [pay, setPay] = useState("Cash");
   const [loggedin, setloggedin] = useState(false);
   const [user, setUser] = useState(null);
   useEffect(() => {
@@ -37,6 +38,7 @@ const Cart = ({ cart, onRemove, clearCart }) => {
           serviceId: product._id,
           serviceName: product.product_name,
           price: product.price,
+          paymentMethod: pay,
         };
 
         const response = await fetch("http://localhost:5000/api/orders", {
@@ -132,7 +134,15 @@ const Cart = ({ cart, onRemove, clearCart }) => {
                     </p>
                   </div>
                 )}
-                <p>//todo extra</p>
+                <select
+                  className="status-dropdown"
+                  value={pay}
+                  onChange={(e) => setPay(e.target.value)}
+                >
+                  <option value="cash">Cash On Delivery</option>
+                  <option value="upi">UPI</option>
+                  <option value="card">Credit/Debit Card</option>
+                </select>
                 <h3>Total: ₹{Number(totalPrice).toLocaleString("en-IN")}</h3>
                 <button className="checkout-btn" onClick={handleCheckout}>
                   Buy

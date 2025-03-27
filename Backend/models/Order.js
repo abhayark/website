@@ -8,6 +8,7 @@ const OrderSchema = new mongoose.Schema({
   serviceId: mongoose.Schema.Types.ObjectId,
   serviceName: String,
   price: Number,
+  paymentMethod: { type: String, required: true },
   status: { type: String, default: "Pending" },
   orderDate: { type: Date, default: Date.now },
 });

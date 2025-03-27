@@ -93,6 +93,7 @@ export default function AdminPanel() {
           "Customer Phone",
           "Order ID",
           "Price",
+          "Payment Method",
           "Status",
           "Change Status",
           "Actions",
@@ -106,6 +107,7 @@ export default function AdminPanel() {
           "Order ID",
           "Cab Name",
           "Driver Number", // price used as driver number
+          "Payment Method",
           "Status",
           "Change Status",
           "Actions",
@@ -119,6 +121,7 @@ export default function AdminPanel() {
           "Customer Phone",
           "Plant Name",
           "Price",
+          "Payment Method",
           "Status",
           "Change Status",
           "Actions",
@@ -132,6 +135,7 @@ export default function AdminPanel() {
           "Customer Phone",
           "Resort Name",
           "Price",
+          "Payment Method",
           "Status",
           "Change Status",
           "Actions",
@@ -145,6 +149,7 @@ export default function AdminPanel() {
           "Customer Phone",
           "Service Name",
           "Price",
+          "Payment Method",
           "Status",
           "Change Status",
           "Actions",
@@ -162,6 +167,7 @@ export default function AdminPanel() {
       <td>{order.phone}</td>
       <td>{order.serviceId}</td>
       <td>{service === "Cab" ? order.price : `₹${order.price}`}</td>
+      <td>{order.paymentMethod || "N/A"}</td>
       <td>
         <span className={`status ${order.status.toLowerCase()}`}>
           {order.status}
@@ -210,25 +216,27 @@ export default function AdminPanel() {
         ) : orders.length === 0 ? (
           <p>No orders available.</p>
         ) : (
-          Object.keys(groupedOrders).map((service) => (
-            <div key={service} className="order-group">
-              <h2>{service} Orders</h2>
-              <table className="item-table">
-                <thead>
-                  <tr>
-                    {getColumns(service).map((col, index) => (
-                      <th key={index}>{col}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {groupedOrders[service].map((order) =>
-                    renderRow(order, service)
-                  )}
-                </tbody>
-              </table>
-            </div>
-          ))
+          Object.keys(groupedOrders)
+            .sort((a, b) => (a === "Product" ? -1 : b === "Product" ? 1 : 0))
+            .map((service) => (
+              <div key={service} className="order-group">
+                <h2>{service} Orders</h2>
+                <table className="item-table">
+                  <thead>
+                    <tr>
+                      {getColumns(service).map((col, index) => (
+                        <th key={index}>{col}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {groupedOrders[service].map((order) =>
+                      renderRow(order, service)
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            ))
         )}
       </div>
     </>

@@ -22,6 +22,7 @@ router.post("/", async (req, res) => {
       serviceId,
       serviceName,
       price,
+      paymentMethod,
     } = req.body;
 
     if (
@@ -31,7 +32,8 @@ router.post("/", async (req, res) => {
       !service ||
       !serviceId ||
       !serviceName ||
-      !price
+      !price ||
+      !paymentMethod
     ) {
       return res.status(400).json({ error: "All fields are required" });
     }
@@ -44,6 +46,7 @@ router.post("/", async (req, res) => {
       serviceId,
       serviceName,
       price,
+      paymentMethod,
     });
 
     await newOrder.save();
