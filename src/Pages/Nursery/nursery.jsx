@@ -4,6 +4,7 @@ import "./nursery.css";
 
 export default function Nursery({ cart }) {
   const [plants, setNursery] = useState([]);
+  const [paymentOption, setPaymentOption] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/api/services/nursery")
@@ -32,6 +33,7 @@ export default function Nursery({ cart }) {
       serviceId: selectedPlant._id,
       serviceName: selectedPlant.service_name,
       price: selectedPlant.price,
+      paymentMethod: paymentOption,
     };
 
     try {
@@ -94,6 +96,15 @@ export default function Nursery({ cart }) {
                 <p className="price">
                   ₹{Number(selectedPlant.price).toLocaleString("en-IN")}
                 </p>
+                <select
+                  className="nursery-payment"
+                  value={paymentOption}
+                  onChange={(e) => setPaymentOption(e.target.value)}
+                >
+                  <option value="">Select Payment Option</option>
+                  <option value="card">Credit/Debit Card</option>
+                  <option value="cash">Cash</option>
+                </select>
                 <button onClick={handlePlantOrder}>Order Plant</button>
 
                 <button onClick={() => setSelectedPlant(null)}>← Back</button>

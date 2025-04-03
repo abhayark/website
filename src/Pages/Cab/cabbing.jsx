@@ -45,6 +45,7 @@ export default function CabBooking({ cart }) {
       serviceId: selectedCab._id,
       serviceName: selectedCab.service_name,
       price: selectedCab.price,
+      paymentMethod: paymentOption,
     };
     try {
       const response = await fetch("http://localhost:5000/api/orders", {

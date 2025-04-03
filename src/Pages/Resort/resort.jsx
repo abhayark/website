@@ -8,6 +8,7 @@ export default function ResortBooking({ cart }) {
   const [guestCount, setGuestCount] = useState(1);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
+  const [paymentOption, setPaymentOption] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/api/services/resorts")
@@ -29,8 +30,9 @@ export default function ResortBooking({ cart }) {
     const checkInDate = new Date(checkIn);
     const checkOutDate = new Date(checkOut);
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-    if (checkInDate <= today) {
+    if (checkInDate < today) {
       alert("Check-in date must be today or later.");
       return;
     }
@@ -47,6 +49,7 @@ export default function ResortBooking({ cart }) {
       serviceId: selectedResort._id,
       serviceName: selectedResort.service_name,
       price: selectedResort.price,
+      paymentMethod: paymentOption,
       checkIn,
       checkOut,
     };
@@ -135,6 +138,15 @@ export default function ResortBooking({ cart }) {
                 setCheckOut(e.target.value);
               }}
             />
+            <select
+              className="cab-payment"
+              value={paymentOption}
+              onChange={(e) => setPaymentOption(e.target.value)}
+            >
+              <option value="">Select Payment Option</option>
+              <option value="card">Credit/Debit Card</option>
+              <option value="cash">Cash</option>
+            </select>
           </div>
           <button className="book-now" onClick={handleResortBooking}>
             Book Now
