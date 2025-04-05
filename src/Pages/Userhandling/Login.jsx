@@ -25,6 +25,9 @@ const Login = () => {
 
       if (response.ok) {
         localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("email", data.user.email);
+
+        console.log("Saved email:", data.user.email)
         alert("Login successful!");
 
         navigate("/");

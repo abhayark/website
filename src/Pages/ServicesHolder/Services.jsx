@@ -29,13 +29,19 @@ const allServices = [
     url: "selling",
   },
   {
-    id: 6,
+    id: 5,
     name: "List your services",
     image: "/Assets/service.jpg",
     url: "addyourstuff",
   },
   {
-    id: 5,
+    id: 6,
+    name: "History",
+    image: "/Assets/ContactUs.jpg",
+    url: "history",
+  },
+  {
+    id: 7,
     name: "Contact Us",
     image: "/Assets/ContactUs.jpg",
     url: "contact",
@@ -80,7 +86,17 @@ export default function Services({ cart }) {
 
             <button
               className="visit-btn"
-              onClick={() => goto("/" + selectedService.url)}
+              onClick={() => {
+                if (selectedService.url === "history") {
+                  const userEmail = localStorage.getItem("email");
+                  if (userEmail) {
+                    goto(`/history`);
+                  }
+                  
+                } else {
+                  goto("/" + selectedService.url);
+                }
+              }}
             >
               Visit
             </button>

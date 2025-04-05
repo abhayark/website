@@ -12,6 +12,21 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get('/history/:email', async (req, res) => {
+  const { email } = req.params;
+
+  if (!email) {
+    return res.status(400).json({ error: 'Email parameter is required' });
+  }
+
+  try {
+    const orders = await Order.find({ email });
+    res.json(orders);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 router.post("/", async (req, res) => {
   try {
     const {
