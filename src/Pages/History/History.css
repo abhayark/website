@@ -1,7 +1,7 @@
-/* Copy of Services.css structure or adjust here */
 .market-container {
-    padding: 2rem;
+    padding: 2px;
     text-align: center;
+    background-color: #f9f9f9;
   }
   
   .service-grid {
@@ -16,7 +16,7 @@
     width: 260px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 10px #00000026;
     transition: transform 0.3s;
     cursor: pointer;
     background-color: #fff;
