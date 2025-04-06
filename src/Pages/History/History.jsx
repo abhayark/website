@@ -10,17 +10,18 @@ export default function History() {
 
   const email = localStorage.getItem("email");
 
-
   useEffect(() => {
     if (!email) {
       navigate("/login");
       return;
     }
-  
+
     const fetchHistory = async () => {
       try {
         console.log("Fetching history for:", email);
-        const res = await fetch(`http://localhost:5000/api/orders/history/${email}`);
+        const res = await fetch(
+          `http://localhost:5000/api/orders/history/${email}`
+        );
         if (!res.ok) throw new Error("Failed to fetch orders");
         const data = await res.json();
         setOrders(data);
@@ -28,20 +29,20 @@ export default function History() {
         console.error("Error fetching purchase history:", error);
       }
     };
-  
+
     fetchHistory();
   }, [email, navigate]);
 
   return (
-    <>
+    <div className="History">
       <Navbar />
-      <div className="market-container">
+      <div className="history-container">
         <h1 className="history-title">Purchase History</h1>
-        <div className="service-grid">
+        <div className="orders-grid">
           {orders.length > 0 ? (
             orders.map((order) => (
-              <div key={order._id} className="service-card">
-                <img src="/Assets/order.jpg" alt="Order" />
+              <div key={order._id} className="order-card">
+                <img src={order.img} alt="Order" />
                 <div className="order-details">
                   <h3>Order ID: {order._id}</h3>
                   <p>Date: {new Date(order.orderDate).toLocaleDateString()}</p>
@@ -55,6 +56,6 @@ export default function History() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }

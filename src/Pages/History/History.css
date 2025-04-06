@@ -1,39 +1,42 @@
-.market-container {
-    padding: 2px;
-    text-align: center;
-    background-color: #f9f9f9;
-  }
-  
-  .service-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .service-card {
-    width: 260px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px #00000026;
-    transition: transform 0.3s;
-    cursor: pointer;
-    background-color: #fff;
-  }
-  
-  .service-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .service-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  .order-details {
-    padding: 1rem;
-    text-align: left;
-  }
-  
+.History {
+  padding: 1px;
+  background-color: transparent;
+}
+
+.history-container {
+  text-align: center;
+}
+
+.orders-grid {
+  background-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.order-card {
+  width: 260px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #00000026;
+  transition: transform 0.3s;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.order-card:hover {
+  transform: scale(1.05);
+}
+
+.order-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.order-details {
+  padding: 1rem;
+  text-align: left;
+}

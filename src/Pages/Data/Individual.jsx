@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "./Individual.css";
 import AddToCartButton from "../../Components/AddToCartButton/AddToCartButton";
 import Similarproduct from "./Simialrproduct";
+import Buy from "../../Components/Buy/Buy";
 
 export default function Individual({ cart, handleAddToCart }) {
   const { id } = useParams(); // Extract the dynamic parameter
@@ -36,39 +37,6 @@ export default function Individual({ cart, handleAddToCart }) {
     return <p>Loading product details...</p>;
   }
 
-  const handleBuyNow = async () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-      alert("Please log in to purchase this product.");
-      return;
-    }
-
-    const orderData = {
-      customerName: user.username || "Unknown User",
-      email: user.email,
-      phone: user.mobile || "N/A",
-      service: "Product",
-      serviceId: product._id,
-      serviceName: product.product_name,
-      price: product.price,
-    };
-    try {
-      const response = await fetch("http://localhost:5000/api/orders", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(orderData),
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        alert("Product ordered successfully!");
-      } else {
-        alert("Failed to create order: " + result.error);
-      }
-    } catch (error) {
-      console.error("Error ordering product:", error);
-    }
-  };
   return (
     <div className="product-detail-container">
       <Navbar cartCount={cart.length} />
@@ -89,9 +57,7 @@ export default function Individual({ cart, handleAddToCart }) {
           </p>
           <div className="pbtn">
             <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
-            <button className="add-to-cart" onClick={handleBuyNow}>
-              Buy Now
-            </button>
+            <Buy cart={[product]} clearCart={() => {}} />
           </div>
         </div>
         {product.img && (
