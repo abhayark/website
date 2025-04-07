@@ -1,8 +1,3 @@
-.History {
-  padding: 1px;
-  background-color: transparent;
-}
-
 .history-container {
   text-align: center;
 }
@@ -17,26 +12,68 @@
 }
 
 .order-card {
-  width: 260px;
-  border-radius: 10px;
+  width: auto;
+  border-radius: 17px;
   overflow: hidden;
   box-shadow: 0 0 10px #00000026;
   transition: transform 0.3s;
   cursor: pointer;
   background-color: #fff;
+  padding: 20px;
 }
 
-.order-card:hover {
-  transform: scale(1.05);
+.order-top {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  justify-content: space-around;
 }
-
-.order-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
+.order-top img {
+  max-height: 220px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 17px;
 }
 
 .order-details {
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   text-align: left;
+  gap: 7px;
+  margin-top: 10px;
+  background-color: transparent;
+}
+.order-details p {
+  margin: 0;
+  font-weight: bold;
+}
+.order-price {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-left: 16px;
+}
+.order-status {
+  font-weight: 500;
+  padding: 4px 16px;
+  border-radius: 999px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 10px;
+  color: black;
+}
+
+.order-status.pending {
+  background-color: #c44d4d;
+}
+
+.order-status.delivering {
+  background-color: #f4c542;
+}
+
+.order-status.complete {
+  background-color: #4caf50;
 }

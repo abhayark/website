@@ -22,6 +22,8 @@ export default function Buy({ cart, clearCart, pay }) {
         const orderData = {
           customerName: user.username || "Unknown User",
           email: user.email,
+          img: product.img,
+          category: product.category,
           phone: user.mobile || "N/A",
           service: "Product",
           serviceId: product._id,

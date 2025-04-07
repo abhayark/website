@@ -26,7 +26,8 @@
 
 .homebn,
 .cartbn,
-.services {
+.services,
+.historybtn {
   background-color: #162538;
   font-size: 15px;
   font-weight: 600;
@@ -39,7 +40,8 @@
 
 .homebn.active,
 .cartbn.active,
-.services.active {
+.services.active,
+.historybtn.active {
   color: #e2e7ec;
   border-bottom: 2px solid #e2e7ec;
 }

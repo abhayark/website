@@ -12,11 +12,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get('/history/:email', async (req, res) => {
+router.get("/history/:email", async (req, res) => {
   const { email } = req.params;
 
   if (!email) {
-    return res.status(400).json({ error: 'Email parameter is required' });
+    return res.status(400).json({ error: "Email parameter is required" });
   }
 
   try {
@@ -24,7 +24,7 @@ router.get('/history/:email', async (req, res) => {
     res.json(orders);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 router.post("/", async (req, res) => {
@@ -32,6 +32,7 @@ router.post("/", async (req, res) => {
     const {
       customerName,
       email,
+      img,
       phone,
       service,
       serviceId,
@@ -43,6 +44,7 @@ router.post("/", async (req, res) => {
     if (
       !customerName ||
       !email ||
+      !img ||
       !phone ||
       !service ||
       !serviceId ||
@@ -56,6 +58,7 @@ router.post("/", async (req, res) => {
     const newOrder = new Order({
       customerName,
       email,
+      img,
       phone,
       service,
       serviceId,

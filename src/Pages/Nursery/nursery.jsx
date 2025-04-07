@@ -28,6 +28,7 @@ export default function Nursery({ cart }) {
     const orderData = {
       customerName: user.username || "Unknown User",
       email: user.email,
+      img: selectedPlant.image,
       phone: user.mobile || "N/A",
       service: "Nursery",
       serviceId: selectedPlant._id,

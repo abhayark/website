@@ -44,6 +44,7 @@ export default function ResortBooking({ cart }) {
     const orderData = {
       customerName: user.username || "Unknown User",
       email: user.email,
+      img: selectedResort.image,
       phone: user.mobile || "N/A",
       service: "Resort",
       serviceId: selectedResort._id,

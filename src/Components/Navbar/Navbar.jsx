@@ -70,6 +70,15 @@ function Navbar({ cartCount }) {
           </button>
         </div>
 
+        <div className="history">
+          <button
+            onClick={() => goto("/history")}
+            className={`historybtn ${activeTab === "/history" ? "active" : ""}`}
+          >
+            History
+          </button>
+        </div>
+
         <div className="Services">
           <button
             onClick={() => goto("/services")}

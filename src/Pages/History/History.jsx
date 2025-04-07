@@ -3,7 +3,7 @@ import "./History.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
-export default function History() {
+export default function History({ cart }) {
   const [orders, setOrders] = useState([]);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -34,27 +34,34 @@ export default function History() {
   }, [email, navigate]);
 
   return (
-    <div className="History">
-      <Navbar />
-      <div className="history-container">
-        <h1 className="history-title">Purchase History</h1>
-        <div className="orders-grid">
-          {orders.length > 0 ? (
-            orders.map((order) => (
-              <div key={order._id} className="order-card">
+    <div className="history-container">
+      <Navbar cartCount={cart.length} />
+      <h1 className="history-title">Purchase History</h1>
+      <div className="orders-grid">
+        {orders.length > 0 ? (
+          orders.map((order) => (
+            <div key={order._id} className="order-card">
+              <div className="order-top">
                 <img src={order.img} alt="Order" />
-                <div className="order-details">
-                  <h3>Order ID: {order._id}</h3>
-                  <p>Date: {new Date(order.orderDate).toLocaleDateString()}</p>
-                  <p>Total: ${order.price?.toFixed(2)}</p>
-                  <p>Status: {order.status}</p>
-                </div>
+                {order.service === "Cab" ? (
+                  <p className="order-price">Number: {order.price}</p>
+                ) : (
+                  <p className="order-price">Price: ₹{order.price}</p>
+                )}
               </div>
-            ))
-          ) : (
-            <p>No orders found for this email.</p>
-          )}
-        </div>
+              <div className="order-details">
+                <p>Name: {order.serviceName}</p>
+                <p>Date: {new Date(order.orderDate).toLocaleDateString()}</p>
+                <p>Order ID: {order._id}</p>
+              </div>
+              <p className={`order-status ${order.status.toLowerCase()}`}>
+                {order.status}
+              </p>
+            </div>
+          ))
+        ) : (
+          <p>No orders found for this email.</p>
+        )}
       </div>
     </div>
   );

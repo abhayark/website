@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const OrderSchema = new mongoose.Schema({
   customerName: String,
   email: String,
+  img: String,
   phone: String,
   service: String, // Cab, Product, Nursery, Resort
   serviceId: mongoose.Schema.Types.ObjectId,

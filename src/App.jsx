@@ -67,7 +67,7 @@ function App() {
 
           <Route path="services" element={<Services cart={cart} />} />
           <Route path="admin" element={<AdminPanel />} />
-          <Route path="/history" element={<History />} />
+          <Route path="/history" element={<History cart={cart} />} />
 
           <Route path="/cab" element={<CabBooking cart={cart} />} />
           <Route path="/cab-search" element={<CabSearch />} />

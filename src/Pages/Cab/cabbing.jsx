@@ -40,7 +40,9 @@ export default function CabBooking({ cart }) {
     const orderData = {
       customerName: user.username || "Unknown User",
       email: user.email,
-      phone: user.mobile || "N/A", // assuming mobile exists on user data
+      img: selectedCab.image,
+      category: selectedCab.category,
+      phone: user.mobile || "N/A",
       service: "Cab",
       serviceId: selectedCab._id,
       serviceName: selectedCab.service_name,
