@@ -65,10 +65,12 @@
   margin-top: 10px;
   color: black;
 }
-
+.order-status-info {
+background-color: transparent;
+}
 .order-status.pending {
   background-color: #c44d4d;
-}
+} 
 
 .order-status.delivering {
   background-color: #f4c542;

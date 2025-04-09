@@ -57,7 +57,7 @@ export default function Individual({ cart, handleAddToCart }) {
           </p>
           <div className="pbtn">
             <AddToCartButton onAddToCart={() => handleAddToCart(product)} />
-            <Buy cart={[product]} clearCart={() => {}} />
+            <Buy cart={[product]} clearCart={() => {}} pay={"cash"} />
           </div>
         </div>
         {product.img && (

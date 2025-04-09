@@ -43,20 +43,22 @@ export default function History({ cart }) {
             <div key={order._id} className="order-card">
               <div className="order-top">
                 <img src={order.img} alt="Order" />
-                {order.service === "Cab" ? (
-                  <p className="order-price">Number: {order.price}</p>
-                ) : (
-                  <p className="order-price">Price: ₹{order.price}</p>
-                )}
+                <div className="order-status-info">
+                  {order.service === "Cab" ? (
+                    <p className="order-price">Number: {order.price}</p>
+                  ) : (
+                    <p className="order-price">Price: ₹{order.price}</p>
+                  )}
+                  <p className={`order-status ${order.status.toLowerCase()}`}>
+                    {order.status}
+                  </p>
+                </div>
               </div>
               <div className="order-details">
                 <p>Name: {order.serviceName}</p>
                 <p>Date: {new Date(order.orderDate).toLocaleDateString()}</p>
                 <p>Order ID: {order._id}</p>
               </div>
-              <p className={`order-status ${order.status.toLowerCase()}`}>
-                {order.status}
-              </p>
             </div>
           ))
         ) : (
