@@ -79,3 +79,20 @@ background-color: transparent;
 .order-status.complete {
   background-color: #4caf50;
 }
+
+.cancel-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-top: 6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cancel-info {
+  color: #d87f00;
+  font-weight: bold;
+  margin-top: 6px;
+}
+

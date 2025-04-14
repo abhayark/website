@@ -4,6 +4,15 @@ import "./AdminPanel.css";
 export default function AdminPanel() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [dashboardStats, setDashboardStats] = useState({
+    total: 0,
+    revenue: 0,
+    pending: 0,
+    delivering: 0,
+    completed: 0,
+    cancelled: 0,
+    cancelRequested: 0,
+  });
 
   const fetchOrders = () => {
     fetch("http://localhost:5000/api/orders")
@@ -11,11 +20,38 @@ export default function AdminPanel() {
       .then((data) => {
         setOrders(data);
         setLoading(false);
+        setDashboardStats(calculateStats(data));
       })
       .catch((error) => {
         console.error("Error fetching orders:", error);
         setLoading(false);
       });
+  };
+
+  const calculateStats = (ordersList) => {
+    const total = ordersList.length;
+    const revenue = ordersList.reduce((acc, o) => {
+      return o.service !== "Cab" ? acc + Number(o.price || 0) : acc;
+    }, 0);
+    const pending = ordersList.filter((o) => o.status === "Pending").length;
+    const delivering = ordersList.filter(
+      (o) => o.status === "Delivering"
+    ).length;
+    const completed = ordersList.filter((o) => o.status === "Complete").length;
+    const cancelled = ordersList.filter((o) => o.status === "Cancelled").length;
+    const cancelRequested = ordersList.filter(
+      (o) => o.status === "Cancel Requested"
+    ).length;
+
+    return {
+      total,
+      revenue,
+      pending,
+      delivering,
+      completed,
+      cancelled,
+      cancelRequested,
+    };
   };
 
   useEffect(() => {
@@ -182,6 +218,8 @@ export default function AdminPanel() {
           <option value="Pending">Pending</option>
           <option value="Delivering">Delivering</option>
           <option value="Complete">Complete</option>
+          <option value="Cancel_Requested">Cancel Requested</option>
+          <option value="Cancelled">Cancelled</option>
         </select>
       </td>
       <td>
@@ -197,6 +235,30 @@ export default function AdminPanel() {
     <>
       <div className="admin-panel">
         <h1>All Orders</h1>
+        <div className="dashboard-cards">
+          <div className="dashboard-card">
+            📦 Total Orders: {dashboardStats.total}
+          </div>
+          <div className="dashboard-card">
+            💰 Revenue: ₹{dashboardStats.revenue}
+          </div>
+          <div className="dashboard-card">
+            🕐 Pending: {dashboardStats.pending}
+          </div>
+          <div className="dashboard-card">
+            🕐 Delivering: {dashboardStats.delivering}
+          </div>
+          <div className="dashboard-card">
+            ✅ Completed: {dashboardStats.completed}
+          </div>
+          <div className="dashboard-card">
+            ❌ Cancelled: {dashboardStats.cancelled}
+          </div>
+          <div className="dashboard-card">
+            🚨 Cancel Requests: {dashboardStats.cancelRequested}
+          </div>
+        </div>
+
         <div className="filter-container">
           <h2>Filter by Category: </h2>
           <select

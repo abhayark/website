@@ -29,9 +29,37 @@ export default function History({ cart }) {
         console.error("Error fetching purchase history:", error);
       }
     };
-
     fetchHistory();
   }, [email, navigate]);
+
+  const requestCancellation = async (orderId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/orders/${orderId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: "Cancel Requested" }),
+        }
+      );
+
+      if (!response.ok) {
+        const result = await response.json();
+        alert("Error: " + result.error);
+        return;
+      }
+
+      setOrders((prev) =>
+        prev.map((order) =>
+          order._id === orderId
+            ? { ...order, status: "Cancel Requested" }
+            : order
+        )
+      );
+    } catch (err) {
+      console.error("Cancellation request failed:", err);
+    }
+  };
 
   return (
     <div className="history-container">
@@ -52,6 +80,18 @@ export default function History({ cart }) {
                   <p className={`order-status ${order.status.toLowerCase()}`}>
                     {order.status}
                   </p>
+                  {(order.status === "Pending" ||
+                    order.status === "Delivering") && (
+                    <button
+                      className="cancel-button"
+                      onClick={() => requestCancellation(order._id)}
+                    >
+                      Request Cancel
+                    </button>
+                  )}
+                  {order.status === "Cancel Requested" && (
+                    <p className="cancel-info">Cancel requested</p>
+                  )}
                 </div>
               </div>
               <div className="order-details">

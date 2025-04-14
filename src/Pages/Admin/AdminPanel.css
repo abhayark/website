@@ -74,9 +74,18 @@ tr:hover {
 
 .status.pending {
   background-color: #dc3545;
-  color: black;
+  color: white;
 }
 
+.status.cancel_requested {
+  background-color: #306d9b;
+  color: whitesmoke;
+}
+.status.cancelled {
+  background-color: #000000;
+  color: rgb(233, 219, 219);
+  text-decoration: line-through;
+}
 .delete {
   border-radius: 10px;
   background-color: #716d6d3d;
@@ -113,4 +122,21 @@ tr:hover {
   border: 1px solid #ddd !important;
   background-color: #6a6868 !important;
   cursor: pointer !important;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-card {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px #c6b9b9be;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
 }
