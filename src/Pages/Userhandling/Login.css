@@ -60,3 +60,14 @@ option {
   background-color: #1a1a1a !important;
   color: #fff !important;
 }
+.inputContainer span{
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #fffffff9 !important;
+  font-size: 1.1rem;
+  z-index: 2;
+  background-color: transparent;
+}

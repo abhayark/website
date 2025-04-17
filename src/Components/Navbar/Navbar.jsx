@@ -4,7 +4,7 @@ import SearchSharpIcon from "@mui/icons-material/SearchSharp";
 import Avatar from "@mui/joy/Avatar";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
-function Navbar({ cartCount }) {
+export default function Navbar({ cartCount }) {
   const goto = useNavigate();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(location.pathname);
@@ -128,5 +128,3 @@ function Navbar({ cartCount }) {
     </div>
   );
 }
-
-export default Navbar;

@@ -37,7 +37,7 @@ const allServices = [
   {
     id: 6,
     name: "History",
-    image: "/Assets/ContactUs.jpg",
+    image: "/Assets/History.png",
     url: "history",
   },
   {
@@ -92,7 +92,6 @@ export default function Services({ cart }) {
                   if (userEmail) {
                     goto(`/history`);
                   }
-                  
                 } else {
                   goto("/" + selectedService.url);
                 }

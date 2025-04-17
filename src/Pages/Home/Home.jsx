@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar/Navbar.jsx";
 import { useNavigate } from "react-router-dom";
 import Product from "../Data/product.jsx";
 import { banner } from "../Data/bannerdata.jsx";
+import Footer from "./Footer.jsx";
 
 /* 
   For the main products data 
@@ -81,6 +82,7 @@ const Home = ({ cart, handleAddToCart }) => {
           handleAddToCart={handleAddToCart}
         />
       </div>
+      <Footer />
     </div>
   );
 };

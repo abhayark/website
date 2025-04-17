@@ -4,14 +4,14 @@
   justify-content: space-between;
   align-items: center;
   width: 70%;
-  background: #1a1a1a;
+  background: #262525;
   margin-top: 60px;
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0px 10px 30px #ff000080;
 }
 .contact-detail {
-  background-color: #1a1a1a;
+  background-color: #262525;
 }
 .contact-info {
   width: 45%;
@@ -41,11 +41,11 @@
   width: 95%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ff0000;
+  border: 1px  #ff0000;
   border-radius: 8px;
   font-size: 16px;
-  background: #262626;
-  color: whitesmoke;
+  background: #3a39395c;
+  color: #2d2b2b1f;
   transition: 0.3s ease-in-out;
 }
 
@@ -58,7 +58,7 @@
 
 .contact-submit {
   width: 100%;
-  background: #ff0000;
+  background: #c42f2f9a;
   color: white;
   padding: 14px;
   border: none;
@@ -72,5 +72,5 @@
 
 .contact-submit:hover {
   background: #cc0000;
-  transform: scale(1.025);
+  transform: scale(1.015);
 }

@@ -6,6 +6,7 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,7 +28,7 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("email", data.user.email);
 
-        console.log("Saved email:", data.user.email)
+        console.log("Saved email:", data.user.email);
         alert("Login successful!");
 
         navigate("/");
@@ -63,7 +64,7 @@ const Login = () => {
 
         <div className="inputContainer">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             className="input"
             id="password"
@@ -74,8 +75,17 @@ const Login = () => {
           <label htmlFor="password" className="label">
             Password
           </label>
+          <span
+            onClick={() => setShowPassword((prev) => !prev)}
+            style={{
+              cursor: "pointer",
+              color: "#ff4d4d",
+              fontSize: "0.9rem",
+            }}
+          >
+            👁
+          </span>
         </div>
-
         <button type="submit" className="submitBtn">
           Login
         </button>

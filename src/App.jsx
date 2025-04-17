@@ -16,6 +16,7 @@ import CabSearch from "./Pages/Cab/cabsearch.jsx";
 import ResortBooking from "./Pages/Resort/resort.jsx";
 import ListService from "./Pages/ServicesHolder/addServices.jsx";
 import AdminPanel from "./Pages/Admin/AdminPanel.jsx";
+import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
 import ResortSearch from "./Pages/Resort/resortsearch.jsx";
 import History from "./Pages/History/History.jsx";
 
@@ -81,6 +82,7 @@ function App() {
           <Route path="/contact" element={<ContactUs cart={cart} />} />
 
           <Route path="/search" element={<SearchPage cart={cart} />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
         </Routes>
       </>
     </div>

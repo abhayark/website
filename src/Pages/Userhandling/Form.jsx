@@ -71,6 +71,8 @@ const SignupForm = () => {
     }
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="signup_form">
       <form className="form" onSubmit={handleSubmit}>
@@ -110,7 +112,7 @@ const SignupForm = () => {
 
         <div className="inputContainer">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             className="input"
             id="password"
@@ -121,6 +123,16 @@ const SignupForm = () => {
           <label htmlFor="password" className="label">
             Password
           </label>
+          <span
+            onClick={() => setShowPassword((prev) => !prev)}
+            style={{
+              cursor: "pointer",
+              color: "#ff4d4d",
+              fontSize: "0.9rem",
+            }}
+          >
+            👁
+          </span>
         </div>
 
         <div className="inputContainer">
