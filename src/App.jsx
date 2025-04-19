@@ -17,6 +17,7 @@ import ResortBooking from "./Pages/Resort/resort.jsx";
 import ListService from "./Pages/ServicesHolder/addServices.jsx";
 import AdminPanel from "./Pages/Admin/AdminPanel.jsx";
 import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
+import AllItemsAdmin from "./Pages/Admin/AllItemsAdmin.jsx";
 import ResortSearch from "./Pages/Resort/resortsearch.jsx";
 import History from "./Pages/History/History.jsx";
 
@@ -83,6 +84,7 @@ function App() {
 
           <Route path="/search" element={<SearchPage cart={cart} />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route path="/admin/all-data" element={<AllItemsAdmin />} />
         </Routes>
       </>
     </div>

@@ -1,7 +1,6 @@
 .history-container {
   text-align: center;
 }
-
 .orders-grid {
   background-color: transparent;
   display: flex;
@@ -10,7 +9,6 @@
   gap: 2rem;
   margin-top: 2rem;
 }
-
 .order-card {
   width: auto;
   border-radius: 17px;
@@ -21,7 +19,6 @@
   background-color: #fff;
   padding: 20px;
 }
-
 .order-top {
   display: flex;
   align-items: center;

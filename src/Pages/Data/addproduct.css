@@ -19,14 +19,12 @@
   margin-bottom: 15px;
   cursor: pointer;
 }
-
 .sell-product-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
   background-color: #feffffe8;
 }
-
 .sell-product-input {
   width: 470px;
   padding: 10px;

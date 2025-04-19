@@ -119,6 +119,7 @@ export default function Navbar({ cartCount }) {
               <a href="/selling">Sell Product</a>
               <a href="/addyourstuff">Add Service</a>
               <a onClick={handleLogout}>Logout</a>
+              <a href="/adminlogin">Admin Panel</a>
             </div>
           ) : (
             <a href="/login">Login</a>

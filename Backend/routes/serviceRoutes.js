@@ -79,5 +79,15 @@ router.post("/", upload.single("image"), async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+router.delete("/:id", async (req, res) => {
+  try {
+    const deleted = await Service.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: "Service not found" });
+    res.json({ message: "Service deleted" });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to delete service" });
+  }
+});
+
 
 module.exports = router;

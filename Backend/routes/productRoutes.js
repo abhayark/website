@@ -61,5 +61,15 @@ router.post("/", upload.single("img"), async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+router.delete("/:id", async (req, res) => {
+  try {
+    const deleted = await Product.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: "Product not found" });
+    res.json({ message: "Product deleted" });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to delete product" });
+  }
+});
+
 
 module.exports = router;

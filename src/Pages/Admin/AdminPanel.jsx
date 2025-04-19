@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./AdminPanel.css";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminPanel() {
   const [orders, setOrders] = useState([]);
@@ -13,6 +14,8 @@ export default function AdminPanel() {
     cancelled: 0,
     cancelRequested: 0,
   });
+
+  const goto = useNavigate();
 
   const fetchOrders = () => {
     fetch("http://localhost:5000/api/orders")
@@ -233,6 +236,10 @@ export default function AdminPanel() {
 
   return (
     <>
+      <button onClick={() => goto("/admin/all-data")} className="nav-button">
+        View All Services
+      </button>
+
       <div className="admin-panel">
         <h1>All Orders</h1>
         <div className="dashboard-cards">

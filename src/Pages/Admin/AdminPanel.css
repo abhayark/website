@@ -140,3 +140,23 @@ tr:hover {
   font-size: 1rem;
   text-align: center;
 }
+.nav-button {
+  background-color: #4CAF50;
+  color: white;             
+  font-size: 16px;           
+  padding: 10px 20px;        
+  border-radius: 5px;        
+  margin-top: 10px;
+  margin-left: 10px;
+  border: none;              
+  cursor: pointer;          
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+  background-color: #45a049;
+}
+
+.nav-button:focus {
+  outline: none;
+}

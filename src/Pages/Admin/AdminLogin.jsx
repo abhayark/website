@@ -28,7 +28,7 @@ const LocalLogin = () => {
     <div className="login-form">
       <form onSubmit={handleSubmit} className="log_form">
         <img src="/Assets/logo.png" alt="Logo" className="logo" />
-        <h1 className="ftitle">Local Login</h1>
+        <h1 className="ftitle">Admin Login</h1>
 
         <div className="inputContainer">
           <input
