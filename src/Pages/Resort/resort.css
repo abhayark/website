@@ -4,6 +4,9 @@
   padding: 20px;
   background: #f7f8fa;
 }
+.resort-container h1{
+  background-color: transparent;
+}
 
 .resort-grid {
   display: grid;
@@ -48,7 +51,7 @@
 .resort-details {
   margin-top: 20px;
   text-align: left;
-  background: white;
+  background-color: rgba(181, 179, 179, 0.149);
   padding: 20px;
   border-radius: 12px;
   max-width: 400px;
@@ -64,9 +67,12 @@
   margin-top: 15px;
   background-color: transparent;
 }
+.booking-form label{
+  background-color: transparent;
+}
 
 .booking-form input {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ddd;

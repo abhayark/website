@@ -95,7 +95,7 @@ export default function ResortBooking({ cart }) {
               <h2>{resort.service_name}</h2>
               <p>{resort.description}</p>
               <p className="price">
-                ₹{Number(resort.price).toLocaleString("en-IN")}
+                ₹{Number(resort.price).toLocaleString("en-IN")}/Night
               </p>
             </div>
           ))}
@@ -110,7 +110,7 @@ export default function ResortBooking({ cart }) {
           <h2>{selectedResort.service_name}</h2>
           <p>📌 {selectedResort.description}</p>
           <p className="price">
-            💰 ₹{Number(selectedResort.price).toLocaleString("en-IN")}
+            💰 ₹{Number(selectedResort.price).toLocaleString("en-IN")}/Night
           </p>
           <div className="booking-form">
             <label>Guests: </label>

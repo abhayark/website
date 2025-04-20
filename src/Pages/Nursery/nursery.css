@@ -20,9 +20,12 @@
   color: #1b5e20;
   background-color: #d4edda;
 }
-
+.header{
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
 .header p {
-  background: #d4edda;
   font-size: 1.5rem;
   margin: 0px;
 }
